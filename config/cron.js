@@ -8,9 +8,9 @@ const urls = 3;
 const nytimes =
   "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=ufc&api-key=4QfmZEltdy9SctdsAPAjOEiMI7Ce8Elj";
 const gnews =
-  "https://gnews.pi/io/av3/search?q=boxing&token=4cf35dfe28b22cb28f463edfeefbc672";
+  "https://gnews.io/api/v3/search?q=mma&token=4cf35dfe28b22cb28f463edfeefbc672";
 const newsApi =
-  "https://newsapi.org/v2/everything?q=boxing&apiKey=537b32f4c8894d2b8cf98f3b990d3e3f";
+  "https://newsapi.org/v2/everything?q=mma&apiKey=537b32f4c8894d2b8cf98f3b990d3e3f";
 
 // cron.schedule("1,2,4,5 * * * *", () => {
 //   console.log("running every minute 1, 2, 4 and 5");
@@ -19,7 +19,11 @@ const newsApi =
 //   APIArticle.getArticles("urlA", getAsyncResult);
 // });
 
+APIArticle.getArticles(nytimes, getAsyncResult);
+APIArticle.getArticles(newsApi, getAsyncResult);
+APIArticle.getArticles(gnews, getAsyncResult);
+
 function getAsyncResult(data) {
   res.push(data);
-  if (res.length === urls.length) module.insertMany();
+  if (res.length === urls.length) Articles.insertMany();
 }
