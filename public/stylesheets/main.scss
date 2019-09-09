@@ -1,0 +1,32 @@
+@import "./article.scss";  
+@import "./home.scss";  
+@import "./user.scss"; 
+@import "./user_news.scss";  
+ 
+ 
+
+$primary: #202020;
+$secondary: #e6e6e6;
+
+
+
+body {
+  padding: 50px;
+  font-family: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: $secondary;
+  color : $primary;
+}
+
+a {
+  text-decoration : none;
+  color : inherit;
+}
+
+li{
+  list-style : none;
+  display : inline-block;
+  
+}
+
+
+
