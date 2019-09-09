@@ -1,44 +1,16 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-  email: { type: String, required: true },
-  username: { type: String, required: true },
-  password: {
-    type: String,
-    required: true
-  },
-  imgPath: { type: String },
-  fighter: {
-    type: String,
-    enum: [
-      "Khabib Nurmagomedov",
-      "Georges St-Pierre",
-      "Anderson Silva",
-      "Jon Jones",
-      "Daniel Cormier",
-      "Conor McGregor",
-      "Amanda Nunes",
-      "Ronda Rousey",
-      "Cris Cyborg"
-    ]
-  },
-  leagues: [
-    {
-      type: String,
-      enum: [
-        "ufc",
-        "one championship",
-        "bellator",
-        "world series of fighting",
-        "invicta",
-        "ksw"
-      ]
-    }
-  ],
-  created: { type: Date, default: Date.now }
+const ArticleSchema = new Schema({
+  title: { type: String },
+  description: { type: String },
+  imgUrl: { type: String },
+  league: { type: String },
+  fight: { type: String },
+  jabs: { type: Number },
+  comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }]
 });
 
-const User = mongoose.model("User", userSchema);
+const Article = mongoose.model("Article", ArticleSchema);
 
-module.exports = User;
+module.exports = Article;
