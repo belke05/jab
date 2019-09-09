@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
   <link rel="stylesheet" href="/stylesheets/style.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script type="module" src="/javascripts/script.js"></script>
   {{#each scripts}}
   <script src="/javascripts/{{this}}" type="module"></script>
@@ -22,7 +23,7 @@
   {{>nav}}
   {{> header}}
   <div class="main-body">
-    
+
     {{{body}}}
   </div>
 

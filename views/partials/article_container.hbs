@@ -9,9 +9,9 @@
             <p class="articleDesc">{{this.description}}</p>
         </a>
     </div>
-    <ul class="interact">
-        <li class="like_btn" id={{this._id}}><a href="/"><i class="fas fa-heart"></i>{{this.jabs}} Like</a></li>
-        <li><a href="/"><i class="fas fa-comment"></i> Comment</a></li>
+    <ul class="interact" id="{{this._id}}">
+        <li class="like_btn"><a href="/"><i class="fas fa-heart"></i>{{this.jabs}} Like</a></li>
+        <li class="comment_btn"><a href="/"><i class="fas fa-comment"></i> Comment</a></li>
         <li><a href="/">{{this.comments}} comments</a></li>
     </ul>
 </div>
