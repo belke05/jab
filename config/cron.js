@@ -1,6 +1,6 @@
 var cron = require("node-cron");
-require("dotenv").config();
-require("./mongodb");
+// require("dotenv").config();
+// require("./mongodb");
 const APIArticle = require("./../api/articles");
 const Articles = require("../models/articles");
 let res = [];
@@ -14,22 +14,26 @@ const gnews =
 const newsApi =
   "https://newsapi.org/v2/everything?q=mma&apiKey=537b32f4c8894d2b8cf98f3b990d3e3f";
 
-var task = cron.schedule(
-  "0 * * * *",
-  () => {
-    console.log("run the job every minute");
-    res = [];
-    APIArticle.getArticles(nytimes, getAsyncResult);
-    APIArticle.getArticles(newsApi, getAsyncResult);
-    APIArticle.getArticles(gnews, getAsyncResult);
-  },
-  {
-    scheduled: true,
-    timezone: "Europe/Paris"
-  }
-);
+// APIArticle.getArticles(nytimes, getAsyncResult);
+// APIArticle.getArticles(newsApi, getAsyncResult);
+// APIArticle.getArticles(gnews, getAsyncResult);
 
-task.start();
+// var task = cron.schedule(
+//   "0 * * * *",
+//   () => {
+//     console.log("run the job every minute");
+//     res = [];
+//     APIArticle.getArticles(nytimes, getAsyncResult);
+//     APIArticle.getArticles(newsApi, getAsyncResult);
+//     APIArticle.getArticles(gnews, getAsyncResult);
+//   },
+//   {
+//     scheduled: true,
+//     timezone: "Europe/Paris"
+//   }
+// );
+
+// task.start();
 // "* 0,4,12 * * *" "run the job at midnight 4 and 12"
 // APIArticle.getArticles(nytimes, getAsyncResult);
 // APIArticle.getArticles(newsApi, getAsyncResult);

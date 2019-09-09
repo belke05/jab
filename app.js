@@ -1,5 +1,6 @@
 require("dotenv").config();
 require("./config/mongodb");
+require("./config/cron.js");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const express = require("express");
@@ -17,6 +18,7 @@ const debug = require("debug")(
 const app = express();
 
 // Middleware Setup
+hbs.registerPartials(__dirname + "/views/partials");
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
