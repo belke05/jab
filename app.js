@@ -16,6 +16,13 @@ const debug = require("debug")(
 );
 
 const app = express();
+// initial config 
+
+app.set("view engine", "hbs");
+app.set("views", __dirname + "/views");
+app.use(express.static("public"));
+hbs.registerPartials(__dirname + "/views/partials");
+app.use(express.urlencoded({ extended: true }));
 
 // Middleware Setup
 hbs.registerPartials(__dirname + "/views/partials");
