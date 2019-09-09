@@ -1,6 +1,6 @@
 require("dotenv").config();
 require("./config/mongodb");
-require("./config/cron.js");
+// require("./config/cron.js");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const express = require("express");
@@ -16,7 +16,7 @@ const debug = require("debug")(
 );
 
 const app = express();
-// initial config 
+// initial config
 
 app.set("view engine", "hbs");
 app.set("views", __dirname + "/views");
@@ -45,6 +45,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 hbs.registerPartials(__dirname + "/views/partials");
 app.use(express.static(path.join(__dirname, "public")));
+hbs.registerPartials(__dirname + "/views/partials");
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 // default value for title local

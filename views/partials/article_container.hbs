@@ -1,12 +1,17 @@
 <div class="article">
-        <div class="content">
-            <img class="articleImage" src="{{this.imgSrc}}" alt="{{this.title}}">
+
+    <div class="content">
+        <a href="{{this.link}}"><img class="articleImage" src="{{this.imgUrl}}" alt="{{this.title}}"></a>
+        <a href="{{this.link}}">
             <h2 class="articleTitle">{{this.title}}</h2>
+        </a>
+        <a href="{{this.link}}">
             <p class="articleDesc">{{this.description}}</p>
-        </div>
-        <ul class="interact">
-            <li><a href="/"><i class="fas fa-heart"></i>{{likes.count}} Like</a></li>
-            <li><a href="/"><i class="fas fa-comment"></i> Comment</a></li>
-            <li><a href="/">{{comments.number}} comments</a></li>
-        </ul>
+        </a>
     </div>
+    <ul class="interact" id="{{this._id}}">
+        <li class="like_btn"><a href="/"><i class="fas fa-heart"></i>{{this.jabs}} Like</a></li>
+        <li class="comment_btn"><a href="/"><i class="fas fa-comment"></i> Comment</a></li>
+        <li><a href="/">{{this.comments}} comments</a></li>
+    </ul>
+</div>

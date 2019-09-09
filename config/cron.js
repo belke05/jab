@@ -14,9 +14,9 @@ const gnews =
 const newsApi =
   "https://newsapi.org/v2/everything?q=mma&apiKey=537b32f4c8894d2b8cf98f3b990d3e3f";
 
-// APIArticle.getArticles(nytimes, getAsyncResult);
-// APIArticle.getArticles(newsApi, getAsyncResult);
-// APIArticle.getArticles(gnews, getAsyncResult);
+APIArticle.getArticles(nytimes, getAsyncResult);
+APIArticle.getArticles(newsApi, getAsyncResult);
+APIArticle.getArticles(gnews, getAsyncResult);
 
 // var task = cron.schedule(
 //   "0 * * * *",
@@ -35,9 +35,9 @@ const newsApi =
 
 // task.start();
 // "* 0,4,12 * * *" "run the job at midnight 4 and 12"
-// APIArticle.getArticles(nytimes, getAsyncResult);
-// APIArticle.getArticles(newsApi, getAsyncResult);
-// APIArticle.getArticles(gnews, getAsyncResult);
+APIArticle.getArticles(nytimes, getAsyncResult);
+APIArticle.getArticles(newsApi, getAsyncResult);
+APIArticle.getArticles(gnews, getAsyncResult);
 
 function getAsyncResult(data) {
   // console.log(data);
@@ -45,7 +45,6 @@ function getAsyncResult(data) {
   res.push(data);
   console.log("res length", res.length);
   if (res.length === urls) {
-    console.log("herheheheh");
     res.forEach(apiRes => {
       // console.log(apiRes);
       apiRes.forEach(art => {
