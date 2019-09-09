@@ -4,12 +4,7 @@
   height: 40vh;
 }
 
-.main_title {
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  text-align: center;
-}
+
 
 .container {
   display: flex;
@@ -69,12 +64,14 @@
 .content .articleDiv {
   display: flex;
   flex-flow: column wrap;
+  margin-left : 20px;
   padding-bottom: 10px;
 }
 
 .articleTitle{
   overflow: hidden;
   text-overflow: ellipsis;
+  
 }
 
 .interact {
