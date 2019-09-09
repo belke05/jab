@@ -1,14 +1,14 @@
-<div id="taglist" class="maintags"></div>
+<div id="taglist" class="maintags">
+    {{>tag_bar}}
+</div>
 
 <div class="container">
 
-<aside class="twitter">
-
-</aside>
+{{>aside_main}}
 <div class="articles">
-    {{#each article}}
+    {{!-- {{#each article}} --}}
         {{> article_container}}
-    {{/each}}
+    {{!-- {{/each}} --}}
 </div>
 
 </div>

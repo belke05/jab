@@ -1,9 +1,20 @@
+@import'./article.css';
+@import'./home.css';
+@import'./user.css';
+@import'./user_news.css';
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px Arial, Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF; }
+  text-decoration: none;
+  color : inherit;
+}
+
+li{
+  list-style : none; 
+  display : inline-block;
+}
 
 /*# sourceMappingURL=style.css.map */
 
