@@ -14,16 +14,25 @@ const gnews =
 const newsApi =
   "https://newsapi.org/v2/everything?q=mma&apiKey=537b32f4c8894d2b8cf98f3b990d3e3f";
 
-// cron.schedule("1,2,4,5 * * * *", () => {
-//   console.log("running every minute 1, 2, 4 and 5");
-//   APIArticle.getArticles("urlA", getAsyncResult);
-//   APIArticle.getArticles("urlA", getAsyncResult);
-//   APIArticle.getArticles("urlA", getAsyncResult);
-// });
+var task = cron.schedule(
+  "0 * * * * *",
+  () => {
+    console.log("run the job at midnight 4 and 12");
+    APIArticle.getArticles(nytimes, getAsyncResult);
+    APIArticle.getArticles(newsApi, getAsyncResult);
+    APIArticle.getArticles(gnews, getAsyncResult);
+  },
+  {
+    scheduled: true,
+    timezone: "Europe/Paris"
+  }
+);
 
-APIArticle.getArticles(nytimes, getAsyncResult);
-APIArticle.getArticles(newsApi, getAsyncResult);
-APIArticle.getArticles(gnews, getAsyncResult);
+task.start();
+// "* 0,4,12 * * *"
+// APIArticle.getArticles(nytimes, getAsyncResult);
+// APIArticle.getArticles(newsApi, getAsyncResult);
+// APIArticle.getArticles(gnews, getAsyncResult);
 
 function getAsyncResult(data) {
   // console.log(data);
