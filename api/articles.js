@@ -2,7 +2,7 @@ const axios = require("axios");
 const Articles = require("../models/articles");
 
 function getArticles(url, clbk) {
-  console.log("here");
+  console.log("here !!!");
   axios
     .get(url)
     .then(res => clbk(formatter(res.data, url)))
@@ -35,7 +35,7 @@ function formatResultNyTimes(data) {
       if (art.multimedia !== [] && art.multimedia[0] !== undefined) {
         imagelink = "https://static01.nyt.com/" + art.multimedia[0].url;
       }
-      new_art.imgUrl = imagelink;
+      new_art.imgUrl = imagelink.trim();
       new_art.title = art.headline.main;
       new_art.description = art.abstract;
       new_art.link = art.web_url;
@@ -62,7 +62,9 @@ function formatResultgnews(data) {
   let article_obj = data.articles;
   article_obj.forEach(art => {
     let new_art = {};
-    art.image !== null ? (new_art.imgUrl = "") : (new_art.imgUrl = art.image);
+    art.image === null
+      ? (new_art.imgUrl = "")
+      : (new_art.imgUrl = art.image.trim());
     new_art.title = art.title;
     new_art.description = art.description;
     new_art.link = art.url;
@@ -89,7 +91,7 @@ function formatResultnewsapi(data) {
     let new_art = {};
     let imagelink = "";
     if (imagelink) {
-      imagelink = art.urlToImage;
+      imagelink = art.urlToImage.trim();
     }
     new_art.imgUrl = art.urlToImage;
     new_art.title = art.title;
