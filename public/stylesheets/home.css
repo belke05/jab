@@ -1,86 +1,84 @@
-
-.header{
+.header {
   background-size: cover;
   background-repeat: no-repeat;
-  height : 40vh;
+  height: 40vh;
 }
 
-.main_title{
-  color : white;
-  background-color:rgba(0, 0, 0, 0.5);
-  padding : 20px;
-  text-align:center;
+.main_title {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  text-align: center;
 }
 
-.container{
-  display:flex;
-  flex-direction : row ;
-  margin : 20px 50px ; 
+.container {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 50px;
 }
 
+.maintags {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  background-color: #20202028;
+}
 
+.maintags li {
+  margin-right: 20px;
+}
+.tags_img {
+  width: 50px;
+  height: 50px;
+}
 
-.maintags{
-    display : flex; 
-    flex-flow: row wrap;
-    justify-content: center;
-    align-content: center;
-    background-color:#20202028;
-  }
+.tags_ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.tags_li {
+  display: flex;
+  flex-direction: column;
+}
 
-  .maintags li{
-    margin-right : 20px;
-  }
-  .tags_img{
-    width:50px;
-    height : 50px;
-  }
+.twitter {
+  width: auto;
+  left: 0;
+  margin-right: 30px;
+  /* position : fixed; */
+}
+.articles {
+  width: 80%;
+}
 
-  .tags_ul{
-    display: flex;
-    flex-direction : row;
-    justify-content : center;
-    align-items:center;
-  }
-  .tags_li{
-    display:flex;
-    flex-direction : column;
-  }
+.article {
+  border: solid 1px #202020;
+  padding: 10px;
+  margin-bottom: 20px;
+}
 
-  .twitter{
-    width:auto;
-    left:0;
-    margin-right:30px;
-    /* position : fixed; */
-    
-  }
-  .articles{
-    width : 80%;
-    
-  }
+.article .content {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
 
-  .article{
-    border:solid 1px #202020;
-    padding : 10px;
-    margin-bottom : 20px;
-  }
+.content .articleDiv {
+  display: flex;
+  flex-flow: column wrap;
+  padding-bottom: 10px;
+}
 
-  .article .content{
-    display:flex;
-    flex-direction : row;
-    padding: 10px;
-  }
+.interact {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
 
-  .content .articleDiv{
-    display: flex;
-    flex-flow : column wrap;
-    padding-bottom : 10px;
-  }
-
-  .interact{
-    display : flex;
-    flex-direction : row;
-    justify-content : space-evenly;
-    align-items: flex-start;
-  }
-
+.articleImage {
+  width: 20%;
+}

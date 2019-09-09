@@ -7,18 +7,23 @@
 
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
-  <link rel="stylesheet" href="/stylesheets/style.css"/>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
+  <script type="module" src="/javascripts/script.js"></script>
   {{#each scripts}}
-      <script type="module" src="{{this}}"></script>
+  <script src="/javascripts/{{this}}" type="module"></script>
+
   {{/each}}
 </head>
+
 <body>
   {{>nav}}
   <div class="main-body">
-     {{{body}}}
+    {{{body}}}
   </div>
- 
+
   {{!-- {{>footer}} --}}
 
   <script src="/javascripts/script.js"></script>
