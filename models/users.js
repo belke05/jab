@@ -13,10 +13,10 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId, ref : "Fighters"
 
   },
-  leagues:
-    {
-      type: Schema.Types.ObjectId, ref : "Leagues"
-    },
+  leagues:[{
+    type: Schema.Types.ObjectId, ref : "Leagues"
+  }]
+ ,
   created: { type: Date, default: Date.now }
 });
 

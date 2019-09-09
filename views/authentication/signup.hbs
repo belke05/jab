@@ -1,11 +1,11 @@
-<form action="/signup" id="form_user" method="POST" enctype="multipart/form-data"></form>
+<form action="/signup" id="form_user" method="POST" enctype="multipart/form-data">
   <section class="partial-top sign form-container" id="signup-page1">
     <header class="form-header">
       <h1 class="form-title">Welcome to JAB</h1>
       <h3 class="form-subtitle">Are you ready to join the cage ?</h3>
     </header>
     {{#if msg}}
-    <p class="message {{msg.status}}">{{msg.text}}</p>
+    <p class="message">{{msg}}</p>
     {{/if}}
       <div class="form-item-wrapper flexed-item">
         <label for="username" class="label-ref label">Username</label>
@@ -23,51 +23,35 @@
         <label for="profil-pic">Choose your profil picture</label>
         <input id="imgPath" type="file" name="imgPath"> 
       </div>
-      <button class="button-primary white signup-submit" type="button" id="btn-next">Next</button>
+      <a href="#" id="btn-next"> >> Next</a>
+      {{!-- <button class="button-primary white signup-submit" type="button" id="btn-next">Next</button> --}}
 
     <p class="form-sub-infos">Already have an account ? <a href="/signin" class="button-link-form">Sign In</a></p>
   </section>
 
-<section id="signup-page2" class="signup-page2 partial-top">
-  <h3>Select your favorite leagues</h3>
-  <hr class="page-break">
-  <div class="league-selection-container">
-    {{#each leagues}}
-    <div class="one-league-container">
-      <img class="league-logo" src="{{this.imgPath}}" alt="{{this.name}}">
-      <input type="checkbox" name="{{this.name}}" value="{{this.name}}">{{this.name}}
+  <section id="signup-page2" class="signup-page2 partial-top">
+    <h3>Select your favorite leagues</h3>
+    <hr class="page-break">
+    <div class="league-selection-container">
+      {{#each leagues}}
+      <div class="one-league-container">
+        <img class="league-logo" src="{{this.imgPath}}" alt="{{this.name}}">
+        <input type="checkbox" name="leagues" value="{{this.name}}">{{this.name}}
+      </div>
+      {{/each}}  
     </div>
-    {{/each}}  
-  </div>
-  {{!-- this is a test to be removed --}}
- 
-{{!-- 
-  <div class="league-selection-container">
-    <div class="one-league-container">
-      <img class="league-logo" src="../images/ufc-logo.png" alt="">
-      <input type="checkbox" name="test1" value="UFC">UFC
-    </div>
-    <div class="one-league-container">
-      <img class="league-logo" src="../images/ufc-logo.png" alt="">
-      <input type="checkbox" name="test1" value="UFC">UFC
-    </div>
-    <div class="one-league-container">
-      <img class="league-logo" src="../images/ufc-logo.png" alt="">
-      <input type="checkbox" name="test1" value="UFC">UFC
-    </div>
-  </div> --}}
- 
-  <h3>Select your favorite fighter</h3>
-   <hr class="page-break">
-   <div class="fighter-select-container">
-      <select name="fighter-select" id="fighter-select" aria-placeholder="select a fighter" class="fighter-select">
-        {{#each fighters}}
-          <option value="{{this.name}}">{{this.name}}</option>
-        {{/each}}
-      </select>
-      <div><img src="../images/ufc-logo.png" alt="Player photo" class="fighter-photo"></div>
-   </div>
- <button class="button-primary white signup-submit-all">Submit</button>
-</section>
   
+    <h3>Select your favorite fighter</h3>
+    <hr class="page-break">
+    <div class="fighter-select-container">
+        <select name="fighter" id="fighter-select" aria-placeholder="select a fighter" class="fighter-select">
+          {{#each fighters}}
+            <option value="{{this.name}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+        <div><img src="../images/ufc-logo.png" alt="Player photo" class="fighter-photo"></div>
+        {{!-- default img to be changed  --}}
+    </div>
+  <button class="button-primary white signup-submit-all" type="submit">Submit</button>
+  </section>
 </form>
