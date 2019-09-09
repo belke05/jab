@@ -3,10 +3,12 @@
 </div>
 
 <div class="container">
-    {{>aside_main}}
-    <div class="articles">
-        {{#each articles}}
+
+{{>aside_main}}
+<div class="articles">
+    {{#each article}}
         {{> article_container}}
-        {{/each}}
-    </div>
+    {{/each}}
+</div>
+
 </div>
