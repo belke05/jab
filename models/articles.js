@@ -7,6 +7,7 @@ const ArticleSchema = new Schema({
   content: { type: String },
   pub_date: { type: Date },
   imgUrl: { type: String },
+  link: { type: String },
   league: { type: String },
   jabs: { type: Number },
   comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }]
