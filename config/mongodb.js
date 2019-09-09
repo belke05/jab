@@ -1,14 +1,12 @@
 const mongoose = require("mongoose");
 
-mongoose
-  .connect("mongodb://localhost/jab_database", { useNewUrlParser: true })
-  .then(x => {
-    console.log(
-      `Connected to Mongo! Database name: "${x.connections[0].name}"`
-    );
-  })
-  .catch(err => {
-    console.error("Error connecting to mongo", err);
-  });
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useCreateIndex: true
+});
 
-module.exports = mongoose;
+mongoose.connection.on("connected", () =>
+  console.log("yay mongodb connected :)")
+);
+
+mongoose.connection.on("error", () => console.log("nay db error sorry :("));
