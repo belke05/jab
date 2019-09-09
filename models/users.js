@@ -10,32 +10,13 @@ const userSchema = new Schema({
   },
   imgPath: { type: String },
   fighter: {
-    type: String,
-    enum: [
-      "Khabib Nurmagomedov",
-      "Georges St-Pierre",
-      "Anderson Silva",
-      "Jon Jones",
-      "Daniel Cormier",
-      "Conor McGregor",
-      "Amanda Nunes",
-      "Ronda Rousey",
-      "Cris Cyborg"
-    ]
+    type: Schema.Types.ObjectId, ref : "Fighters"
+
   },
-  leagues: [
+  leagues:
     {
-      type: String,
-      enum: [
-        "ufc",
-        "one championship",
-        "bellator",
-        "world series of fighting",
-        "invicta",
-        "ksw"
-      ]
-    }
-  ],
+      type: Schema.Types.ObjectId, ref : "Leagues"
+    },
   created: { type: Date, default: Date.now }
 });
 

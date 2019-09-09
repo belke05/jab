@@ -1,0 +1,75 @@
+{
+  "Fighters": [
+    {
+      "name":"Khabib Nurmagomedov",
+      "imgPath":"none",
+      "gifPath":"none"
+    },
+    {
+      "name":"Georges St-Pierre",
+      "imgPath":"none",
+      "gifPath":"none"
+    },
+    {
+      "name":"Anderson Silva",
+      "imgPath":"none",
+      "gifPath":"none"
+    },
+    {
+      "name":"Jon Jones",
+      "imgPath":"none",
+      "gifPath":"none"
+    },
+    {
+      "name":"Daniel Cormier",
+      "imgPath":"none",
+      "gifPath":"none"
+    },
+    {
+      "name":"Conor McGregor",
+      "imgPath":"none",
+      "gifPath":"none"
+    },
+    {
+      "name":"Amanda Nunes",
+      "imgPath":"none",
+      "gifPath":"none"
+    },
+    {
+      "name":"Ronda Rousey",
+      "imgPath":"none",
+      "gifPath":"none"
+    },
+    {
+      "name": "Cris Cyborg",
+      "imgPath":"none",
+      "gifPath":"none"
+    }
+  ], 
+  "Leagues" : [
+    {
+      "name":"ufc",
+      "imgPath" : "../images/leagues/ufc.png"
+    }, 
+    {
+      "name":"one championship",
+      "imgPath" : "../images/leagues/one.png"
+    }, 
+    {
+      "name":"bellator",
+      "imgPath" : "../images/leagues/bellator.png"
+    }, 
+    {
+      "name":"world series of fighting",
+      "imgPath" : "none"
+    }, 
+    {
+      "name":"invicta",
+      "imgPath" : "../images/leagues/invicta.png"
+    }, 
+    {
+      "name":"ksw",
+      "imgPath" : "none"
+    }
+  ]
+}
