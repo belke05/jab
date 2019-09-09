@@ -1,19 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
-  <link rel="stylesheet" href="/stylesheets/style.css" />
-  <script type ="module" src="/javascripts/script.js"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
+  {{#each scripts}}
+      <script type="module" src="{{this}}"></script>
+  {{/each}}
 </head>
 <body>
+<<<<<<< HEAD
   {{!-- {{> nav }} --}}
   {{> header }}
   {{{body}}}
   {{!-- {{> footer }} --}}
+=======
+  {{>nav}}
+  <div class="main-body">
+     {{{body}}}
+  </div>
+ 
+  {{!-- {{>footer}} --}}
+
+  <script src="/javascripts/script.js"></script>
+>>>>>>> 5ec2ff79783410e39754725d97b22a874b1bc365
 </body>
+
 </html>

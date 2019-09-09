@@ -1,0 +1,53 @@
+.one-league-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.league-selection-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 70vw;
+  justify-content: space-around;
+  margin: 10px auto;
+}
+
+.league-logo{
+  width: 120px;
+}
+
+.page-break{
+  background-color: black;
+  width: 80vw;
+  /* margin: auto; */
+  margin: -10px 10px;
+}
+
+.fighter-select{
+  width: 30vw;
+  margin: 6vh auto;
+  height: 5vh;
+}
+
+.fighter-photo{
+  width:25vw;
+}
+
+.fighter-select-container{
+  width: 80vw;  
+  display: flex;
+  flex-direction: row;
+}
+
+.signup-submit-all{
+  width: 20vw;
+  margin: 15px 0;
+  margin-left: 60vw;
+}
+
+.signup-submit{
+  width: 10vw;
+  margin-top: 15px;
+  margin-left: 70vw;
+}
