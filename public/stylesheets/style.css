@@ -4,6 +4,7 @@
 @import'./home.css';
 @import'./user.css';
 @import'./user_news.css';
+@import'./footer.css';
 @import'./header.css';
 
 
@@ -53,6 +54,7 @@ h4 {
 .main-body{
   width: 80vw;
   margin: 20px auto;
+  min-height: 89vh;
 }
 
 .hidden{
