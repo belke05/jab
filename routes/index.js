@@ -26,10 +26,10 @@ router.get(["/", "/home"], (req, res, next) => {
           console.log("error finding leagues");
         });
     })
-//     .catch(dbErr => {
-//       console.log(dbErr);
-//     });
-// });
+    .catch(dbErr => {
+      console.log(dbErr);
+    });
+});
 
 // router.post("/addlike", (req, res) => {
 //   Articles.findById(req.id).then(res => {

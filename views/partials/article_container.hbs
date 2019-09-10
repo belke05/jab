@@ -5,8 +5,7 @@
 
 
             {{#compare this.imgUrl '' operator="==="}}
-            <img class="articleImage" src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
-                alt="{{this.title}}">
+            <img class="articleImage" src="/images/{{this.league}}.png" alt="{{this.title}}">
             {{/compare}}
             {{#compare this.imgUrl '' operator="!="}}
             <img class="articleImage" src="{{this.imgUrl}}" alt="{{this.title}}">
