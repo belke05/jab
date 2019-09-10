@@ -1,18 +1,19 @@
 <section class="partial-top sign-form-container">
   <header class="form-header">
-    <h1 class="form-title">Welcome Back !</h1>
+    <h1 class="form-title">Welcome to the Cage</h1>
   </header>
   {{#if msg}}
   <p class="message {{msg.status}}">{{msg.text}}</p>
+  <p class="error-msg">{{msg}}</p>
   {{/if}}
   <form method="post" action="/signin" id="form_user">
     <div class="form-item-wrapper flexed-item">
-      <label for="email" class="label-ref label">Email</label>
-      <input id="email" type="email" class="input-text input" placeholder="fighter@mma.com" required name="email">
+      <label for="username" class="label-ref label">Username</label>
+      <input id="username" type="username" class="input-text input" placeholder="MMA-fighter" value="MMA-fighter" required name="username">
     </div>
     <div class="form-item-wrapper flexed-item">
       <label for="password" class="label-ref label">Password</label>
-      <input id="password" type="password"  class="input-text input" placeholder="••••••" required name="password">
+      <input id="password" type="password"  class="input-text input" placeholder="••••••" value="12345" required name="password">
     </div>
     <button class="button-primary white">Log in !</button>
   </form>

@@ -9,20 +9,12 @@ router.get("/", (req, res, next) => {
   Articles.find({})
     .sort({ pub_date: "desc" })
     .then(articles => {
-      console.log(articles);
       articles = articles.slice(0, 5);
-      Leagues.find()
-        .then(leagues => {
-          res.render("index", {
-            articles: articles,
-            scripts: ["home.js"],
-            title: "JAB Home",
-            leagues: leagues
-          });
-        })
-        .catch(dbErr => {
-          console.log("error finding leagues");
-        });
+      res.render("index", {
+        articles: articles,
+        scripts: ["home.js"],
+        title: "JAB Home"
+      });
     })
     .catch(dbErr => {
       console.log(dbErr);
