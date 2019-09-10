@@ -5,6 +5,15 @@ const APIArticle = require("./../api/articles");
 const Articles = require("../models/articles");
 let res = [];
 const urls = 3;
+const leagues = [
+  "ufc",
+  "one championship",
+  "bellator",
+  "world series of fighting",
+  ,
+  "invicta",
+  "ksw"
+];
 
 // urls
 const nytimes =

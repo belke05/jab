@@ -16,7 +16,6 @@ router.get("/", (req, res, next) => {
           res.render("index", {
             articles: articles,
             scripts: ["home.js"],
-            isLoggedIn: true,
             title: "JAB Home",
             leagues: leagues
           });
