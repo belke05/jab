@@ -7,7 +7,7 @@ var CommentsSchema = new Schema({
     type: mongoose.Schema.ObjectId,
     ref: "User"
   },
-  onArticle: { type: Schema.Types.ObjectId, ref: "Article" }
+  onArticle: [{ type: Schema.Types.ObjectId, ref: "Article" }]
 });
 
 const Comment = mongoose.model("Comment", CommentsSchema);

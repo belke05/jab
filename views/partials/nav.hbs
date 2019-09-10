@@ -4,19 +4,22 @@
     <div class="nav-all-users">
         <a href="/home" id="nav-home" class="nav-link nav-logo">Home</a>
         <a href="/videos" id="nav-videos" class="nav-link">Videos</a>
-        {{!-- {{#if isLoggedIn}} --}}
+        {{#if isLoggedIn}}
           <a href="/cage" id="nav-cage" class="nav-link">My Cage</a>
-        {{!-- {{/if}} --}}
+    
+        {{/if}}
+
     </div>
   </div>
   <div class="right-nav">
-    {{!-- {{#unless isLoggedIn}} --}}
-      <a  href="/signin" id="nav-login" class="nav-link">Sign in</a>
-    {{!-- {{/unless}} --}}
-    {{!-- {{#if isLoggedIn}} --}}
-    
+    {{!-- {{#unless isLoggedIn}}
+
+    {{/unless}} --}}
+    {{#if isLoggedIn}}
       <a href="/preferences"><i class="far fa-user nav-link user-icon" ></i></a>
       <a  href="/logout" id="nav-logout" class="nav-link">Log out</a>
-    {{!-- {{/if}} --}}
+      {{else}}
+      <a  href="/signin" id="nav-login" class="nav-link">Sign in</a>
+    {{/if}}
   </div>
 </div>

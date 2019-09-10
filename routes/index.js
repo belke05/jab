@@ -8,12 +8,10 @@ router.get("/", (req, res, next) => {
   Articles.find({})
     .sort({ pub_date: "desc" })
     .then(articles => {
-      console.log(articles);
       articles = articles.slice(0, 5);
       res.render("index", {
         articles: articles,
         scripts: ["home.js"],
-        isLoggedIn: true,
         title: "JAB Home"
       });
     })
