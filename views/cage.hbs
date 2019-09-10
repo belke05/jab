@@ -1,12 +1,12 @@
 <div class="container">
-    {{> user_welcome}}
+    {{> user_welcome userPref}}
 </div>
 <div class="container">
-    {{>aside_user}}
+    {{>aside_user league}}
 <div class="articles">
-    {{!-- {{#each article}} --}}
+    {{#each article}}
     {{>article_container}}
-    {{!-- {{/each}} --}}
+    {{/each}}
 </div>
 
 </div>
