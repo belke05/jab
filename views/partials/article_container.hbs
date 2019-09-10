@@ -2,12 +2,14 @@
 
     <div class="content">
         <a href="{{this.link}}"><img class="articleImage" src="{{this.imgUrl}}" alt="{{this.title}}"></a>
+        <div class="articleDiv">
         <a href="{{this.link}}">
             <h2 class="articleTitle">{{this.title}}</h2>
         </a>
         <a href="{{this.link}}">
             <p class="articleDesc">{{this.description}}</p>
         </a>
+        </div>
     </div>
     <ul class="interact" id="{{this._id}}">
         <li class="like_btn"><a href="/"><i class="fas fa-heart"></i>{{this.jabs}} Like</a></li>
