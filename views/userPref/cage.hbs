@@ -1,1 +1,11 @@
-<h1>Welcome to your cage</h1>
+<div class="container">
+    {{> user_welcome}}
+</div>
+<div class="container">
+    {{>aside_user}}
+  <div class="articles">
+      {{!-- {{#each article}} --}}
+      {{>article_container}}
+      {{!-- {{/each}} --}}
+  </div>
+</div>
