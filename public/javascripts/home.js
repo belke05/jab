@@ -25,7 +25,7 @@ function findCategory(evt) {
     .then(dbRes => {
       console.log(dbRes.data);
       addArticles(dbRes.data);
-      // deleteImgElementsWithoutSource();
+      deleteImgElementsWithoutSource();
     })
     .catch(dbErr => {
       console.log(dbErr);
@@ -46,6 +46,7 @@ function addArticles(articles) {
             </a>
             <a href="${art.link}">
                 <p class="articleDesc">${art.description}</p>
+                <p>${art.league}</p>
             </a>
     </div>
     </div>
