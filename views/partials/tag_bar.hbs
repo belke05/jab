@@ -1,6 +1,12 @@
 <ul class="tags_ul">
-    {{#each leagues}}
-    <li class="tags_li"><img src="{{this.imgPath}}" alt="{{this.name}}" class="tags_img"><input type="checkbox"
-            name="{{this.name}}" id="{{this.name}}"></li>
-    {{/each}}
+    <li class="tags_li">
+        <img src="{{this.imgPath}}" alt="{{this.name}}" class="tags_img">
+    <input type="checkbox" name="{{this.name}}" id="{{this.name}}">
+    </li>
 </ul>
+
+{{!-- <ul>
+    <li>
+        <img src="{{this.imgUrl}}" alt="{{this.name}}" class="tags_img">
+    <input type="checkbox" name="{{this.name}}" id="{{this.name}}"></li>
+</ul> --}}
