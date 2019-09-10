@@ -21,7 +21,10 @@
 <body>
 
   {{> nav}}
-  {{> header}}
+  {{#if displayTitle}}
+      {{> header}}
+  {{/if}}
+ 
   <div class="main-body">
 
     {{{body}}}

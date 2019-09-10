@@ -109,4 +109,13 @@ router.post("/signin", (req, res, next) => {
     });
 });
 
+router.post("/fighterUpdate", (req,res,next)=>{
+  let fighterName = req.body.label;
+  Fighters.findOne({name: fighterName})
+    .then (dbRes => {
+      console.log(dbRes);
+      res.send (dbRes)
+    })
+    .catch(dbErr => console.log(dbErr))
+});
 module.exports = router;

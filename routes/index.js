@@ -13,7 +13,8 @@ router.get("/", (req, res, next) => {
       res.render("index", {
         articles: articles,
         scripts: ["home.js"],
-        title: "JAB Home"
+        title: "JAB Home",
+        displayTitle: true
       });
     })
     .catch(dbErr => {
@@ -22,7 +23,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/home", (req, res) => {
-  res.redirect("/");
+  res.redirect("/", );
 });
 
 // router.post("/addlike", (req, res) => {
