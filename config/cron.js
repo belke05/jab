@@ -54,6 +54,9 @@ sports.forEach(sport => {
 // APIArticle.getArticles(nytimes, getAsyncResult);
 // APIArticle.getArticles(newsApi, getAsyncResult);
 // APIArticle.getArticles(gnews, getAsyncResult);
+// function filterMMA(dataset) {
+//   const filtered = dataset.filter(data => false);
+// }
 
 function getAsyncResult(data) {
   // console.log(data);

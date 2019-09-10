@@ -6,19 +6,21 @@ const Leagues = require("../models/leagues");
 /* GET home page */
 
 router.get("/", (req, res, next) => {
-  Articles.find({})
-    .sort({ pub_date: "desc" })
+  returnAllArticles()
     .then(articles => {
       console.log(articles);
       articles = articles.slice(0, 10);
-      Leagues.find().then(dbRes => {
-        console.log("tags found", dbRes);
-        res.render("index", {
-          articles: articles,
-          scripts: ["home.js"],
-          title: "JAB Home",
-          displayTitle: true,
-          leagues: dbRes
+      returnAllLeagues()
+        .then(leagues => {
+          res.render("index", {
+            articles: articles,
+            scripts: ["home.js"],
+            title: "JAB Home",
+            leagues: leagues
+          });
+        })
+        .catch(dbErr => {
+          console.log("error finding leagues");
         });
       });
     })
@@ -41,5 +43,36 @@ router.get("/home", (req, res) => {
 //     .then(dbRes => {console.log('')})
 //     .catch(dbErr => {});
 // });
+router.post("/changesport", (req, res) => {
+  console.log(req, "req");
+  const sports = req.body.sports;
+  console.log(sports);
+  let response = [];
+  if (sports.length === 0) {
+    returnAllArticles()
+      .then(dbRes => {
+        res.send(dbRes);
+      })
+      .catch(dbErr => {
+        console.log(dbErr);
+      });
+  } else {
+    Articles.find({ league: { $in: sports } })
+      .then(dbRes => {
+        res.send(dbRes);
+      })
+      .catch(dbErr => {
+        console.log("there was an error", dbErr);
+      });
+  }
+});
 
 module.exports = router;
+
+function returnAllArticles() {
+  return Articles.find({}).sort({ pub_date: "desc" });
+}
+
+function returnAllLeagues() {
+  return Leagues.find();
+}

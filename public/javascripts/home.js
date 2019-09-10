@@ -1,14 +1,11 @@
-const images = document.querySelectorAll("img");
 const article_like_btn = document.querySelectorAll(
   ".article .interact .like_btn"
 );
-console.log(article_like_btn);
+const tags_box = document.querySelectorAll(".tags_li input");
+const articles_container = document.querySelector(".articles");
 
-for (let i = 0; i < images.length; i++) {
-  if (images[i].currentSrc == "") {
-    images[i].hidden = true;
-  }
-}
+// delete the images for articles without image source
+deleteImgElementsWithoutSource();
 
 // function addLikes(evt) {
 //   console.log(evt);
@@ -35,3 +32,66 @@ for (let i = 0; i < images.length; i++) {
 // article_like_btn.forEach(btn => {
 //   btn.onclick = addLikes;
 // });
+
+tags_box.forEach(box => {
+  box.onclick = findCategory;
+});
+
+function findCategory(evt) {
+  const sports = [];
+  console.log(sports);
+  tags_box.forEach(box => {
+    if (box.checked) {
+      console.log(box.id);
+      sports.push(box.id);
+      console.log(sports);
+    }
+  });
+  axios
+    .post("/changesport", { sports: sports })
+    .then(dbRes => {
+      console.log(dbRes.data);
+      addArticles(dbRes.data);
+    })
+    .catch(dbErr => {
+      console.log(dbErr);
+    });
+}
+
+function addArticles(articles) {
+  articles_container.innerHTML = "";
+  articles.forEach(art => {
+    let art_container = document.createElement("div");
+    art_container.className = `article ${art.league}`;
+    art_container.innerHTML = `   
+    <div class="content">
+        <a href="${art.link}"><img class="articleImage" src="${art.imgUrl}" alt="${art.title}"></a>
+        <div class="articleDiv">
+            <a href="${art.link}">
+                <h2 class="articleTitle">${art.title}</h2>
+            </a>
+            <a href="${art.link}">
+                <p class="articleDesc">${art.description}</p>
+            </a>
+    </div>
+    </div>
+    <ul class="interact" id="${art._id}">
+        <button type="button" class="like_btn"><i class="fas fa-heart"></i> 0 Jabs</button>
+        <button type="button" class="comment_btn"><i class="fas fa-comment"></i> Comment</button>
+        <a> comments</a>
+    </ul>`;
+    articles_container.appendChild(art_container);
+    // deleteImgElementsWithoutSource();
+  });
+}
+
+function deleteImgElementsWithoutSource() {
+  const images = document.querySelectorAll("img");
+  for (let i = 0; i < images.length; i++) {
+    if (images[i].currentSrc == "") {
+      images[i].hidden = true;
+    } else {
+      images[i].hidden = false;
+    }
+  }
+}
