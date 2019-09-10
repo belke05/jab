@@ -31,16 +31,6 @@ router.get(["/", "/home"], (req, res, next) => {
     });
 });
 
-// router.post("/addlike", (req, res) => {
-//   Articles.findById(req.id).then(res => {
-//     if(res.jabs.includes(req.session.user.id)){
-//       //
-//     }
-//   }).catch()
-//   Articles.findByIdAndUpdate(req.id, { jabs: req.jabs + 1 })
-//     .then(dbRes => {console.log('')})
-//     .catch(dbErr => {});
-// });
 router.post("/changesport", (req, res) => {
   console.log(req, "req");
   const sports = req.body.sports;
@@ -64,6 +54,21 @@ router.post("/changesport", (req, res) => {
         console.log("there was an error", dbErr);
       });
   }
+});
+
+router.post("/addlike", (req, res) => {
+  console.log(req.body.id);
+  console.log(req.session.currentUser._id, "jfjfjfjfj");
+  Articles.findByIdAndUpdate(req.body.id, {
+    $push: { jabs: req.session.currentUser._id }
+  })
+    .then(dbRes => {
+      console.log("succes", dbRes.jabs);
+      res.send(dbRes.jabs.length);
+    })
+    .catch(dbErr => {
+      console.log(dbErr);
+    });
 });
 
 module.exports = router;

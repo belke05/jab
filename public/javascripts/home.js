@@ -25,7 +25,7 @@ function findCategory(evt) {
     .then(dbRes => {
       console.log(dbRes.data);
       addArticles(dbRes.data);
-      deleteImgElementsWithoutSource();
+      // deleteImgElementsWithoutSource();
     })
     .catch(dbErr => {
       console.log(dbErr);
@@ -71,28 +71,37 @@ function deleteImgElementsWithoutSource() {
   }
 }
 
-// function addLikes(evt) {
-//   console.log(evt);
-//   console.log(evt.target);
-//   evt.preventDefault();
-//   let btn;
-//   let art;
-//   if (evt.target.tagName === "I") {
-//     btn = evt.target.parentElement;
-//     art = btn.parentElement;
-//   } else {
-//     btn = evt.target;
-//     art = btn.parentElement;
-//   }
+function addLikes(evt) {
+  console.log(evt);
+  console.log(evt.target);
+  evt.preventDefault();
+  let btn;
+  let art;
+  if (evt.target.tagName === "I") {
+    btn = evt.target.parentElement;
+    art = btn.parentElement;
+  } else {
+    btn = evt.target;
+    art = btn.parentElement;
+  }
 
-// const jabCount = Number(btn.innerText.replace(" jabs", ""));
-// console.log(jabCount, "eeee", btn);
-//   axios
-//     .post("/addlike", { id: art.id })
-//     .then(dbRes => {})
-//     .catch(dbErr => {});
-// }
+  // const jabCount = Number(btn.innerText.replace(" jabs", ""));
+  // console.log(jabCount, "eeee", btn);
+  console.log(art);
+  axios
+    .post("/addlike", { id: art.id })
+    .then(dbRes => {
+      changejabcount(dbRes, btn);
+    })
+    .catch(dbErr => {
+      console.log(dbErr);
+    });
+}
 
-// article_like_btn.forEach(btn => {
-//   btn.onclick = addLikes;
-// });
+function changejabcount(jabscount, butn) {
+  butn.innerText = `${jabscount} jabs`;
+}
+
+article_like_btn.forEach(btn => {
+  btn.onclick = addLikes;
+});
