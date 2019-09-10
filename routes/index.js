@@ -10,10 +10,16 @@ router.get("/", (req, res, next) => {
     .sort({ pub_date: "desc" })
     .then(articles => {
       articles = articles.slice(0, 5);
-      res.render("index", {
-        articles: articles,
-        scripts: ["home.js"],
-        title: "JAB Home"
+      Leagues.find()
+      .then (dbRes =>{
+        console.log("tags found", dbRes)
+        res.render("index", {
+          articles: articles,
+          scripts: ["home.js"],
+          title: "JAB Home",
+          displayTitle: true,
+          leagues: dbRes
+      })
       });
     })
     .catch(dbErr => {
@@ -22,7 +28,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/home", (req, res) => {
-  res.redirect("/");
+  res.redirect("/", );
 });
 
 // router.post("/addlike", (req, res) => {

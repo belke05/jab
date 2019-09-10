@@ -31,7 +31,8 @@
 }
 
 .fighter-photo{
-  width:25vw;
+  height: 22vh;
+  margin-top: 6vh;
 }
 
 .fighter-select-container{
@@ -41,13 +42,13 @@
 }
 
 .signup-submit-all{
-  width: 20vw;
+  width: 9vw;
   margin: 15px 0;
-  margin-left: 60vw;
+  margin-left: 70vw;
 }
 
 .signup-submit{
   width: 10vw;
   margin-top: 15px;
-  margin-left: 70vw;
+  margin-left: 0vw;
 }
