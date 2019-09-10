@@ -50,19 +50,19 @@
   "Leagues": [
     {
       "name":"mma",
-      "imgPath" : "/images/leagues/ufc.png"
+      "imgPath" : "/images/leagues/mma.png"
     }, 
     {
       "name":"boxing",
-      "imgPath" : "/images/leagues/one.png"
+      "imgPath" : "/images/leagues/boxe.png"
     }, 
     {
       "name":"judo",
-      "imgPath" : "/images/leagues/bellator.png"
+      "imgPath" : "/images/leagues/judo.png"
     }, 
     {
       "name":"kickboxing",
-      "imgPath" : "/images/leagues/wsf.png"
+      "imgPath" : "/images/leagues/kickboxing.png"
     }, 
     {
       "name": "jiujitsu",
