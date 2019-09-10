@@ -10,11 +10,16 @@ router.get("/", (req, res, next) => {
     .sort({ pub_date: "desc" })
     .then(articles => {
       articles = articles.slice(0, 5);
-      res.render("index", {
-        articles: articles,
-        scripts: ["home.js"],
-        title: "JAB Home",
-        displayTitle: true
+      Leagues.find()
+      .then (dbRes =>{
+        console.log("tags found", dbRes)
+        res.render("index", {
+          articles: articles,
+          scripts: ["home.js"],
+          title: "JAB Home",
+          displayTitle: true,
+          leagues: dbRes
+      })
       });
     })
     .catch(dbErr => {
