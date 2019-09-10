@@ -45,31 +45,28 @@
       "imgPath":"/images/fighters/cyborg.png",
       "gifPath":"https://media.giphy.com/media/3oEhn9Y9eY4hNUVUpW/giphy.gif"
     }
+
   ],
   "Leagues": [
     {
-      "name":"ufc",
+      "name":"mma",
       "imgPath" : "/images/leagues/ufc.png"
     }, 
     {
-      "name":"one championship",
+      "name":"boxing",
       "imgPath" : "/images/leagues/one.png"
     }, 
     {
-      "name":"bellator",
+      "name":"judo",
       "imgPath" : "/images/leagues/bellator.png"
     }, 
     {
-      "name":"world series of fighting",
+      "name":"kickboxing",
       "imgPath" : "/images/leagues/wsf.png"
     }, 
     {
-      "name": "invicta",
+      "name": "jiujitsu",
       "imgPath": "/images/leagues/invicta.png"
-    },
-    {
-      "name":"ksw",
-      "imgPath" : "/images/leagues/ksw.png"
     }
   ]
 }
