@@ -25,7 +25,6 @@ router.get(["/", "/home"], (req, res, next) => {
         .catch(dbErr => {
           console.log("error finding leagues");
         });
-      });
     })
 //     .catch(dbErr => {
 //       console.log(dbErr);
