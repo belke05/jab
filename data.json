@@ -2,48 +2,48 @@
   "Fighters": [
     {
       "name":"Khabib Nurmagomedov",
-      "imgPath":"none",
-      "gifPath":"none"
+      "imgPath":"../fighters/khabib.png",
+      "gifPath":"https://media.giphy.com/media/TElVR7Kr6J4kRobiBY/giphy.gif"
     },
     {
       "name":"Georges St-Pierre",
-      "imgPath":"none",
-      "gifPath":"none"
+      "imgPath":"../fighters/st_pierre.png",
+      "gifPath":"https://media.giphy.com/media/3ohjVcH5g0O6eGxrdm/giphy.gif"
     },
     {
       "name":"Anderson Silva",
-      "imgPath":"none",
-      "gifPath":"none"
+      "imgPath":"../fighters/silva.png",
+      "gifPath":"https://media.giphy.com/media/3otPoMeoCSPRAPp4lO/giphy.gif"
     },
     {
       "name":"Jon Jones",
-      "imgPath":"none",
-      "gifPath":"none"
+      "imgPath":"../fighters/jones.png",
+      "gifPath":"https://media.giphy.com/media/5gYnq9yaG6WiHc2uom/giphy.gif"
     },
     {
       "name":"Daniel Cormier",
-      "imgPath":"none",
-      "gifPath":"none"
+      "imgPath":"../fighters/cormier.png",
+      "gifPath":"https://media.giphy.com/media/l46CwClTXNHyIJNkc/giphy.gif"
     },
     {
       "name":"Conor McGregor",
-      "imgPath":"none",
-      "gifPath":"none"
+      "imgPath":"../fighters/mcgregor.jpg",
+      "gifPath":"https://media.giphy.com/media/7Jw6K3hokvqHVjmvNS/giphy.gif"
     },
     {
       "name":"Amanda Nunes",
-      "imgPath":"none",
-      "gifPath":"none"
+      "imgPath":"../fighters/nunes.png",
+      "gifPath":"https://media.giphy.com/media/3o7TKujmsQR7fSqv2o/giphy.gif"
     },
     {
       "name":"Ronda Rousey",
-      "imgPath":"none",
-      "gifPath":"none"
+      "imgPath":"../fighters/rousey.png",
+      "gifPath":"https://media.giphy.com/media/DNr1aVUWAEhTG/giphy.gif"
     },
     {
       "name": "Cris Cyborg",
-      "imgPath":"none",
-      "gifPath":"none"
+      "imgPath":"../fighters/cyborg.png",
+      "gifPath":"https://media.giphy.com/media/3oEhn9Y9eY4hNUVUpW/giphy.gif"
     }
   ], 
   "Leagues" : [
