@@ -9,7 +9,7 @@ const ArticleSchema = new Schema({
   imgUrl: { type: String },
   link: { type: String },
   league: { type: String },
-  jabs: { type: Number },
+  jabs: [{ type: Schema.Types.ObjectId, ref: "User" }],
   comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }]
 });
 

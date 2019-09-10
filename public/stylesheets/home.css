@@ -4,8 +4,6 @@
   height: 40vh;
 }
 
-
-
 .container {
   display: flex;
   flex-direction: row;
@@ -37,6 +35,7 @@
 .tags_li {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .twitter {
@@ -64,14 +63,13 @@
 .content .articleDiv {
   display: flex;
   flex-flow: column wrap;
-  margin-left : 20px;
+  margin-left: 20px;
   padding-bottom: 10px;
 }
 
-.articleTitle{
+.articleTitle {
   overflow: hidden;
   text-overflow: ellipsis;
-  
 }
 
 .interact {

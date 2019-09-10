@@ -20,12 +20,10 @@ const app = express();
 
 app.set("view engine", "hbs");
 app.set("views", __dirname + "/views");
-app.use(express.static("public"));
 hbs.registerPartials(__dirname + "/views/partials");
 app.use(express.urlencoded({ extended: true }));
 
 // Middleware Setup
-hbs.registerPartials(__dirname + "/views/partials");
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -45,14 +43,13 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 hbs.registerPartials(__dirname + "/views/partials");
 app.use(express.static(path.join(__dirname, "public")));
-hbs.registerPartials(__dirname + "/views/partials");
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
 
 const index = require("./routes/index");
-const authentication = require("./routes/authentication")
+const authentication = require("./routes/authentication");
 app.use("/", index);
 app.use("/", authentication);
 
