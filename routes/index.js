@@ -2,14 +2,17 @@ const express = require("express");
 const router = express.Router();
 const Articles = require("../models/articles");
 const Leagues = require("../models/leagues");
+const Fighter = require("../models/fighters");
+const Users = require("../models/users");
 
 /* GET home page */
 
-router.get("/", (req, res, next) => {
+router.get(["/", "/home"], (req, res, next) => {
   returnAllArticles()
     .then(articles => {
       console.log(articles);
-      articles = articles.slice(0, 10);
+      // articles = articles.slice(10, 20);
+      // return console.log(articles.length);
       returnAllLeagues()
         .then(leagues => {
           res.render("index", {
@@ -27,10 +30,6 @@ router.get("/", (req, res, next) => {
     .catch(dbErr => {
       console.log(dbErr);
     });
-});
-
-router.get("/home", (req, res) => {
-  res.redirect("/");
 });
 
 // router.post("/addlike", (req, res) => {
@@ -51,6 +50,7 @@ router.post("/changesport", (req, res) => {
   if (sports.length === 0) {
     returnAllArticles()
       .then(dbRes => {
+        console.log("her-------------", dbRes);
         res.send(dbRes);
       })
       .catch(dbErr => {

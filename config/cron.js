@@ -9,14 +9,9 @@ const sports = ["mma", "boxing", "judo", "kickboxing", "jiujitsu"];
 
 sports.forEach(sport => {
   const nytimes = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${sport}&api-key=4QfmZEltdy9SctdsAPAjOEiMI7Ce8Elj`;
-  let gnews;
-  if ((sport = "mma")) {
-    gnews = `https://gnews.io/api/v3/search?q=${sport} fight&token=4cf35dfe28b22cb28f463edfeefbc672`;
-  } else {
-    gnews = `https://gnews.io/api/v3/search?q=${sport}&token=4cf35dfe28b22cb28f463edfeefbc672`;
-  }
-
   const newsApi = `https://newsapi.org/v2/everything?q=${sport}&apiKey=537b32f4c8894d2b8cf98f3b990d3e3f`;
+  const gnews = `https://gnews.io/api/v3/search?q=${sport}&token=0966af53bc3c52b429bde6bfafdab1cd`;
+
   APIArticle.getArticles(nytimes, sport, getAsyncResult);
   APIArticle.getArticles(newsApi, sport, getAsyncResult);
   APIArticle.getArticles(gnews, sport, getAsyncResult);
@@ -67,15 +62,14 @@ function getAsyncResult(data) {
     res.forEach(apiRes => {
       // console.log(apiRes);
       apiRes.forEach(art => {
-        console.log(art, "-----------article");
         Articles.findOne({ title: art.title })
           .then(dbRes => {
             if (dbRes) {
-              console.log("exists already", dbRes);
+              // console.log("exists already", dbRes);
             } else {
               Articles.create(art)
                 .then(response => {
-                  console.log("article created", response);
+                  // console.log("article created", response);
                 })
                 .catch(dbErr => {
                   console.log("error adding article");
