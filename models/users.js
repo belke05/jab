@@ -13,6 +13,7 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId, ref : "Fighters"
 
   },
+  leagueTag: [{type:String}],
   leagues:[{
     type: Schema.Types.ObjectId, ref : "Leagues"
   }]

@@ -15,43 +15,33 @@ const Article = require("./../models/articles.js");
 
 router.get("/cage", protectedRoute, (req, res) => {
   const userId = req.session.currentUser.id;
-  console.log(req.session,"right here baby")
-  Users.findById(userId)
-    .then(userRes => {
-      console.log(userRes);
-      Fighters.findById(userRes.fighter)
-        .then(fighterRes => {
-          console.log(fighterRes);
-          Leagues.find({
-              name: {
-                $in: userRes.preferences
-              }
-            })
-            .then(leagueRes => {
-              console.log(leagueRes);
-              Article.find({
-                  league: {
-                    $in: userRes.preferences
-                  }
-                })
-                .then(articleRes => {
-                  console.log(articleRes);
-                  res.render("userPref/cage", {
-                      league: leagueRes,
-                      article: articleRes,
-                      userPref: {
-                        fighter: fighterRes,
-                        user: userRes
-                      }
-                    })
-                    .catch()
-                })
-                .catch()
-            })
-            .catch()
-        })
-        .catch();
+  console.log(req.session, "right here baby")
+  Users.findOne({
+      username: req.session.currentUser.username
     })
+    
+    .then(userRes => {
+      console.log(userRes.leagueTag)
+      Promise.all([Fighters.findById(userRes.fighter), Leagues.find({
+        _id: userRes.leagues}), 
+        Article.find({
+        league:userRes.leagueTag  
+      })
+    ])
+      .then(values => {
+        console.log(values, "valuuuuuuuuuuuuuuuuuuuues");
+        const [fighterRes, leagueRes,articleRes] = values;
+        console.log(articleRes,"feauifhauifhaeuifhaief")
+        res.render("userPref/cage", {
+          league: leagueRes,
+          article: articleRes,
+          userPref: {
+            fighter: fighterRes,
+            user: userRes
+          }
+        });
+      }).catch(err => console.log(err));
+    }).catch(err => console.log(err));
 });
 
 router.get("/preferences", protectedRoute, (req, res) => {

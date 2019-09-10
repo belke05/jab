@@ -1,7 +1,7 @@
 require("dotenv").config();
 require("./config/mongodb");
 require("./utils/helpers-hbs"); // utils for hbs templates
-// require("./config/cron.js");
+require("./config/cron.js");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const express = require("express");
