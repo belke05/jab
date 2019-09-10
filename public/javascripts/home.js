@@ -9,11 +9,11 @@ for (let i = 0; i < images.length; i++) {
   }
 }
 
-function addLikes(evt) {
-  const btn = evt.target;
-  Axios.post({})
-    .then()
-    .catch();
-}
+// function addLikes(evt) {
+//   const btn = evt.target;
+//   Axios.post({})
+//     .then()
+//     .catch();
+// }
 
-article_like_btn.onclick = addLikes;
+// article_like_btn.onclick = addLikes;
