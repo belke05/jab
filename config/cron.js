@@ -4,24 +4,31 @@ var cron = require("node-cron");
 const APIArticle = require("./../api/articles");
 const Articles = require("../models/articles");
 let res = [];
-const urls = 3;
-const leagues = [
-  "ufc",
-  "one championship",
-  "bellator",
-  "world series of fighting",
-  ,
-  "invicta",
-  "ksw"
-];
+const urls = 15;
+const sports = ["mma", "boxing", "judo", "kickboxing", "jiujitsu"];
 
-// urls
-const nytimes =
-  "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=mma&api-key=4QfmZEltdy9SctdsAPAjOEiMI7Ce8Elj";
-const gnews =
-  "https://gnews.io/api/v3/search?q=mma&token=4cf35dfe28b22cb28f463edfeefbc672";
-const newsApi =
-  "https://newsapi.org/v2/everything?q=mma&apiKey=537b32f4c8894d2b8cf98f3b990d3e3f";
+sports.forEach(sport => {
+  const nytimes = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${sport}&api-key=4QfmZEltdy9SctdsAPAjOEiMI7Ce8Elj`;
+  let gnews;
+  if ((sport = "mma")) {
+    gnews = `https://gnews.io/api/v3/search?q=${sport} fight&token=4cf35dfe28b22cb28f463edfeefbc672`;
+  } else {
+    gnews = `https://gnews.io/api/v3/search?q=${sport}&token=4cf35dfe28b22cb28f463edfeefbc672`;
+  }
+
+  const newsApi = `https://newsapi.org/v2/everything?q=${sport}&apiKey=537b32f4c8894d2b8cf98f3b990d3e3f`;
+  APIArticle.getArticles(nytimes, sport, getAsyncResult);
+  APIArticle.getArticles(newsApi, sport, getAsyncResult);
+  APIArticle.getArticles(gnews, sport, getAsyncResult);
+});
+
+// // urls
+// const nytimes =
+//   "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=mma&api-key=4QfmZEltdy9SctdsAPAjOEiMI7Ce8Elj";
+// const gnews =
+//   "https://gnews.io/api/v3/search?q=mma&token=4cf35dfe28b22cb28f463edfeefbc672";
+// const newsApi =
+//   "https://newsapi.org/v2/everything?q=mma&apiKey=537b32f4c8894d2b8cf98f3b990d3e3f";
 
 // APIArticle.getArticles(nytimes, getAsyncResult);
 // APIArticle.getArticles(newsApi, getAsyncResult);

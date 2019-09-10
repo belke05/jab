@@ -1,6 +1,6 @@
 require("dotenv").config();
 require("./config/mongodb");
-// require("./config/cron.js");
+require("./config/cron.js");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const express = require("express");

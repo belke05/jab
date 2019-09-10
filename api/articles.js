@@ -1,29 +1,29 @@
 const axios = require("axios");
 const Articles = require("../models/articles");
 
-function getArticles(url, clbk) {
+function getArticles(url, sport, clbk) {
   console.log("here !!!");
   axios
     .get(url)
-    .then(res => clbk(formatter(res.data, url)))
+    .then(res => clbk(formatter(res.data, url, sport)))
     .catch(err => console.log(err));
 }
 
-function formatter(data, url) {
+function formatter(data, url, sport) {
   if (url.includes("nytimes")) {
     console.log("ny times call");
-    return formatResultNyTimes(data);
+    return formatResultNyTimes(data, sport);
   } else if (url.includes("gnews")) {
     console.log("gnews called");
-    return formatResultgnews(data);
+    return formatResultgnews(data, sport);
   } else if (url.includes("newsapi")) {
     console.log("newsapi called");
-    return formatResultnewsapi(data);
+    return formatResultnewsapi(data, sport);
   }
 }
 
 // perform necessary data manipulation
-function formatResultNyTimes(data) {
+function formatResultNyTimes(data, sport) {
   let article_array = [];
   let non_empty_articles;
   let article_obj = data.response.docs;
@@ -39,7 +39,7 @@ function formatResultNyTimes(data) {
       new_art.title = art.headline.main;
       new_art.description = art.abstract;
       new_art.link = art.web_url;
-      new_art.league = "ufc";
+      new_art.league = sport;
       var d = new Date(`${art.pub_date}`);
       new_art.pub_date = d;
     }
@@ -55,7 +55,7 @@ function formatResultNyTimes(data) {
 }
 
 // perform necessary data manipulation
-function formatResultgnews(data) {
+function formatResultgnews(data, sport) {
   // console.log(data);
   let article_array = [];
   let non_empty_articles;
@@ -68,7 +68,7 @@ function formatResultgnews(data) {
     new_art.title = art.title;
     new_art.description = art.description;
     new_art.link = art.url;
-    new_art.league = "ufc";
+    new_art.league = sport;
     var d = new Date(`${art.publishedAt}`);
     new_art.pub_date = d;
     if (new_art.length !== 0) {
@@ -83,7 +83,7 @@ function formatResultgnews(data) {
 }
 
 // perform necessary data manipulation
-function formatResultnewsapi(data) {
+function formatResultnewsapi(data, sport) {
   let article_array = [];
   let non_empty_articles;
   let article_obj = data.articles;
@@ -98,7 +98,7 @@ function formatResultnewsapi(data) {
     new_art.description = art.description;
     new_art.content = art.content;
     new_art.link = art.url;
-    new_art.league = "ufc";
+    new_art.league = sport;
     var d = new Date(`${art.publishedAt}`);
     new_art.pub_date = d;
     if (new_art.length !== 0) {

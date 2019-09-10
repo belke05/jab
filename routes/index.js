@@ -9,17 +9,17 @@ router.get("/", (req, res, next) => {
   Articles.find({})
     .sort({ pub_date: "desc" })
     .then(articles => {
-      articles = articles.slice(0, 5);
-      Leagues.find()
-      .then (dbRes =>{
-        console.log("tags found", dbRes)
+      console.log(articles);
+      articles = articles.slice(0, 10);
+      Leagues.find().then(dbRes => {
+        console.log("tags found", dbRes);
         res.render("index", {
           articles: articles,
           scripts: ["home.js"],
           title: "JAB Home",
           displayTitle: true,
           leagues: dbRes
-      })
+        });
       });
     })
     .catch(dbErr => {
@@ -28,7 +28,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/home", (req, res) => {
-  res.redirect("/", );
+  res.redirect("/");
 });
 
 // router.post("/addlike", (req, res) => {
