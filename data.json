@@ -2,66 +2,66 @@
   "Fighters": [
     {
       "name":"Khabib Nurmagomedov",
-      "imgPath":"../fighters/khabib.png",
+      "imgPath":"/images/fighters/khabib.png",
       "gifPath":"https://media.giphy.com/media/TElVR7Kr6J4kRobiBY/giphy.gif"
     },
     {
       "name":"Georges St-Pierre",
-      "imgPath":"../fighters/st_pierre.png",
+      "imgPath":"/images/fighters/st_pierre.png",
       "gifPath":"https://media.giphy.com/media/3ohjVcH5g0O6eGxrdm/giphy.gif"
     },
     {
       "name":"Anderson Silva",
-      "imgPath":"../fighters/silva.png",
+      "imgPath":"/images/fighters/silva.png",
       "gifPath":"https://media.giphy.com/media/3otPoMeoCSPRAPp4lO/giphy.gif"
     },
     {
       "name":"Jon Jones",
-      "imgPath":"../fighters/jones.png",
+      "imgPath":"/images/fighters/jones.png",
       "gifPath":"https://media.giphy.com/media/5gYnq9yaG6WiHc2uom/giphy.gif"
     },
     {
       "name":"Daniel Cormier",
-      "imgPath":"../fighters/cormier.png",
+      "imgPath":"/images/fighters/cormier.png",
       "gifPath":"https://media.giphy.com/media/l46CwClTXNHyIJNkc/giphy.gif"
     },
     {
       "name":"Conor McGregor",
-      "imgPath":"../fighters/mcgregor.jpg",
+      "imgPath":"/images/fighters/mcgregor.jpg",
       "gifPath":"https://media.giphy.com/media/7Jw6K3hokvqHVjmvNS/giphy.gif"
     },
     {
       "name":"Amanda Nunes",
-      "imgPath":"../fighters/nunes.png",
+      "imgPath":"/images/fighters/nunes.png",
       "gifPath":"https://media.giphy.com/media/3o7TKujmsQR7fSqv2o/giphy.gif"
     },
     {
       "name":"Ronda Rousey",
-      "imgPath":"../fighters/rousey.png",
+      "imgPath":"/images/fighters/rousey.png",
       "gifPath":"https://media.giphy.com/media/DNr1aVUWAEhTG/giphy.gif"
     },
     {
       "name": "Cris Cyborg",
-      "imgPath":"../fighters/cyborg.png",
+      "imgPath":"/images/fighters/cyborg.png",
       "gifPath":"https://media.giphy.com/media/3oEhn9Y9eY4hNUVUpW/giphy.gif"
     }
   ], 
   "Leagues" : [
     {
       "name":"ufc",
-      "imgPath" : "../images/leagues/ufc.png"
+      "imgPath" : "/images/leagues/ufc.png"
     }, 
     {
       "name":"one championship",
-      "imgPath" : "../images/leagues/one.png"
+      "imgPath" : "/images/leagues/one.png"
     }, 
     {
       "name":"bellator",
-      "imgPath" : "../images/leagues/bellator.png"
+      "imgPath" : "/images/leagues/bellator.png"
     }, 
     {
       "name":"world series of fighting",
-      "imgPath" : "none"
+      "imgPath" : "/images/leagues/wsf.png"
     }, 
     {
       "name":"invicta",
@@ -69,7 +69,7 @@
     }, 
     {
       "name":"ksw",
-      "imgPath" : "none"
+      "imgPath" : "/images/leagues/ksw.png"
     }
   ]
 }
