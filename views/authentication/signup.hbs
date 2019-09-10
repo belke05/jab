@@ -23,8 +23,8 @@
         <label for="profil-pic">Choose your profil picture</label>
         <input id="imgPath" type="file" name="imgPath"> 
       </div>
-      <a href="#" id="btn-next"> >> Next</a>
-      {{!-- <button class="button-primary white signup-submit" type="button" id="btn-next">Next</button> --}}
+      {{!-- <a href="#" id="btn-next"> >> Next</a> --}}
+      <button class="button-primary white signup-submit" type="button" id="btn-next">Next</button>
 
     <p class="form-sub-infos">Already have an account ? <a href="/signin" class="button-link-form">Sign In</a></p>
   </section>
@@ -49,7 +49,7 @@
             <option value="{{this.name}}">{{this.name}}</option>
           {{/each}}
         </select>
-        <div><img src="../images/ufc-logo.png" alt="Player photo" class="fighter-photo"></div>
+        <div><img src="../images/ufc-logo.png" alt="Player photo" class="fighter-photo" id="fighter-photo"></div>
         {{!-- default img to be changed  --}}
     </div>
   <button class="button-primary white signup-submit-all" type="submit">Submit</button>
