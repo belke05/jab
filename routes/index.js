@@ -34,4 +34,15 @@ router.get("/home", (req, res) => {
   res.redirect("/");
 });
 
+// router.post("/addlike", (req, res) => {
+//   Articles.findById(req.id).then(res => {
+//     if(res.jabs.includes(req.session.user.id)){
+//       //
+//     }
+//   }).catch()
+//   Articles.findByIdAndUpdate(req.id, { jabs: req.jabs + 1 })
+//     .then(dbRes => {console.log('')})
+//     .catch(dbErr => {});
+// });
+
 module.exports = router;

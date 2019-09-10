@@ -12,8 +12,8 @@
         </div>
     </div>
     <ul class="interact" id="{{this._id}}">
-        <li class="like_btn"><a href="/"><i class="fas fa-heart"></i>{{this.jabs}} Like</a></li>
-        <li class="comment_btn"><a href="/"><i class="fas fa-comment"></i> Comment</a></li>
-        <li><a href="/">{{this.comments}} comments</a></li>
+        <button type="button" class="like_btn"><i class="fas fa-heart"></i> {{this.jabs.length}} Jabs</button>
+        <button type="button" class="comment_btn"><i class="fas fa-comment"></i> Comment</button>
+        <a>{{this.comments}} comments</a>
     </ul>
 </div>
