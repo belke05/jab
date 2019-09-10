@@ -1,14 +1,14 @@
-// const images = document.querySelectorAll("img");
-// const article_like_btn = document.querySelectorAll(
-//   ".article .interact .like_btn"
-// );
-// console.log(article_like_btn);
+const images = document.querySelectorAll("img");
+const article_like_btn = document.querySelectorAll(
+  ".article .interact .like_btn"
+);
+console.log(article_like_btn);
 
-// for (let i = 0; i < images.length; i++) {
-//   if (images[i].currentSrc == "") {
-//     images[i].hidden = true;
-//   }
-// }
+for (let i = 0; i < images.length; i++) {
+  if (images[i].currentSrc == "") {
+    images[i].hidden = true;
+  }
+}
 
 // function addLikes(evt) {
 //   console.log(evt);
