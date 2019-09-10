@@ -10,8 +10,8 @@ for (let i = 0; i < images.length; i++) {
 }
 
 function addLikes(evt) {
-  evt_target;
-  Axios.post()
+  const btn = evt.target;
+  Axios.post({})
     .then()
     .catch();
 }
