@@ -1,18 +1,30 @@
-<div class="article">
+<div class="article {{this.league}}">
 
     <div class="content">
-        <a href="{{this.link}}" target="_blank"><img class="articleImage" src="{{this.imgUrl}}" alt="{{this.title}}"></a>
+        <a href="{{this.link}}">
+
+
+            {{#compare this.imgUrl '' operator="==="}}
+            <img class="articleImage" src="/images/leagues/{{this.league}}.png" alt="{{this.title}}">
+            {{/compare}}
+            {{#compare this.imgUrl '' operator="!="}}
+            <img class="articleImage" src="{{this.imgUrl}}" alt="{{this.title}}">
+            {{/compare}}
+
+
+        </a>
         <div class="articleDiv">
-        <a href="{{this.link}}" target="_blank">
-            <h2 class="articleTitle">{{this.title}}</h2>
-        </a>
-        <a href="{{this.link}}" target="_blank">
-            <p class="articleDesc">{{this.description}}</p>
-        </a>
+            <a href="{{this.link}}" target="_blank">
+                <h2 class="articleTitle">{{this.title}}</h2>
+            </a>
+            <a href="{{this.link}}" target="_blank">
+                <p class="articleDesc">{{this.description}}</p>
+                <p>{{this.league}}</p>
+            </a>
         </div>
     </div>
     <ul class="interact" id="{{this._id}}">
-        <button type="button" class="like_btn"><i class="fas fa-heart"></i> {{this.jabs.length}} Jabs</button>
+        <button type="button" class="like_btn"><i class="fas fa-heart"></i>{{this.jabs.length}} Jabs</button>
         <button type="button" class="comment_btn"><i class="fas fa-comment"></i> Comment</button>
         <a>{{this.comments}} comments</a>
     </ul>

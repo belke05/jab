@@ -7,7 +7,10 @@
     {{>aside_main}}
     <div class="articles">
         {{#each articles}}
-        {{> article_container}}
+        {{!-- <p>yo</p>
+        {{this._id}}
+        {{this.imgUrl}} --}}
+        {{> article_container this}}
         {{/each}}
     </div>
 

@@ -2,44 +2,81 @@ const express = require("express");
 const router = express.Router();
 const Articles = require("../models/articles");
 const Leagues = require("../models/leagues");
+const Fighter = require("../models/fighters");
+const Users = require("../models/users");
 
 /* GET home page */
 
-router.get("/", (req, res, next) => {
-  Articles.find({})
-    .sort({ pub_date: "desc" })
+router.get(["/", "/home"], (req, res, next) => {
+  returnAllArticles()
     .then(articles => {
-      articles = articles.slice(0, 5);
-      Leagues.find()
-      .then (dbRes =>{
-        console.log("tags found", dbRes)
-        res.render("index", {
-          articles: articles,
-          scripts: ["home.js"],
-          title: "JAB Home",
-          displayTitle: true,
-          leagues: dbRes
-      })
-      });
+      console.log(articles);
+      // articles = articles.slice(10, 20);
+      // return console.log(articles.length);
+      returnAllLeagues()
+        .then(leagues => {
+          res.render("index", {
+            articles: articles,
+            scripts: ["home.js"],
+            title: "JAB Home",
+            leagues: leagues
+          });
+        })
+        .catch(dbErr => {
+          console.log("error finding leagues");
+        });
     })
     .catch(dbErr => {
       console.log(dbErr);
     });
 });
 
-router.get("/home", (req, res) => {
-  res.redirect("/", );
+router.post("/changesport", (req, res) => {
+  console.log(req, "req");
+  const sports = req.body.sports;
+  console.log(sports);
+  let response = [];
+  if (sports.length === 0) {
+    returnAllArticles()
+      .then(dbRes => {
+        console.log("her-------------", dbRes);
+        res.send(dbRes);
+      })
+      .catch(dbErr => {
+        console.log(dbErr);
+      });
+  } else {
+    Articles.find({ league: { $in: sports } })
+      .then(dbRes => {
+        res.send(dbRes);
+      })
+      .catch(dbErr => {
+        console.log("there was an error", dbErr);
+      });
+  }
 });
 
-// router.post("/addlike", (req, res) => {
-//   Articles.findById(req.id).then(res => {
-//     if(res.jabs.includes(req.session.user.id)){
-//       //
-//     }
-//   }).catch()
-//   Articles.findByIdAndUpdate(req.id, { jabs: req.jabs + 1 })
-//     .then(dbRes => {console.log('')})
-//     .catch(dbErr => {});
-// });
+router.post("/addlike", (req, res) => {
+  console.log(req.body.id);
+  console.log(req.session.currentUser._id, "jfjfjfjfj");
+  Articles.findByIdAndUpdate(req.body.id, {
+    $push: { jabs: req.session.currentUser._id }
+  })
+    .then(dbRes => {
+      console.log("succes", dbRes.jabs);
+      res.send(dbRes.jabs.length);
+    })
+    .catch(dbErr => {
+      console.log(dbErr);
+    });
+});
 
 module.exports = router;
+
+function returnAllArticles() {
+  return Articles.find({}).sort({ pub_date: "desc" });
+}
+
+function returnAllLeagues() {
+  return Leagues.find();
+}
