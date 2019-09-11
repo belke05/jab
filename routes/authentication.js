@@ -50,6 +50,7 @@ router.post(
       dbLeague.forEach(league => {
         if (userLeagues.indexOf(league.name) >= 0) {
           user.leagues.push(league._id);
+          user.leagueTag.push(league.name);
         }
       });
       if (!user.email || !user.password || !user.username) {

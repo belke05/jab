@@ -1,9 +1,19 @@
 .hello_div{
     margin-top:4vh;
     display : flex;
-    flex-flow : row wrap; 
+    flex-flow : row wrap;
 }
 
 .user_text{
     margin-left : 2vw;
+    margin-top : 0;
 }
+
+
+.user_gif_div img{
+    max-width : 350px;
+    max-height: 350px;
+}
+
+
+

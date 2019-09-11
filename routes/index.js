@@ -105,3 +105,4 @@ function removeUserJab(art_id, curUserId) {
     $pull: { jabs: curUserId }
   });
 }
+
