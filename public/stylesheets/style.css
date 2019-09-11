@@ -31,6 +31,7 @@ body {
   margin-top: 0px;
   margin-left: 0px;
   margin-right: 0;
+ 
 }
 
 h1 {
@@ -51,7 +52,8 @@ h4 {
 .main-body {
   width: 80vw;
   min-height: 89vh;
-  margin: 10vh auto;
+  margin: 1vh auto;
+  background-color:white;
   /* position: relative; */
 }
 

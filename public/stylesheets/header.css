@@ -1,7 +1,14 @@
 .main{
-    position: relative;
-    margin-top : 4vh;
-    margin : 4vh 0 0 0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin : 5vh 0 0 0;
+    background-image : url('./../images/header/diazmasvidal.jpg');
+    background-size : contain;
+    background-position:center;
+    background-repeat: no-repeat;
+    height : 50vh;
+    background-color:#202020;
 }
 
 .main_title {
