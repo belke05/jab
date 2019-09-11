@@ -19,13 +19,23 @@
             </a>
             <a href="{{this.link}}" target="_blank">
                 <p class="articleDesc">{{this.description}}</p>
-                <p>{{this.league}}</p>
+                <p class="sport" data-sport="{{this.league}}">Sport: {{this.league}}</p>
             </a>
         </div>
     </div>
     <ul class="interact" id="{{this._id}}">
-        <button type="button" class="like_btn"><i class="fas fa-heart"></i>{{this.jabs.length}} Jabs</button>
-        <button type="button" class="comment_btn"><i class="fas fa-comment"></i> Comment</button>
-        <a>{{this.comments}} comments</a>
+        <button type="button" class="like_btn"><i class="far fa-hand-paper"></i> {{this.jabs.length}}</button>
+        <button type="button" class="comment_btn"><i class="fas fa-comment"></i> comments</button>
     </ul>
+    <ul class="comment_display hide_comments">
+        {{#each this.comments}}
+        {{#each this}}
+        <li>{{this.content}}</li>
+        {{/each}}
+        {{/each}}
+    </ul>
+    <div class="comment_section">
+        <span class="comment_input"><input type="text" class="noborders" placeholder="Type your comment here ...">
+            <i class="fas fa-comment-medical addCommentIcon"></i></span>
+    </div>
 </div>

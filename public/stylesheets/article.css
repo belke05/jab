@@ -1,0 +1,47 @@
+.like_btn {
+  font-size: 1.5rem;
+  background-color: ghostwhite;
+  border-color: crimson;
+}
+
+.comment_btn {
+  background-color: ghostwhite;
+  border-color: crimson;
+  font-size: 1.5rem;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment_input {
+  width: 98%;
+  margin: 0 auto;
+  padding: 2px;
+  margin: 0;
+  border: 2px solid darkred;
+  border: none;
+}
+
+.noborders {
+  width: 95%;
+}
+
+.comment_display {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 100px;
+  border: 1px solid black;
+  padding: 0;
+}
+
+.comment_display li {
+  border: 0.05px solid black;
+  padding-left: 1%;
+}
+
+.hide_comments {
+  height: 0px;
+}

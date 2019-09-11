@@ -61,13 +61,11 @@ app.use(
   })
 );
 
-
 function checkloginStatus(req, res, next) {
   res.locals.user = req.session.currentUser ? req.session.currentUser : null;
   res.locals.isLoggedIn = Boolean(req.session.currentUser);
-  next(); 
+  next();
 }
-
 
 function eraseSessionMessage() {
   var count = 0; // initialize counter in parent scope and use it in inner function
@@ -92,8 +90,8 @@ app.use(eraseSessionMessage());
 app.locals.title = "JAB - MMA News";
 
 const index = require("./routes/index");
-const authentication = require("./routes/authentication")
-const userPref = require("./routes/user")
+const authentication = require("./routes/authentication");
+const userPref = require("./routes/user");
 app.use("/", index);
 app.use("/", authentication);
 app.use("/", userPref);

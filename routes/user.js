@@ -5,7 +5,7 @@ const protectedRoute = require("../middleware/protectedRoute")
 const uploaderMiddleware = require("../config/cloudinary.js");
 const Users = require("./../models/users.js");
 const Fighters = require("../models/fighters.js");
-const Leagues = require("../models/leagues.js");
+const Leagues = require("./../models/leagues.js");
 const Article = require("./../models/articles.js");
 
 
@@ -46,35 +46,32 @@ router.get("/preferences",protectedRoute,(req,res)=>{
 });
 
 router.get("/cage", protectedRoute, (req, res) => {
-  const userId = req.session.currentUser.id;
-  console.log(req.session, "right here baby")
-  Users.findOne({
-      username: req.session.currentUser.username
-    })
-    .then(userRes => {
-      console.log(userRes.leagueTag)
-      Promise.all([Fighters.findById(userRes.fighter), Leagues.find({
-        _id: userRes.leagues}),
-        Article.find({
-        league:userRes.leagueTag
+  const userId = req.session.currentUser._id;
+    console.log(req.session ,"ici !");
+    Users.findById(userId)
+    .then(user=>{
+      Article.find({league:{$in : user.leagueTag}})
+      .then(article=>{
+        console.log("************************")
+        console.log(article);
+        Fighters.findById(user.fighter)
+        .then(fighter=>{
+          console.log(fighter)
+          res.render("userPref/cage",{
+            article:article,
+            userPref : {
+              fighter : fighter,
+              user: user
+            }
+          })
+        })
+
+        .catch(dbErr =>{
+          console.log('there is an error',dbErr);
+        })
       })
-    ])
-      .then(values => {
-        const [fighterRes, leagueRes,articleRes] = values;
-        res.render("userPref/cage", {
-          league: leagueRes,
-          article: articleRes,
-          userPref: {
-            fighter: fighterRes,
-            user: userRes
-          }
-        });
-      }).catch(err => console.log(err));
-    }).catch(err => console.log(err));
- });
- router.get("/preferences", protectedRoute, (req, res) => {
-  res.render("userPref/preferences")
- });
+    })
+})
 
 router.get("/userInfo", (req,res,next)=>{
   const userId = req.session.currentUser._id;
@@ -99,5 +96,6 @@ router.post("/newSports",(req,res,next)=>{
   .then(dbRes => console.log("sports list updated", dbRes))
   .catch(dbErr => console.log("Error in sports list update", dbErr))
 })
+
 
 module.exports = router;

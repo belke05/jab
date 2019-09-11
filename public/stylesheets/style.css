@@ -1,64 +1,70 @@
-@import './header-nav.css';
-@import './sign-in-up.css';
-@import'./article.css';
-@import'./home.css';
-@import'./user.css';
-@import'./user_news.css';
-@import'./header.css';
-@import'./footer.css';
-@import'./userPref.css';
+@import "./header-nav.css";
+@import "./sign-in-up.css";
+@import "./article.css";
+@import "./home.css";
+@import "./user.css";
+@import "./user_news.css";
+@import "./header.css";
+@import "./footer.css";
+@import "./userPref.css";
 
-@import url('https://fonts.googleapis.com/css?family=Faster+One|Oswald:300,400,500,700|Source+Sans+Pro:300,400,600,700&display=swap');
-
+@import url("https://fonts.googleapis.com/css?family=Faster+One|Oswald:300,400,500,700|Source+Sans+Pro:300,400,600,700&display=swap");
 
 * {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
-
 
 a {
   text-decoration: none;
-  color : inherit;
+  color: inherit;
 }
 
-li{
-  list-style : none; 
-  display : inline-block;
+li {
+  list-style: none;
+  display: inline-block;
 }
-
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   display: flex;
   flex-direction: column;
   margin-top: 0px;
   margin-left: 0px;
   margin-right: 0;
+ 
 }
 
-h1{
-  font-family: 'Source Sans Pro', sans-serif;
+h1 {
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 h2,
 h3,
 h4 {
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   text-transform: uppercase;
 }
 
-.partial-top{
-  margin-top:5vh; 
+.partial-top {
+  margin-top: 5vh;
 }
 
-
-.main-body{
+.main-body {
   width: 80vw;
-  margin: 20px auto;
   min-height: 89vh;
+  margin: 10vh auto;
+  background-color:white;
+  /* position: relative; */
 }
 
-.hidden{
+.home-body{
+  width: 80vw;
+  min-height: 89vh;
+  margin: 1vh auto;
+  background-color:white;
+}
+
+.hidden {
   visibility: hidden;
   display: none;
 }

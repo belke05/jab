@@ -42,6 +42,7 @@ router.post(
     const user = req.body;
     const userLeagues = user.leagues;
     user.leagues = [];
+    user.leagueTag = [];
     var dbLeague;
     Leagues.find().then(leaguesList => {
       console.log("leagues found", leaguesList);
@@ -49,7 +50,8 @@ router.post(
       console.log(dbLeague);
       dbLeague.forEach(league => {
         if (userLeagues.indexOf(league.name) >= 0) {
-          user.leagues.push(league._id);
+          user.leagueTag.push(league.name)
+          user.leagues.push(league._id)
         }
       });
       if (!user.email || !user.password || !user.username) {
