@@ -57,6 +57,7 @@ router.post("/changesport", (req, res) => {
 });
 
 router.post("/addlike", (req, res) => {
+  console.log("@ /addlike");
   addJab(req.body.id, req.session.currentUser._id)
     .then(response => {
       res.send(response);
@@ -82,9 +83,12 @@ async function addJab(art_id, curUserId) {
   const foundArticle = await FindArticle(art_id);
   let Users_that_jabbed = foundArticle.jabs;
   if (Users_that_jabbed.includes(curUserId)) {
-    const removeUser = await removeUserJab(art_id);
+    console.log("in if");
+
+    const removeUser = await removeUserJab(art_id, curUserId);
     return "already jabbed";
   } else {
+    console.log("in else");
     const updatedArtcile = await FindArtUpdateJab(art_id, curUserId);
     return updatedArtcile;
   }
@@ -101,6 +105,9 @@ function FindArtUpdateJab(art_id, curUserId) {
 }
 
 function removeUserJab(art_id, curUserId) {
+  console.log("-------------------");
+  console.log(curUserId);
+  console.log("-------------------");
   return Articles.findByIdAndUpdate(art_id, {
     $pull: { jabs: curUserId }
   });
