@@ -8,21 +8,19 @@ const Fighters = require("../models/fighters.js");
 const Leagues = require("../models/leagues.js");
 const Article = require("./../models/articles.js");
 
-router.get("/cage", protectedRoute,(req,res)=>{
-  res.render("userPref/preferences")
-});
 
 router.get("/preferences",protectedRoute,(req,res)=>{
   let userId= req.session.currentUser._id;
   var user;
-  var userLeaguesIds =[];
-  var userLeagues =[];
   Users.findById(userId)
     .then(userRes=>{
       console.log("user found", userRes)
       user = userRes;
       userLeaguesIds = userRes.leagues;
-      Fighters.findById(userRes.fighter)
+      Fighters.find()
+      .then(fighterListRes => {
+        console.log("all fighters found", fighterListRes);
+        Fighters.findById(userRes.fighter)
         .then(fighterRes=>{
           console.log("Favorite Fighter Found", fighterRes)
           user.fighterName = fighterRes.name;
@@ -31,18 +29,18 @@ router.get("/preferences",protectedRoute,(req,res)=>{
           user.creationDate = date.toDateString();
           Leagues.find()
           .then (leaguesList => {
-            leaguesList.forEach(league => {
-              if (userLeaguesIds.indexOf(league._id)>=0){
-                userLeagues.push({_id:league._id, name:league.name, imgPath: league.imgPath})
-              }
-            });
+            console.log("all leagues found")
             res.render("userPref/preferences", {
               title: "cage", 
               user: user,
-              leagues: userLeagues
+              leagues: leaguesList,
+              fighters: fighterListRes,
+              scripts: ["../javascripts/preferences.js"],
             });
           })
         })
+      })
+
     })
     .catch(userErr=> console.log(userErr))
 });
@@ -53,19 +51,16 @@ router.get("/cage", protectedRoute, (req, res) => {
   Users.findOne({
       username: req.session.currentUser.username
     })
-    
     .then(userRes => {
       console.log(userRes.leagueTag)
       Promise.all([Fighters.findById(userRes.fighter), Leagues.find({
-        _id: userRes.leagues}), 
+        _id: userRes.leagues}),
         Article.find({
-        league:userRes.leagueTag  
+        league:userRes.leagueTag
       })
     ])
       .then(values => {
-        console.log(values, "valuuuuuuuuuuuuuuuuuuuues");
         const [fighterRes, leagueRes,articleRes] = values;
-        console.log(articleRes,"feauifhauifhaeuifhaief")
         res.render("userPref/cage", {
           league: leagueRes,
           article: articleRes,
@@ -76,21 +71,33 @@ router.get("/cage", protectedRoute, (req, res) => {
         });
       }).catch(err => console.log(err));
     }).catch(err => console.log(err));
-});
+ });
+ router.get("/preferences", protectedRoute, (req, res) => {
+  res.render("userPref/preferences")
+ });
 
+router.get("/userInfo", (req,res,next)=>{
+  const userId = req.session.currentUser._id;
+  Users.findById(userId)
+    .then(user=> {
+      console.log("user found", user)
+      res.send(user);
+    })
+    .catch(userErr=> console.log("user fetch error", userErr))
+})
 
+router.post("/newFighter",(req,res,next)=>{
+  let fighterId= req.body.fighter_id;
+  Users.findOneAndUpdate({_id: req.session.currentUser._id}, {fighter: fighterId}, {new:true})
+  .then(dbRes => console.log("new fighter updated", dbRes))
+  .catch(dbErr => console.log("Error in fighter update", dbErr))
+})
 
-// router.post("/cage",(req,res)=>{
-//   // Users.find({_id:req.body.id})
-//   // .then(dbRes =>{
-//   //   console.log(dbRes);
-//   //   res.render("")
-//   // })
-//   // .catch()
-// });
-
-// router.get("/cage", (req,res)=>{
-//   res.render("userPref/cage")
-// });
+router.post("/newSports",(req,res,next)=>{
+  let sportsArray= req.body.selectedSports;
+  Users.findOneAndUpdate({_id: req.session.currentUser._id}, {leagues: sportsArray}, {new:true})
+  .then(dbRes => console.log("sports list updated", dbRes))
+  .catch(dbErr => console.log("Error in sports list update", dbErr))
+})
 
 module.exports = router;

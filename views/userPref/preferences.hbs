@@ -1,50 +1,37 @@
-
-
-  <section class="all-user-info-container-with-title">
-    
+<section class="all-user-info-container-with-title">
     <div class="all-user-info-container">
         <div class="user-details-header">
             <img class="user-profil-pic" src="{{user.imgPath}}" alt="{{user.username}}">
             <p class="membership">JAB Member since {{user.creationDate}}</p>
         </div>
-        <div class="edition-element">
+        <div class="edition-element-header">
           <h2 id="userdetails-username">{{user.username}} you are the boss of your account</h2>
-           <button id="btn-edit-user-details">Edit</button>
         </div>
-        
     </div>
-    
-    <div class= "user-preferences">
-        
-        <div class="user-best">
-          <h2 class="user-best-h2">Your Fighter</h2>
-          <img class="fighter-img" src="{{user.fighterImgPath}}" alt="{{user.fighterName}} picture" data-id="{{user.fighter}}">
-          <h4 class="fighter-name">{{user.fighterName}}</h4>
-        </div>
-        <div class="user-best">
-           <h2 class="user-best-h2">Your Sports</h2>
+    <h2 class="user-best-h2">Your Fighter</h2>
+    <div class="all-fighter-info-container user-best">
+      <div class="edition-element">
+            {{#each fighters}}
+              <div class="one-fighter-container">
+                <img class="pref-logo" src="{{this.imgPath}}" alt="{{this.name}}" id="{{this._id}}">
+                <h4 class="pref-name">{{this.name}}</h4> 
+              </div>
+            {{/each}}  
+      </div>
+      <button id="btn-edit-user-fighter" class="btn-edit">Save Change</button>
+    </div>
+    <h2 class="user-best-h2">Your Sports</h2>
+    <div class="user-best">
+       
           <div class="league-choice-container">
             {{#each leagues}}
-              <div class="one-league-container">
-                <img class="league-logo" src="{{this.imgPath}}" alt="{{this.name}}" data-id="{{this._id}}">
+              <div class="one-league-container unselected-container">
+                <img class="league-logo unchoosen-logo" src="{{this.imgPath}}" alt="{{this.name}}" id="{{this._id}}">
                 <h4 class="league-name">{{this.name}}</h4> 
               </div>
             {{/each}}  
           </div>
-        </div>
-      </div>
-      
+          <button id="btn-edit-user-sports" class="btn-edit">Save Change</button>
+    </div>
   </section>
-
-              {{!-- <form action="/editPref" type="post">
-            <label for="username">Username:</label>
-            <p name="username">{{user.userName}}</p>
-            <a href="#">Edit</a>
-            {{!-- <input type="text" value="{{user.username}} name ="username""> --}}
-            {{!-- <label for="email">e-mail</label> --}}
-            {{!-- <input type="e-mail" value="{{user.email}}" name="email"> --}}
-            {{!-- <p name="email">{{user.email}}</p>
-            <a href="#">Edit</a>
-            <button type="submit" id="btn-edit-user-details">Edit</button> --}}
-            {{!-- </form>  --}}
   
