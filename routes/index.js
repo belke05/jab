@@ -4,7 +4,7 @@ const Articles = require("../models/articles");
 const Leagues = require("../models/leagues");
 const Fighter = require("../models/fighters");
 const Users = require("../models/users");
-
+const Comment = require("../models/comments");
 /* GET home page */
 
 router.get(["/", "/home"], (req, res, next) => {
@@ -67,6 +67,20 @@ router.post("/addlike", (req, res) => {
     });
 });
 
+router.post("/addComment", (req, res) => {
+  const comment = req.body.comment;
+  const art_id = req.body.art_id;
+  const userId = req.session.currentUser._id;
+  commentHandler(art_id, comment, userId)
+    .then(artWithComments => {
+      console.log(artWithComments, "article with new comment");
+      res.send(artWithComments);
+    })
+    .catch(dbErr => {
+      console.log(dbErr);
+    });
+});
+
 module.exports = router;
 
 // functions use in routes
@@ -113,3 +127,24 @@ function removeUserJab(art_id, curUserId) {
   });
 }
 
+function findArtUpdateComment(art_id, comment) {
+  return Articles.findByIdAndUpdate(art_id, { comm });
+}
+
+function addComment(com) {
+  return com.save();
+}
+
+async function commentHandler(art_id, comment, user_id) {
+  const createdComment = new Comment({
+    content: comment,
+    postedBy: user_id,
+    onArticle: user_id
+  });
+  const savedComment = await addComment(createdComment);
+  const foundArticle = await findArtUpdateComment(art_id, savedComment._id);
+  // returns found article with the new comments
+  return Articles.findByIdAndUpdate(art_id, {
+    $push: { comments: savedComment._id }
+  });
+}

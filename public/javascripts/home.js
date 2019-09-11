@@ -133,8 +133,10 @@ function addtextInput(art) {
     art.parentElement.appendChild(div);
     const inputbox = document
       .getElementById(`${art.id}`)
-      .parentElement.getElementsByTagName("input");
-    inputbox.onkeypress = addComment;
+      .parentElement.querySelectorAll("input");
+    inputbox.forEach(input => {
+      input.onkeydown = addComment;
+    });
   }
 }
 
@@ -152,6 +154,21 @@ function getArticleId(evt) {
   return { btn, art };
 }
 
+function addComment(evt) {
+  if (evt.keyCode == 13) {
+    const art_id = evt.target.parentElement.previousSibling.id;
+    const comment = evt.target.value;
+    axios
+      .post("/addComment", { comment: comment, art_id: art_id })
+      .then(dbRes => {
+        console.log(dbRes.data);
+      })
+      .catch(dbErr => {
+        console.log(dbErr);
+      });
+  }
+}
+
 article_like_btn.forEach(btn => {
   btn.onclick = addLikes;
 });
@@ -159,12 +176,3 @@ article_like_btn.forEach(btn => {
 comment_btns.forEach(btn => {
   btn.onclick = commentinput;
 });
-
-function addComment(comment) {
-  if (e.keyCode == 13) {
-    axios
-      .post("/addComment", { comment: comment })
-      .then()
-      .catch();
-  }
-}
