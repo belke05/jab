@@ -3,7 +3,8 @@
     {
       "name": "Khabib Nurmagomedov",
       "imgPath": "/images/fighters/khabib.png",
-      "gifPath": "https://media.giphy.com/media/TElVR7Kr6J4kRobiBY/giphy.gif"
+      "gifPath": "https://media.giphy.com/media/TElVR7Kr6J4kRobiBY/giphy.gif",
+      "twitterLink" : "TeamKhabib"
     },
     {
       "name": "Georges St-Pierre",
@@ -43,7 +44,8 @@
     {
       "name": "Cris Cyborg",
       "imgPath": "/images/fighters/cyborg.png",
-      "gifPath": "https://media.giphy.com/media/3oEhn9Y9eY4hNUVUpW/giphy.gif"
+      "gifPath": "https://media.giphy.com/media/3oEhn9Y9eY4hNUVUpW/giphy.gif",
+      "twitterLink" : "criscyborg"
     }
   ],
   "Leagues": [
