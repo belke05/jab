@@ -21,6 +21,11 @@
   padding: 2px;
   margin: 0;
   border: 2px solid darkred;
+  border: none;
+}
+
+.noborders {
+  width: 95%;
 }
 
 .comment_display {

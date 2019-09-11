@@ -10,6 +10,15 @@ tags_box.forEach(box => {
   box.onclick = findCategory;
 });
 
+const inputbox = document.querySelectorAll("input");
+const inputicon = document.querySelectorAll(".addCommentIcon");
+inputbox.forEach(input => {
+  input.onkeydown = addComment;
+});
+inputicon.forEach(icon => {
+  icon.onclick = addComment;
+});
+
 function findCategory(evt) {
   const sports = [];
   console.log(sports);
@@ -116,34 +125,16 @@ function commentinput(evt) {
 }
 
 function addtextInput(art) {
-  const input = document.createElement("input");
-  input.type = "text";
-  input.className = "comment_input";
-  console.log(art, "article");
-
-  const div = art.parentElement.querySelector(".comment_section");
-  console.log(div, "cmnt section");
-  // console.log(
-  //   document.getElementById(`${art.id}`).parentElement.querySelector("input"),
-  //   "heheheheheh"
-  // );
-  if (
-    !document.getElementById(`${art.id}`).parentElement.querySelector("input")
-  ) {
-    // ) {
-    //   const parent = document.getElementById(`${art.id}`).parentElement;
-    //   const child = document.getElementById(`${art.id}`).nextSibling;
-    //   console.log(parent, "parent", child, "child");
-    //   parent.removeChild(child);
-    // } else
-    div.appendChild(input);
-    const inputbox = document
-      .getElementById(`${art.id}`)
-      .parentElement.querySelectorAll("input");
-    inputbox.forEach(input => {
-      input.onkeydown = addComment;
-    });
-  }
+  const inputbox = document
+    .getElementById(`${art.id}`)
+    .parentElement.querySelectorAll("input");
+  const inputicon = document.querySelectorAll(".addCommentIcon");
+  inputbox.forEach(input => {
+    input.onkeydown = addComment;
+  });
+  inputicon.forEach(icon => {
+    icon.onclick = addComment;
+  });
 }
 
 function getArticleId(evt) {
@@ -161,18 +152,22 @@ function getArticleId(evt) {
 }
 
 function addComment(evt) {
-  if (evt.keyCode == 13) {
-    const art_id = evt.target.parentElement.parentElement.querySelector(
-      ".interact"
-    ).id;
+  console.log(evt);
+  if (evt.keyCode == 13 || evt.type == "click") {
     console.log(
-      "evt targ",
-      evt.target,
-      "evt target previous sib",
-      evt.target.parentElement.parentElement.querySelector(".interact")
+      evt.target.parentElement.parentElement.parentElement,
+      "heheheheheheh"
     );
-    console.log("article id", art_id);
-    const comment = evt.target.value;
+    const art = evt.target.parentElement.parentElement.parentElement.querySelector(
+      ".interact"
+    );
+    console.log(art.nextSibling, "arththth");
+
+    const art_id = art.id;
+    const comment = art.parentElement.querySelector("input").value;
+    const listItem = document.createElement("li");
+    listItem.innerText = comment;
+    art.parentElement.querySelector(".comment_display").appendChild(listItem);
     axios
       .post("/addComment", { comment: comment, art_id: art_id })
       .then(dbRes => {
