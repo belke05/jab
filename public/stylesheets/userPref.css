@@ -1,0 +1,125 @@
+.user-preferences{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.fighter-img{
+  height: 20vh;
+  margin-top: 5vh;
+  box-shadow: 5px 5px #20202028;
+  border-radius: 30px;
+}
+
+/* .league-logo{
+  height: 13vh;
+  margin-top: 12vh;
+  /* margin-bottom: 1vh; */
+.league-logo{
+  width: 120px;
+  margin: 5.6vh 3vw;
+  box-shadow: 5px 5px #20202028;
+  border-radius: 30px;
+}
+
+
+
+.user-best {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40vw;
+  border: solid rgb(20, 20, 20);
+  /* border-radius: 30px; */
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
+  height: 40vh;
+  margin-top: 5vh;
+  padding: 10px;
+  box-shadow: 10px 10px rgb(0, 0, 0, 0.5);
+}
+
+.user-profil-pic{
+  border-radius: 40%;
+  width: 10vw;
+  margin-top: 5vh;
+  margin-left: 6vw;
+}
+
+.all-user-info-container-with-title{
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
+}
+.all-user-info-container{
+  display: flex;
+  flex-direction: row;
+  margin-top: 5vh;
+  color: white;
+  width: 80vw;
+  background-color: rgb(20,20,20);
+  /* border-radius: 30px; */
+}
+
+.user-details-header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(20,20,20);
+  align-items: center;
+  border-radius: 30px;
+  /* width: 80vw; */
+  height: 24vh;
+  width: 52vw;
+  color: white;
+}
+
+.league-choice-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.membership{
+  margin-left: 3vw;
+}
+
+#userdetails-username{
+  margin: auto;
+}
+
+.user-best-h2{
+  margin-top:0;
+}
+
+/* h4.league-name{
+  margin-top:2vh;
+} */
+
+.one-league-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#btn-edit-user-details{
+  border: solid white;
+  border-radius: 20px;
+  height: 4vh;
+  margin: 3vh 3vw;
+  width: 5vw;
+  margin-left: 55vw;
+  background-color: white;
+  color: rgb(20,20,20);
+  position: relative;
+}
+
+.edition-element{
+  display: flex;
+  flex-direction: column;
+  /* align-content: center; */
+  align-items: center;
+  width: 71vw;
+  height: 28vh;
+}

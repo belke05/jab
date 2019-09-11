@@ -94,6 +94,7 @@ router.post("/signin", (req, res, next) => {
         res.render("authentication/signin", { msg: "Bad username or password" , title: "Sign in" });
         return;
       }
+      user._id= dbRes._id;
       if (bcrypt.compareSync(user.password, dbRes.password)) {
         req.session.currentUser = user;
         res.redirect("/");
