@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const fighterSchema = new Schema({
   name : String,
   imgPath : String,
-  gifPath: String
+  gifPath: String,
+  twitterLink : String
 })
 
 const Fighters = mongoose.model("Fighters", fighterSchema);
