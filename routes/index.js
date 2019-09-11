@@ -16,13 +16,6 @@ router.get(["/", "/home"], (req, res, next) => {
       // return console.log(articles.length);
       returnAllLeagues()
         .then(leagues => {
-          // articles.forEach(art=>{
-          //   art.comments.forEach(comm=>{
-          //     Comment.findById(comm).then(commres=>{
-
-          //     })
-          //   })
-          // })
           res.render("index", {
             articles: articles,
             scripts: ["home.js"],
@@ -38,31 +31,6 @@ router.get(["/", "/home"], (req, res, next) => {
     .catch(dbErr => {
       console.log(dbErr);
     });
-});
-
-router.post("/changesport", (req, res) => {
-  console.log(req, "req");
-  const sports = req.body.sports;
-  console.log(sports);
-  let response = [];
-  if (sports.length === 0) {
-    returnAllArticles()
-      .then(dbRes => {
-        console.log("her-------------", dbRes);
-        res.send(dbRes);
-      })
-      .catch(dbErr => {
-        console.log(dbErr);
-      });
-  } else {
-    Articles.find({ league: { $in: sports } })
-      .then(dbRes => {
-        res.send(dbRes);
-      })
-      .catch(dbErr => {
-        console.log("there was an error", dbErr);
-      });
-  }
 });
 
 router.post("/addlike", (req, res) => {
@@ -157,3 +125,30 @@ async function commentHandler(art_id, comment, user_id) {
     { new: true }
   );
 }
+
+// unused code
+
+// router.post("/changesport", (req, res) => {
+//   console.log(req, "req");
+//   const sports = req.body.sports;
+//   console.log(sports);
+//   let response = [];
+//   if (sports.length === 0) {
+//     returnAllArticles()
+//       .then(dbRes => {
+//         console.log("her-------------", dbRes);
+//         res.send(dbRes);
+//       })
+//       .catch(dbErr => {
+//         console.log(dbErr);
+//       });
+//   } else {
+//     Articles.find({ league: { $in: sports } })
+//       .then(dbRes => {
+//         res.send(dbRes);
+//       })
+//       .catch(dbErr => {
+//         console.log("there was an error", dbErr);
+//       });
+//   }
+// });

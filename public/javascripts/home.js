@@ -4,6 +4,7 @@ const article_like_btn = document.querySelectorAll(
 const tags_box = document.querySelectorAll(".tags_li input");
 const articles_container = document.querySelectorAll(".articles");
 const comment_btns = document.querySelectorAll(".comment_btn");
+const articles = document.querySelectorAll(".article");
 // delete the images for articles without image source
 
 tags_box.forEach(box => {
@@ -29,16 +30,32 @@ function findCategory(evt) {
       console.log(sports);
     }
   });
-  axios
-    .post("/changesport", { sports: sports })
-    .then(dbRes => {
-      console.log(dbRes.data);
-      addArticles(dbRes.data);
-      // deleteImgElementsWithoutSource();
-    })
-    .catch(dbErr => {
-      console.log(dbErr);
-    });
+  articles.forEach(art => {
+    console.log(art, "art");
+    const sport = art.querySelector(".sport");
+    console.log(sport, "sport");
+    if (sports.length === 0) {
+      art.classList.remove("hidden");
+    } else if (!sports.includes(sport.dataset.sport)) {
+      art.classList.add("hidden");
+      console.log("----- hide");
+      console.log(sport.dataset.sport, "nice");
+      console.log(sports, "sports");
+    } else {
+      art.classList.remove("hidden");
+      console.log("----- show");
+    }
+  });
+  // axios
+  //   .post("/changesport", { sports: sports })
+  //   .then(dbRes => {
+  //     console.log(dbRes.data);
+  //     addArticles(dbRes.data);
+  //     // deleteImgElementsWithoutSource();
+  //   })
+  //   .catch(dbErr => {
+  //     console.log(dbErr);
+  //   });
 }
 
 function addArticles(articles) {
@@ -63,7 +80,19 @@ function addArticles(articles) {
         <button type="button" class="like_btn"><i class="fas fa-heart"></i> 0 Jabs</button>
         <button type="button" class="comment_btn"><i class="fas fa-comment"></i> Comment</button>
         <a> comments</a>
-    </ul>`;
+    </ul>
+    <ul class="comment_display hide_comments">
+        {{#each this.comments}}
+        {{#each this}}
+        <li>{{this.content}}</li>
+        {{/each}}
+        {{/each}}
+    </ul>
+    <div class="comment_section">
+        <span class="comment_input"><input type="text" class="noborders" placeholder="Type your comment here ...">
+            <i class="fas fa-comment-medical addCommentIcon"></i></span>
+    </div>
+    `;
     articles_container.appendChild(art_container);
   });
 }
