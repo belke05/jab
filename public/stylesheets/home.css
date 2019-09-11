@@ -12,11 +12,18 @@
 }
 
 .maintags {
+  /* display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  background-color: #20202028;   */
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-content: center;
-  background-color: #20202028;  
+  background-color: #20202028;
+  width: 80vw;
+  margin: 0 auto;
 }
 
 .maintags li {
@@ -98,4 +105,13 @@
 .articleImage {
   width: 250px;
   height: auto;
+}
+
+.sticky {
+  position: fixed;
+  top: 6vh;
+  z-index:100;
+  background-color: #dcdcdc;
+  width: 80vw;
+  margin: 0 auto;
 }

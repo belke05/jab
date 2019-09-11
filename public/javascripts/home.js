@@ -222,3 +222,20 @@ article_like_btn.forEach(btn => {
 comment_btns.forEach(btn => {
   btn.onclick = commentinput;
 });
+
+
+window.onscroll = function() {myFunction()};
+
+var main = document.getElementById("main");
+var header = document.getElementById("taglist");
+var sticky = taglist.offsetTop-45;
+
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    console.log(window.pageYOffset)
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
