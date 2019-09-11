@@ -12,36 +12,25 @@
   border-radius: 30px;
 }
 
-/* .league-logo{
-  height: 13vh;
-  margin-top: 12vh;
-  /* margin-bottom: 1vh; */
-.league-logo{
-  width: 120px;
-  margin: 5.6vh 3vw;
-  box-shadow: 5px 5px #20202028;
-  border-radius: 30px;
-}
-
-
 
 .user-best {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 40vw;
+  width: 75vw;
   border: solid rgb(20, 20, 20);
   /* border-radius: 30px; */
-  margin-left: 2.5vw;
-  margin-right: 2.5vw;
+  margin: 0 auto;
+  /* margin-right: 2.5vw; */
   height: 40vh;
-  margin-top: 5vh;
+  margin-top: 1vh;
   padding: 10px;
   box-shadow: 10px 10px rgb(0, 0, 0, 0.5);
+  position: relative;
 }
 
 .user-profil-pic{
-  border-radius: 40%;
+  border-radius: 50%;
   width: 10vw;
   margin-top: 5vh;
   margin-left: 6vw;
@@ -67,7 +56,7 @@
   flex-direction: column;
   justify-content: center;
   background-color: rgb(20,20,20);
-  align-items: center;
+  align-items: left;
   border-radius: 30px;
   /* width: 80vw; */
   height: 24vh;
@@ -79,6 +68,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 75vw;
+  justify-content: space-around;
 }
 
 .membership{
@@ -90,36 +81,173 @@
 }
 
 .user-best-h2{
-  margin-top:0;
+  margin-top:2vh;
+  margin-left:2vw;
 }
 
 /* h4.league-name{
   margin-top:2vh;
 } */
 
-.one-league-container {
+.one-fighter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(1);
+  transition: transform .2s linear;
+}
+
+.one-fighter-container * {
+  pointer-events: none;
+}
+
+.one-fighter-container:hover{
+  /* font-size:0.5rem; */
+  transform: scale(3);
+  margin: 0 3vw;  
+}
+
+.choosen-fighter-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(1);
+  transition: transform .2s linear;
+  height:40vh;
+}
+
+.choosen-fighter-container:hover{
+  transform: scale(.3);
+  margin: 0 3vw;  
+}
+
+.league-logo{
+  width: 9vw;
+  margin: 0 3vw;
+  margin-top:5.6vh;
+  border-radius: 30px;
+}
+
+.choosen-logo{
+  box-shadow: 5px 5px rgb(20,20,20);
+  width: 10vw;
+}
+
+.unchoosen-logo{
+  box-shadow: 5px 5px #20202028;
+  
+}
+
+.unchoosen-logo:hover{
+  transition: width .2s linear;
+  width: 11vw;
+  color:rgb(20,20,20);
+  box-shadow: 5px 5px rgb(20,20,20);
+}
+
+/* .choosen-logo:hover{
+  transition: width .2s linear;
+  width: 9vw;
+  margin-top:5.6vh; 
+  color:rgba(20,20,20,0.8);
+  box-shadow: 5px 5px #20202028;
+} */
+
+.one-league-container{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#btn-edit-user-details{
+ /* .one-league-container:hover{
+  color:rgb(20,20,20);
+} */
+
+/*.unselected-container:hover{
+  color:rgba(20,20,20,0.8);
+} */
+
+
+
+.btn-edit{
   border: solid white;
-  border-radius: 20px;
-  height: 4vh;
-  margin: 3vh 3vw;
-  width: 5vw;
-  margin-left: 55vw;
-  background-color: white;
-  color: rgb(20,20,20);
-  position: relative;
+  height: 35px;
+  width: 150px;
+  color: white;
+  background-color: rgb(20,20,20);
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-size: 1rem;
+}
+
+.btn-after-edit{
+  border: solid white;
+  height: 35px;
+  width: 150px;
+  color: white;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-size: 1rem;
+  background-color: rgba(20,20,20,0.8);
 }
 
 .edition-element{
   display: flex;
-  flex-direction: column;
-  /* align-content: center; */
+  flex-direction: row;
   align-items: center;
-  width: 71vw;
   height: 28vh;
+  width: 75vw;
+  margin-top: 6vh;
+  justify-content: space-around;
 }
+
+.fighter-details-header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 24vh;
+  width: 22vw;
+}
+
+.pref-logo{
+  height: 8vh;
+}
+
+.pref-name{
+  font-size: 0.2rem;  
+}
+
+.chosen-fighter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scale(3);
+    transition: transform .2s linear;
+    margin: 0 3vw;  
+}
+
+
+/* .chosen-fighter:hover{
+  transform: scale(1);
+  transition: transform .2s linear;
+  margin: 0 1vw;  
+} */
+
+.edition-element-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 28vh;
+  width: 97vw;
+}
+
+.unselected-container{
+  color: rgba(20,20,20,0.8)
+}
+
+/* .one-league-container img {
+  pointer-events: none;
+} */
