@@ -57,17 +57,26 @@ router.post("/changesport", (req, res) => {
 });
 
 router.post("/addlike", (req, res) => {
-  console.log(req.body.id);
-  console.log(req.session.currentUser._id, "jfjfjfjfj");
-  Articles.findByIdAndUpdate(req.body.id, {
-    $push: { jabs: req.session.currentUser._id }
-  })
-    .then(dbRes => {
-      console.log("succes", dbRes.jabs);
-      res.send(dbRes.jabs.length);
+  // console.log(req.body.id);
+  // console.log(req.session.currentUser._id, "jfjfjfjfj");
+  // Articles.findById(req.body.id);
+  // Articles.findByIdAndUpdate(req.body.id, {
+  //   $push: { jabs: req.session.currentUser._id }
+  // })
+  //   .then(dbRes => {
+  //     console.log("succes", dbRes);
+  //     console.log(dbRes.jabs);
+  //     res.send(dbRes);
+  //   })
+  //   .catch(dbErr => {
+  //     console.log(dbErr);
+  //   });
+  addJab(req.body.id, req.session.currentUser._id)
+    .then(response => {
+      res.send(response);
     })
-    .catch(dbErr => {
-      console.log(dbErr);
+    .catch(err => {
+      console.log(err);
     });
 });
 
@@ -79,4 +88,25 @@ function returnAllArticles() {
 
 function returnAllLeagues() {
   return Leagues.find();
+}
+
+async function addJab(art_id, curUserId) {
+  const foundArticle = await FindArticle(art_id);
+  let Users_that_jabbed = foundArticle.jabs;
+  if (Users_that_jabbed.includes(curUserId)) {
+    return console.log("already commented");
+  } else {
+    const updatedArtcile = await FindArtUpdateJab(art_id, curUserId);
+    return updatedArtcile;
+  }
+}
+
+function FindArticle(art_id) {
+  return Articles.findById(art_id);
+}
+
+function FindArtUpdateJab(art_id, curUserId) {
+  return Articles.findByIdAndUpdate(art_id, {
+    $push: { jabs: curUserId }
+  });
 }

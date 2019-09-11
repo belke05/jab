@@ -91,7 +91,9 @@ function addLikes(evt) {
   axios
     .post("/addlike", { id: art.id })
     .then(dbRes => {
-      changejabcount(dbRes, btn);
+      console.log(dbRes.data.jabs);
+      const jab_count = dbRes.data.jabs.length;
+      changejabcount(jab_count, btn);
     })
     .catch(dbErr => {
       console.log(dbErr);
@@ -99,7 +101,9 @@ function addLikes(evt) {
 }
 
 function changejabcount(jabscount, butn) {
-  butn.innerText = `${jabscount} jabs`;
+  console.log(butn.innerText, "-----");
+  butn.innerHTML = "";
+  butn.innerHTML = `<i class="fas fa-heart"></i>${jabscount} jabs`;
 }
 
 article_like_btn.forEach(btn => {
