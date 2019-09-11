@@ -48,7 +48,7 @@
   left: 0;
   margin-right: 30px;
   border: solid rgb(20, 20, 20);
-  /* box-shadow: 10px 10px rgba(255, 255, 255, 0.5); */
+  /* box-shadow: 10px 10px rgba(29, 161, 242, 0.9);  */
   
   /* position : fixed; */
 }
@@ -67,7 +67,7 @@
 }
 
 .article:hover {
-  box-shadow: 10px 10px rgb(0, 0, 0, 0.5);
+  box-shadow: 10px 10px rgb(255, 0, 0, 0.7);
 }
 
 .article .content {

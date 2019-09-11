@@ -27,7 +27,8 @@ router.get(["/", "/home"], (req, res, next) => {
             articles: articles,
             scripts: ["home.js"],
             title: "JAB Home",
-            leagues: leagues
+            leagues: leagues,
+            displayTitle:true
           });
         })
         .catch(dbErr => {
