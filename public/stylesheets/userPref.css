@@ -44,11 +44,11 @@
 .all-user-info-container{
   display: flex;
   flex-direction: row;
-  margin-top: 5vh;
+  margin-top: -2vh;
+  margin-bottom: 2vh;
   color: white;
   width: 80vw;
   background-color: rgb(20,20,20);
-  /* border-radius: 30px; */
 }
 
 .user-details-header{
