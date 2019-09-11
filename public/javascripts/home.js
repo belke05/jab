@@ -109,6 +109,7 @@ function removeJab(butn) {
 
 function commentinput(evt) {
   let { btn, art } = getArticleId(evt);
+  displaycommentbox(art);
   addtextInput(art);
   console.log(btn);
   console.log(art.id);
@@ -156,17 +157,32 @@ function getArticleId(evt) {
 
 function addComment(evt) {
   if (evt.keyCode == 13) {
-    const art_id = evt.target.parentElement.previousSibling.id;
+    const art_id = evt.target.parentElement.parentElement.querySelector(
+      ".interact"
+    ).id;
+    console.log(
+      "evt targ",
+      evt.target,
+      "evt target previous sib",
+      evt.target.parentElement.parentElement.querySelector(".interact")
+    );
+    console.log("article id", art_id);
     const comment = evt.target.value;
     axios
       .post("/addComment", { comment: comment, art_id: art_id })
       .then(dbRes => {
-        console.log(dbRes.data);
+        console.log(dbRes);
       })
       .catch(dbErr => {
         console.log(dbErr);
       });
   }
+}
+
+function displaycommentbox(art) {
+  console.log("hererere", art);
+  const comment_section = art.querySelector(".comment_display");
+  comment_section.classList.toggle("hide_comments");
 }
 
 article_like_btn.forEach(btn => {

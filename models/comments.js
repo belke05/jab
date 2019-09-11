@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 var CommentsSchema = new Schema({
   content: String,
+  created_at: { type: Date, required: true, default: Date.now },
   postedBy: {
     type: mongoose.Schema.ObjectId,
     ref: "User"

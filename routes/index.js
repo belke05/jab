@@ -9,12 +9,20 @@ const Comment = require("../models/comments");
 
 router.get(["/", "/home"], (req, res, next) => {
   returnAllArticles()
+    .populate("comments")
     .then(articles => {
       console.log(articles);
       // articles = articles.slice(10, 20);
       // return console.log(articles.length);
       returnAllLeagues()
         .then(leagues => {
+          // articles.forEach(art=>{
+          //   art.comments.forEach(comm=>{
+          //     Comment.findById(comm).then(commres=>{
+
+          //     })
+          //   })
+          // })
           res.render("index", {
             articles: articles,
             scripts: ["home.js"],
@@ -127,10 +135,6 @@ function removeUserJab(art_id, curUserId) {
   });
 }
 
-function findArtUpdateComment(art_id, comment) {
-  return Articles.findByIdAndUpdate(art_id, { comm });
-}
-
 function addComment(com) {
   return com.save();
 }
@@ -141,10 +145,14 @@ async function commentHandler(art_id, comment, user_id) {
     postedBy: user_id,
     onArticle: user_id
   });
+  console.log(createdComment);
   const savedComment = await addComment(createdComment);
-  const foundArticle = await findArtUpdateComment(art_id, savedComment._id);
   // returns found article with the new comments
-  return Articles.findByIdAndUpdate(art_id, {
-    $push: { comments: savedComment._id }
-  });
+  return Articles.findByIdAndUpdate(
+    art_id,
+    {
+      $push: { comments: savedComment._id }
+    },
+    { new: true }
+  );
 }

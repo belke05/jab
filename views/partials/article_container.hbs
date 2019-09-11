@@ -26,6 +26,12 @@
     <ul class="interact" id="{{this._id}}">
         <button type="button" class="like_btn"><i class="far fa-hand-paper"></i> {{this.jabs.length}}</button>
         <button type="button" class="comment_btn"><i class="fas fa-comment"></i> Comment</button>
-        <a>{{this.comments}} comments</a>
+    </ul>
+    <ul class="comment_display hide_comments">
+        {{#each this.comments}}
+        {{#each this}}
+        <li>{{this.content}}</li>
+        {{/each}}
+        {{/each}}
     </ul>
 </div>
