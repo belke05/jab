@@ -57,20 +57,6 @@ router.post("/changesport", (req, res) => {
 });
 
 router.post("/addlike", (req, res) => {
-  // console.log(req.body.id);
-  // console.log(req.session.currentUser._id, "jfjfjfjfj");
-  // Articles.findById(req.body.id);
-  // Articles.findByIdAndUpdate(req.body.id, {
-  //   $push: { jabs: req.session.currentUser._id }
-  // })
-  //   .then(dbRes => {
-  //     console.log("succes", dbRes);
-  //     console.log(dbRes.jabs);
-  //     res.send(dbRes);
-  //   })
-  //   .catch(dbErr => {
-  //     console.log(dbErr);
-  //   });
   addJab(req.body.id, req.session.currentUser._id)
     .then(response => {
       res.send(response);
@@ -81,6 +67,8 @@ router.post("/addlike", (req, res) => {
 });
 
 module.exports = router;
+
+// functions use in routes
 
 function returnAllArticles() {
   return Articles.find({}).sort({ pub_date: "desc" });
@@ -94,7 +82,7 @@ async function addJab(art_id, curUserId) {
   const foundArticle = await FindArticle(art_id);
   let Users_that_jabbed = foundArticle.jabs;
   if (Users_that_jabbed.includes(curUserId)) {
-    return console.log("already commented");
+    return "already jabbed";
   } else {
     const updatedArtcile = await FindArtUpdateJab(art_id, curUserId);
     return updatedArtcile;

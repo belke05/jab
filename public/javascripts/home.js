@@ -72,8 +72,6 @@ function deleteImgElementsWithoutSource() {
 }
 
 function addLikes(evt) {
-  console.log(evt);
-  console.log(evt.target);
   evt.preventDefault();
   let btn;
   let art;
@@ -84,26 +82,37 @@ function addLikes(evt) {
     btn = evt.target;
     art = btn.parentElement;
   }
-
-  // const jabCount = Number(btn.innerText.replace(" jabs", ""));
-  // console.log(jabCount, "eeee", btn);
-  console.log(art);
   axios
     .post("/addlike", { id: art.id })
     .then(dbRes => {
-      console.log(dbRes.data.jabs);
-      const jab_count = dbRes.data.jabs.length;
-      changejabcount(jab_count, btn);
+      if (dbRes.data == "") {
+        console.log(dbRes);
+        console.log("al jabbed");
+        // removeJab(btn);
+      } else {
+        addJab(btn);
+        console.log("new jab");
+        console.log(dbRes);
+      }
     })
     .catch(dbErr => {
       console.log(dbErr);
     });
 }
 
-function changejabcount(jabscount, butn) {
-  console.log(butn.innerText, "-----");
-  butn.innerHTML = "";
-  butn.innerHTML = `<i class="fas fa-heart"></i>${jabscount} jabs`;
+function addJab(butn) {
+  console.log(butn.innerText.replace("jabs", ""));
+  console.log(butn.innerText.replace("Jabs", "").trim(), "-----");
+  const newNum = Number(butn.innerText.replace("Jabs", "").trim());
+  butn.innerHTML = `<i class="fas fa-heart"></i>${newNum + 1} jabs`;
+}
+
+function removeJab(butn) {
+  console.log(butn.innerText.replace("Jabs", "").trim(), "-----");
+  const newNum = Number(butn.innerText.replace("Jabs", "").trim());
+  if (newNum != 0) {
+    butn.innerHTML = `<i class="fas fa-heart"></i>${newNum - 1} jabs`;
+  }
 }
 
 article_like_btn.forEach(btn => {
