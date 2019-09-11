@@ -1,0 +1,21 @@
+.like_btn {
+  font-size: 1.5rem;
+  background-color: ghostwhite;
+  border-color: crimson;
+}
+
+.comment_btn {
+  background-color: ghostwhite;
+  border-color: crimson;
+  font-size: 1.5rem;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment_input {
+  width: 70%;
+  margin: 0 auto;
+}

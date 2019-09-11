@@ -2,8 +2,8 @@ const article_like_btn = document.querySelectorAll(
   ".article .interact .like_btn"
 );
 const tags_box = document.querySelectorAll(".tags_li input");
-const articles_container = document.querySelector(".articles");
-
+const articles_container = document.querySelectorAll(".articles");
+const comment_btns = document.querySelectorAll(".comment_btn");
 // delete the images for articles without image source
 
 tags_box.forEach(box => {
@@ -73,15 +73,7 @@ function deleteImgElementsWithoutSource() {
 
 function addLikes(evt) {
   evt.preventDefault();
-  let btn;
-  let art;
-  if (evt.target.tagName === "I") {
-    btn = evt.target.parentElement;
-    art = btn.parentElement;
-  } else {
-    btn = evt.target;
-    art = btn.parentElement;
-  }
+  let { btn, art } = getArticleId(evt);
   axios
     .post("/addlike", { id: art.id })
     .then(dbRes => {
@@ -102,19 +94,77 @@ function addLikes(evt) {
 
 function addJab(butn) {
   console.log(butn.innerText.replace("jabs", ""));
-  console.log(butn.innerText.replace("Jabs", "").trim(), "-----");
-  const newNum = Number(butn.innerText.replace("Jabs", "").trim());
-  butn.innerHTML = `<i class="fas fa-heart"></i>${newNum + 1} Jabs`;
+  console.log(butn.innerText.trim(), "-----");
+  const newNum = Number(butn.innerText.trim());
+  butn.innerHTML = `<i class="fas fa-fist-raised"></i>  ${newNum + 1}`;
 }
 
 function removeJab(butn) {
-  console.log(butn.innerText.replace("Jabs", "").trim(), "-----");
-  const newNum = Number(butn.innerText.replace("Jabs", "").trim());
+  console.log(butn.innerText.trim(), "-----");
+  const newNum = Number(butn.innerText.trim());
   if (newNum != 0) {
-    butn.innerHTML = `<i class="fas fa-heart"></i>${newNum - 1} Jabs`;
+    butn.innerHTML = `<i class="far fa-hand-paper"></i>  ${newNum - 1}`;
   }
+}
+
+function commentinput(evt) {
+  let { btn, art } = getArticleId(evt);
+  addtextInput(art);
+  console.log(btn);
+  console.log(art.id);
+}
+
+function addtextInput(art) {
+  const input = document.createElement("input");
+  input.type = "text";
+  input.className = "comment_input";
+  const div = document.createElement("div");
+  div.appendChild(input);
+  div.className = "comment_section";
+  if (
+    document
+      .getElementById(`${art.id}`)
+      .parentElement.getElementsByTagName("input").length > 0
+  ) {
+    const parent = document.getElementById(`${art.id}`).parentElement;
+    const child = document.getElementById(`${art.id}`).nextSibling;
+    parent.removeChild(child);
+  } else {
+    art.parentElement.appendChild(div);
+    const inputbox = document
+      .getElementById(`${art.id}`)
+      .parentElement.getElementsByTagName("input");
+    inputbox.onkeypress = addComment;
+  }
+}
+
+function getArticleId(evt) {
+  evt.preventDefault();
+  let btn;
+  let art;
+  if (evt.target.tagName === "I") {
+    btn = evt.target.parentElement;
+    art = btn.parentElement;
+  } else {
+    btn = evt.target;
+    art = btn.parentElement;
+  }
+  return { btn, art };
 }
 
 article_like_btn.forEach(btn => {
   btn.onclick = addLikes;
 });
+
+comment_btns.forEach(btn => {
+  btn.onclick = commentinput;
+});
+
+function addComment(comment) {
+  if (e.keyCode == 13) {
+    axios
+      .post("/addComment", { comment: comment })
+      .then()
+      .catch();
+  }
+}
