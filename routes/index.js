@@ -82,6 +82,7 @@ async function addJab(art_id, curUserId) {
   const foundArticle = await FindArticle(art_id);
   let Users_that_jabbed = foundArticle.jabs;
   if (Users_that_jabbed.includes(curUserId)) {
+    const removeUser = await removeUserJab(art_id);
     return "already jabbed";
   } else {
     const updatedArtcile = await FindArtUpdateJab(art_id, curUserId);
@@ -96,5 +97,11 @@ function FindArticle(art_id) {
 function FindArtUpdateJab(art_id, curUserId) {
   return Articles.findByIdAndUpdate(art_id, {
     $push: { jabs: curUserId }
+  });
+}
+
+function removeUserJab(art_id, curUserId) {
+  return Articles.findByIdAndUpdate(art_id, {
+    $pull: { jabs: curUserId }
   });
 }

@@ -85,10 +85,10 @@ function addLikes(evt) {
   axios
     .post("/addlike", { id: art.id })
     .then(dbRes => {
-      if (dbRes.data == "") {
+      if (dbRes.data === "already jabbed") {
         console.log(dbRes);
         console.log("al jabbed");
-        // removeJab(btn);
+        removeJab(btn);
       } else {
         addJab(btn);
         console.log("new jab");
@@ -104,14 +104,14 @@ function addJab(butn) {
   console.log(butn.innerText.replace("jabs", ""));
   console.log(butn.innerText.replace("Jabs", "").trim(), "-----");
   const newNum = Number(butn.innerText.replace("Jabs", "").trim());
-  butn.innerHTML = `<i class="fas fa-heart"></i>${newNum + 1} jabs`;
+  butn.innerHTML = `<i class="fas fa-heart"></i>${newNum + 1} Jabs`;
 }
 
 function removeJab(butn) {
   console.log(butn.innerText.replace("Jabs", "").trim(), "-----");
   const newNum = Number(butn.innerText.replace("Jabs", "").trim());
   if (newNum != 0) {
-    butn.innerHTML = `<i class="fas fa-heart"></i>${newNum - 1} jabs`;
+    butn.innerHTML = `<i class="fas fa-heart"></i>${newNum - 1} Jabs`;
   }
 }
 
