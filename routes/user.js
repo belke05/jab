@@ -5,47 +5,13 @@ const protectedRoute = require("../middleware/protectedRoute")
 const uploaderMiddleware = require("../config/cloudinary.js");
 const Users = require("./../models/users.js");
 const Fighters = require("../models/fighters.js");
-const Leagues = require("../models/leagues.js");
+const Leagues = require("./../models/leagues.js");
 const Article = require("./../models/articles.js");
 
-router.get("/cage", protectedRoute,(req,res)=>{
-  res.render("userPref/preferences")
-});
 
-router.get("/preferences",protectedRoute,(req,res)=>{
-  let userId= req.session.currentUser._id;
-  var user;
-  var userLeaguesIds =[];
-  var userLeagues =[];
-  Users.findById(userId)
-    .then(userRes=>{
-      console.log("user found", userRes)
-      user = userRes;
-      userLeaguesIds = userRes.leagues;
-      Fighters.findById(userRes.fighter)
-        .then(fighterRes=>{
-          console.log("Favorite Fighter Found", fighterRes)
-          user.fighterName = fighterRes.name;
-          user.fighterImgPath = fighterRes.imgPath;
-          var date = new Date(user.created)
-          user.creationDate = date.toDateString();
-          Leagues.find()
-          .then (leaguesList => {
-            leaguesList.forEach(league => {
-              if (userLeaguesIds.indexOf(league._id)>=0){
-                userLeagues.push({_id:league._id, name:league.name, imgPath: league.imgPath})
-              }
-            });
-            res.render("userPref/preferences", {
-              title: "cage", 
-              user: user,
-              leagues: userLeagues
-            });
-          })
-        })
-    })
-    .catch(userErr=> console.log(userErr))
-});
+// const Leagues = require("../models/leagues.js");
+// const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
+
 
 router.get("/cage", protectedRoute, (req, res) => {
   const userId = req.session.currentUser.id;
@@ -78,6 +44,9 @@ router.get("/cage", protectedRoute, (req, res) => {
     }).catch(err => console.log(err));
 });
 
+router.get("/preferences", protectedRoute, (req, res) => {
+  res.render("userPref/preferences")
+});
 
 
 // router.post("/cage",(req,res)=>{
@@ -91,6 +60,10 @@ router.get("/cage", protectedRoute, (req, res) => {
 
 // router.get("/cage", (req,res)=>{
 //   res.render("userPref/cage")
+// });
+
+// router.get("/preferences", (req,res)=>{
+//   res.render("userPref/preferences")
 // });
 
 module.exports = router;
