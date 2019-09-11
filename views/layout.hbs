@@ -21,14 +21,19 @@
 <body>
 
   {{> nav}}
-  {{!-- {{#if displayTitle}} --}}
+  {{#if displayTitle}}
       {{> header}}
-  {{!-- {{/if}} --}}
+      {{!-- <div class="home-body">
+    {{{body}}}
+  </div> --}}
+  {{/if}}
  
   <div class="main-body">
 
     {{{body}}}
   </div>
+  
+
   {{>footer}}
   <script src="/javascripts/script.js"></script>
 </body>

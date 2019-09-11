@@ -52,9 +52,16 @@ h4 {
 .main-body {
   width: 80vw;
   min-height: 89vh;
-  margin: 1vh auto;
+  margin: 10vh auto;
   background-color:white;
   /* position: relative; */
+}
+
+.home-body{
+  width: 80vw;
+  min-height: 89vh;
+  margin: 1vh auto;
+  background-color:white;
 }
 
 .hidden {
