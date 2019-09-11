@@ -16,8 +16,11 @@
 }
 
 .comment_input {
-  width: 70%;
+  width: 98%;
   margin: 0 auto;
+  padding: 2px;
+  margin: 0;
+  border: 2px solid darkred;
 }
 
 .comment_display {

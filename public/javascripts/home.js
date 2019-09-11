@@ -119,19 +119,24 @@ function addtextInput(art) {
   const input = document.createElement("input");
   input.type = "text";
   input.className = "comment_input";
-  const div = document.createElement("div");
-  div.appendChild(input);
-  div.className = "comment_section";
+  console.log(art, "article");
+
+  const div = art.parentElement.querySelector(".comment_section");
+  console.log(div, "cmnt section");
+  // console.log(
+  //   document.getElementById(`${art.id}`).parentElement.querySelector("input"),
+  //   "heheheheheh"
+  // );
   if (
-    document
-      .getElementById(`${art.id}`)
-      .parentElement.getElementsByTagName("input").length > 0
+    !document.getElementById(`${art.id}`).parentElement.querySelector("input")
   ) {
-    const parent = document.getElementById(`${art.id}`).parentElement;
-    const child = document.getElementById(`${art.id}`).nextSibling;
-    parent.removeChild(child);
-  } else {
-    art.parentElement.appendChild(div);
+    // ) {
+    //   const parent = document.getElementById(`${art.id}`).parentElement;
+    //   const child = document.getElementById(`${art.id}`).nextSibling;
+    //   console.log(parent, "parent", child, "child");
+    //   parent.removeChild(child);
+    // } else
+    div.appendChild(input);
     const inputbox = document
       .getElementById(`${art.id}`)
       .parentElement.querySelectorAll("input");
@@ -181,7 +186,8 @@ function addComment(evt) {
 
 function displaycommentbox(art) {
   console.log("hererere", art);
-  const comment_section = art.querySelector(".comment_display");
+  const comment_section = art.parentElement.querySelector(".comment_display");
+  console.log(comment_section, "ggggggg");
   comment_section.classList.toggle("hide_comments");
 }
 
