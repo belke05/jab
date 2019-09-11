@@ -41,10 +41,18 @@
 
 .twitter {
   width: auto;
+  height:80vh;
   left: 0;
   margin-right: 30px;
+  border: solid rgb(20, 20, 20);
+  
   /* position : fixed; */
 }
+
+.twitter:hover{
+  box-shadow: 10px 10px rgb(0, 0, 0, 0.5);
+}
+
 .articles {
   width: 80%;
 }

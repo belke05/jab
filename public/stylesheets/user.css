@@ -1,5 +1,4 @@
 .hello_div{
-    margin-top:4vh;
     display : flex;
     flex-flow : row wrap;
 }
@@ -13,6 +12,17 @@
 .user_gif_div img{
     max-width : 350px;
     max-height: 350px;
+}
+
+.userPrefUl{
+    display : block;
+    margin-top : 5px;
+}
+
+.userPrefLi{
+    margin-right : 1em;
+   
+
 }
 
 
