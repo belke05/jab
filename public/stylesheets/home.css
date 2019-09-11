@@ -16,11 +16,12 @@
   flex-flow: row wrap;
   justify-content: center;
   align-content: center;
-  background-color: #20202028;
+  background-color: #20202028;  
 }
 
 .maintags li {
   margin-right: 20px;
+
 }
 .tags_img {
   width: 50px;
@@ -32,6 +33,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-bottom:5px;
+  margin-top:5px;
 }
 .tags_li {
   display: flex;
@@ -45,13 +48,12 @@
   left: 0;
   margin-right: 30px;
   border: solid rgb(20, 20, 20);
+  /* box-shadow: 10px 10px rgba(255, 255, 255, 0.5); */
   
   /* position : fixed; */
 }
 
-.twitter:hover{
-  box-shadow: 10px 10px rgb(0, 0, 0, 0.5);
-}
+
 
 .articles {
   width: 80%;
