@@ -1,0 +1,132 @@
+@media only screen 
+and (max-width : 1300px){
+    .twitter{
+        display : none;
+    }
+}
+
+@media only screen 
+and (max-width : 1000px){
+    .container{
+        flex-direction : column-reverse;
+    }
+    .maintags{
+        flex-flow : row wrap;
+        height : 10vh;
+        width : 100%; 
+        position : inherit;
+        margin-left : 0;
+
+    }
+
+    .main-body{
+        margin-right:0;
+        margin-left:0;
+        width : 100%;
+
+    }
+
+    .articles{
+        width : 100%;
+        margin-top : 1vh;
+        margin-left:0;
+    }
+    
+    .tags_img {
+        max-width: 30px;
+        max-height: 30px;
+        margin: 0.5vh 0.5vw;
+      }
+
+    .tags_ul{
+        flex-flow : row wrap;
+    }
+
+    .sport-name{
+        display : none;
+    }
+}
+
+@media only screen 
+and (max-width : 850px){
+    .articleImage{
+        display : none;
+    }
+    
+}
+
+@media only screen
+and (max-width : 800px){
+    .main{
+        display : none;
+    }
+    .maintags h4{
+        display : none;
+    }
+
+    .interact_btn{
+        font-size : 1rem;
+        
+    }
+
+    .likes_nb{
+        display:none;
+    }
+}
+
+@media only screen 
+and (max-width : 655px){
+    .maintags {
+        display : none;
+    }
+}
+
+@media only screen
+and (max-width : 500px){
+    #burger{
+        display: flex;
+        margin-left:auto;
+        align-self : center;
+        margin-right:20px;
+       
+    }
+
+    .removed{
+        display : none;
+    }
+
+    .right-nav{
+        display : none;
+    }
+
+    #sidebar.is-here{
+        right:0;
+        top : 53px;
+      }
+    
+    #sidebar{
+        display : flex;
+        flex-flow : column wrap;
+        justify-content: center;
+        align-content: center;    
+    }
+
+    #sidebar ul{
+        list-style-position:outside;
+        display : flex;
+        flex-flow : column;
+        justify-content: center;
+        align-content: center; 
+    }
+
+      #sidebar li{
+        display: block;
+        margin-top : 5px;
+        margin-right : 50px;  
+        list-style : none;
+        position : center;
+        font-size : 1.2rem;
+    }
+
+    
+}

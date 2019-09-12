@@ -1,0 +1,30 @@
+<aside id="sidebar">
+    <ul id="nav-mobile">
+        <li class="nav-item mobile nav-link ">
+            <a href="/home">Home</a>
+        </li>
+        <li class="nav-item mobile nav-link  ">
+            <a href="/videos">Videos</a>
+        </li>
+        {{#if isLoggedIn}}
+        <li class="nav-item mobile nav-link">
+            <a href="/cage">My cage</a>
+        </li>
+        {{/if}}
+        {{#unless isLoggedIn}}
+        <li class="nav-item mobile">
+            <a href="/signin" id="nav_login" class="button-ternary flexed-item nav-end-item nav-link">
+                Log in
+            </a>
+        </li>
+        {{/unless}}
+        {{#if isLoggedIn}}
+        <li class="nav-item mobile">
+            <a href="/preferences"><i class="far fa-user nav-link user-icon"></i></a>
+        </li>
+        <li class="nav-item mobile">
+            <a href="/logout" id="nav-logout" class="nav-link">Log out</a>
+        </li>
+        {{/if}}
+    </ul>
+</aside>

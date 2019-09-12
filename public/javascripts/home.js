@@ -238,6 +238,13 @@ function basicLogo() {
   logo.src = "/images/logo/basic.png";
 }
 
+var burger = document.getElementById("burger");
+var sidebar = document.getElementById("sidebar");
+
+burger.onclick = () => {
+    sidebar.classList.toggle("is-here"),
+    console.log('hello')
+};
 
 
 

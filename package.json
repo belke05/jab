@@ -5,7 +5,7 @@
   "scripts": {
     "starter": "nodemon ./bin/www -e js,hbs",
     "dev": "DEBUG=jab-code:* nodemon ./bin/www -e js,hbs",
-    "dev-windows": "nodemon ./bin/www",
+    "dev-windows": "nodemon ./bin/www -e js,hbs",
     "start": "node ./bin/www"
   },
   "dependencies": {

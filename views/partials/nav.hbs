@@ -2,10 +2,10 @@
   <div class="left-nav">
     <a href="/home" id="nav-jab" class="nav-link nav-logo"><img src="/images/logo/basic.png" alt="JAB" class="logo_main" id="main_logo"></a>
     <div class="nav-all-users">
-        <a href="/home" id="nav-home" class="nav-link nav-logo">Home</a>
-        <a href="/videos" id="nav-videos" class="nav-link">Videos</a>
+        <a href="/home" id="nav-home" class="nav-link removed">Home</a>
+        <a href="/videos" id="nav-videos" class="nav-link removed">Videos</a>
         {{#if isLoggedIn}}
-          <a href="/cage" id="nav-cage" class="nav-link">My Cage</a>
+          <a href="/cage" id="nav-cage" class="nav-link removed">My Cage</a>
     
         {{/if}}
 
@@ -22,4 +22,8 @@
       <a  href="/signin" id="nav-login" class="nav-link">Sign in</a>
     {{/if}}
   </div>
+  {{>mobile_menu}}
+  <i id="burger" class="fa fa-bars"></i>
+
+
 </div>
