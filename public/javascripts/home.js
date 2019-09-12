@@ -242,3 +242,18 @@ function myFunction() {
     header.classList.remove("sticky");
   }
 }
+
+
+const logo = document.getElementById("main_logo");
+
+logo.onmouseenter = hoverLogo;
+logo.onmouseleave = basicLogo;
+
+function hoverLogo(){
+  logo.src = "/images/logo/hover.png";
+}
+function basicLogo(){
+  logo.src = "/images/logo/basic.png";
+}
+
+
