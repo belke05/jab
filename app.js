@@ -2,6 +2,7 @@ require("dotenv").config();
 require("./config/mongodb");
 require("./utils/helpers-hbs"); // utils for hbs templates
 // require("./config/cron.js");
+// require("./bin/seed.js");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const express = require("express");
@@ -19,7 +20,7 @@ const debug = require("debug")(
 
 const app = express();
 // initial config
-
+console.log(process.env.MONGODB_URI);
 app.set("view engine", "hbs");
 app.set("views", __dirname + "/views");
 hbs.registerPartials(__dirname + "/views/partials");
@@ -92,8 +93,9 @@ app.locals.title = "JAB - MMA News";
 const index = require("./routes/index");
 const authentication = require("./routes/authentication");
 const userPref = require("./routes/user");
+const videos = require("./routes/videos");
 app.use("/", index);
 app.use("/", authentication);
 app.use("/", userPref);
-
+app.use("/", videos);
 module.exports = app;

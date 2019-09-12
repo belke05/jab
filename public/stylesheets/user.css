@@ -1,31 +1,25 @@
-.hello_div{
-    display : flex;
-    flex-flow : row wrap;
+.hello_div {
+  display: flex;
+  flex-flow: nowrap;
 }
 
-.user_text{
-    /* margin-left: 2vw; */
-    /* margin-top: 0; */
-    align-self: center;
-    margin: 0px 11vw;
+.user_text {
+  /* margin-left: 2vw; */
+  /* margin-top: 0; */
+  align-self: center;
+  margin: 0px 11vw;
 }
 
-
-.user_gif_div img{
-    max-width : 350px;
-    max-height: 350px;
+.user_gif_div img {
+  max-width: 350px;
+  max-height: 350px;
 }
 
-.userPrefUl{
-    display : block;
-    margin-top : 5px;
+.userPrefUl {
+  display: block;
+  margin-top: 5px;
 }
 
-.userPrefLi{
-    margin-right : 1em;
-   
-
+.userPrefLi {
+  margin-right: 1em;
 }
-
-
-
