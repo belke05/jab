@@ -226,26 +226,25 @@ comment_btns.forEach(btn => {
   btn.onclick = commentinput;
 });
 
-
 var logo = document.getElementById("main_logo");
 
 logo.onmouseenter = hoverLogo;
 logo.onmouseleave = basicLogo;
 
-function hoverLogo(){
+function hoverLogo() {
   logo.src = "/images/logo/hover.png";
 }
-function basicLogo(){
+function basicLogo() {
   logo.src = "/images/logo/basic.png";
 }
 
-
-window.onscroll = function() {myFunction()};
+window.onscroll = function() {
+  myFunction();
+};
 
 var main = document.getElementById("main");
 var header = document.getElementById("taglist");
-var sticky = taglist.offsetTop-45;
-
+var sticky = taglist.offsetTop - 45;
 
 function myFunction() {
   if (window.pageYOffset > sticky) {
@@ -255,21 +254,3 @@ function myFunction() {
     header.classList.remove("sticky");
   }
 }
-<<<<<<< HEAD
-
-
-const logo = document.getElementById("main_logo");
-
-logo.onmouseenter = hoverLogo;
-logo.onmouseleave = basicLogo;
-
-function hoverLogo(){
-  logo.src = "/images/logo/hover.png";
-}
-function basicLogo(){
-  logo.src = "/images/logo/basic.png";
-}
-
-
-=======
->>>>>>> views
