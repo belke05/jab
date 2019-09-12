@@ -7,6 +7,7 @@ const Users = require("./../models/users.js");
 const Fighters = require("../models/fighters.js");
 const Leagues = require("../models/leagues.js");
 
+
 router.get("/signup", (req, res) => {
   Fighters.find()
     .then(fightersList => {
