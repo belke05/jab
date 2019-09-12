@@ -1,3 +1,4 @@
+const utf8 = require("utf8");
 const express = require("express");
 const Fighters = require("../models/fighters");
 const Users = require("../models/users");
@@ -7,6 +8,7 @@ const videos = google.youtube({
   version: "v3",
   auth: "AIzaSyAR5ES7hlnyLBEszWjaaFBzL-pyh8IMb6U"
 });
+let fighterName = "";
 
 router.get("/videos", (req, res, next) => {
   Users.findById(req.session.currentUser._id)
@@ -14,6 +16,7 @@ router.get("/videos", (req, res, next) => {
       console.log(userRes);
       const leagues = userRes.leagueTag;
       const fighter = userRes.fighter;
+      console.log(fighter, "heheheheh");
       searchvideosThenReturn(leagues, fighter)
         .then(videosInfo => {
           let videoInfo = [];
@@ -21,10 +24,15 @@ router.get("/videos", (req, res, next) => {
             let description = vid.snippet.description;
             let title = vid.snippet.title;
             let id = vid.id.videoId;
-            videoInfo.push([id, title, description]);
+            videoInfo.push({ id, title, description });
           });
           console.log(videoInfo);
-          res.render("videos", { scripts: ["videos.js"], videos: videosInfo });
+          res.render("videos", {
+            scripts: ["videos.js"],
+            videos: videoInfo,
+            leagues,
+            fighterName
+          });
         })
         .catch();
     })
@@ -35,6 +43,7 @@ async function searchvideosThenReturn(leaguesArray, fighterid) {
   console.log("here here here");
   var fighter = await lookUpFighter(fighterid);
   console.log(fighter, "fighter");
+  fighterName = fighter.name;
   console.log(leaguesArray, "leagues");
   let videos = [];
   for (let i = 0; i < leaguesArray.length; i++) {

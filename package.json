@@ -28,7 +28,9 @@
     "node-cron": "^2.0.3",
     "node-sass-middleware": "^0.11.0",
     "passport": "^0.4.0",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "utf-8": "^2.0.0",
+    "utf8": "^3.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
