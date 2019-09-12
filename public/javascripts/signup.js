@@ -16,11 +16,13 @@ signupPage1.classList.remove("hidden");
 signupPage2.classList.add("hidden");
 
 btnNext.onclick = (evt) =>{
-  checkSignUpInput(evt)
-  if(signupOk){
-    signupPage1.classList.add("hidden");
-    signupPage2.classList.remove("hidden");
-  }
+  checkSignUpInput(evt, function(singinUpStatus){
+    if(singinUpStatus){
+      signupPage1.classList.add("hidden");
+      signupPage2.classList.remove("hidden");
+    }
+  })
+
 }
 
 function postFighter(evt){
@@ -40,7 +42,7 @@ function updateFighterImg(fighter) {
 fighterSelect.onchange = postFighter;
 
 
-function checkSignUpInput(evt){
+function checkSignUpInput(evt, cb){
   evt.preventDefault();
   console.log(messageBox)
   if(!username.value || !email.value || !passwd.value){
@@ -58,7 +60,9 @@ function checkSignUpInput(evt){
         messageBox.innerText = serverRes.data;
         messageBox.classList.remove("hidden");
       } else {
+    
         signupOk = true;
+        cb(signupOk);
         messageBox.classList.add("hidden");
       }
     })
