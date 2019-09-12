@@ -233,7 +233,7 @@ var sticky = taglist.offsetTop-45;
 
 function myFunction() {
   if (window.pageYOffset > sticky) {
-    console.log(window.pageYOffset)
+    // console.log(window.pageYOffset)
     header.classList.add("sticky");
   } else {
     header.classList.remove("sticky");
