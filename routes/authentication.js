@@ -79,9 +79,9 @@ router.post(
               user.fighter = fighter._id;
             })
             .then(() => {
-              Users.create(user).then(() => {
+              Users.create(user).then((user) => {
                 req.session.currentUser = user;
-                res.redirect("/signin");
+                res.redirect("/cage");
               });
             })
             .catch(dbErr => {
@@ -113,7 +113,7 @@ router.post("/signin", (req, res, next) => {
       user._id = dbRes._id;
       if (bcrypt.compareSync(user.password, dbRes.password)) {
         req.session.currentUser = user;
-        res.redirect("/");
+        res.redirect("/cage");
         return;
       } else {
         res.render("authentication/signin", {
