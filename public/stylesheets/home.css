@@ -66,8 +66,20 @@
   border: solid rgb(20, 20, 20);
 }
 
-.article:hover {
+.boxing-hover:hover {
   box-shadow: 10px 10px rgb(255, 0, 0, 0.7);
+}
+.kickboxing-hover:hover {
+  box-shadow: 10px 10px rgba(73, 60, 146, 0.7);
+}
+.mma-hover:hover {
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.7);
+}
+.judo-hover:hover {
+  box-shadow: 10px 10px rgba(5, 207, 207, 0.7);
+}
+.jiujitsu-hover:hover {
+  box-shadow: 10px 10px rgba(26, 224, 19, 0.7);
 }
 
 .article .content {
