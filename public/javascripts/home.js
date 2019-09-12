@@ -227,17 +227,7 @@ comment_btns.forEach(btn => {
 });
 
 
-var logo = document.getElementById("main_logo");
 
-logo.onmouseenter = hoverLogo;
-logo.onmouseleave = basicLogo;
-
-function hoverLogo(){
-  logo.src = "/images/logo/hover.png";
-}
-function basicLogo(){
-  logo.src = "/images/logo/basic.png";
-}
 
 
 window.onscroll = function() {myFunction()};
