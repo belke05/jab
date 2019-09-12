@@ -2,17 +2,18 @@ const article_like_btn = document.querySelectorAll(
   ".article .interact .like_btn"
 );
 const tags_box = document.querySelectorAll(".tags_li input");
-const articles_container = document.querySelectorAll(".articles");
+const articles_container = document.querySelector(".articles");
 const comment_btns = document.querySelectorAll(".comment_btn");
 const articles = document.querySelectorAll(".article");
-// delete the images for articles without image source
+const inputbox = document.querySelectorAll("input");
+const inputicon = document.querySelectorAll(".addCommentIcon");
+const userFighter = document.querySelector(".user_gif_div img").alt;
+const url = `https://newsapi.org/v2/everything?q=${userFighter}&apiKey=537b32f4c8894d2b8cf98f3b990d3e3f`;
+console.log(url);
 
 tags_box.forEach(box => {
   box.onclick = findCategory;
 });
-
-const inputbox = document.querySelectorAll("input");
-const inputicon = document.querySelectorAll(".addCommentIcon");
 inputbox.forEach(input => {
   input.onkeydown = addComment;
 });
@@ -20,85 +21,46 @@ inputicon.forEach(icon => {
   icon.onclick = addComment;
 });
 
-function findCategory(evt) {
-  const sports = [];
-  console.log(sports);
-  tags_box.forEach(box => {
-    if (box.checked) {
-      console.log(box.id);
-      sports.push(box.id);
-      console.log(sports);
-    }
-  });
-  articles.forEach(art => {
-    console.log(art, "art");
-    const sport = art.querySelector(".sport");
-    console.log(sport, "sport");
-    if (sports.length === 0) {
-      art.classList.remove("hidden");
-    } else if (!sports.includes(sport.dataset.sport)) {
-      art.classList.add("hidden");
-      console.log("----- hide");
-      console.log(sport.dataset.sport, "nice");
-      console.log(sports, "sports");
-    } else {
-      art.classList.remove("hidden");
-      console.log("----- show");
-    }
-  });
-  // axios
-  //   .post("/changesport", { sports: sports })
-  //   .then(dbRes => {
-  //     console.log(dbRes.data);
-  //     addArticles(dbRes.data);
-  //     // deleteImgElementsWithoutSource();
-  //   })
-  //   .catch(dbErr => {
-  //     console.log(dbErr);
-  //   });
+ApiCallFighterArticles();
+function ApiCallFighterArticles() {
+  axios
+    .get(url)
+    .then(res => {
+      console.log(res);
+      const articles = res.data.articles.slice(0, 2);
+      appendArticles(articles);
+    })
+    .post(err => {
+      console.log(err);
+    });
 }
 
-function addArticles(articles) {
-  articles_container.innerHTML = "";
+function appendArticles(articles) {
+  let container_figther_articles = document.createElement("div");
+  container_figther_articles.className = "fighter_articles";
+  container_figther_articles.innerHTML = `<h2 class="article_section_title">Your latest ${userFighter} updates:</h2>`;
   articles.forEach(art => {
     let art_container = document.createElement("div");
-    art_container.className = `article ${art.league}`;
-    art_container.innerHTML = `   
-    <div class="content">
-        <a href="${art.link}"><img class="articleImage" src="${art.imgUrl}" alt="${art.title}"></a>
-        <div class="articleDiv">
-            <a href="${art.link}">
-                <h2 class="articleTitle">${art.title}</h2>
-            </a>
-            <a href="${art.link}">
-                <p class="articleDesc">${art.description}</p>
-                <p>${art.league}</p>
-            </a>
-    </div>
-    </div>
-    <ul class="interact" id="${art._id}">
-        <button type="button" class="like_btn"><i class="fas fa-heart"></i> 0 Jabs</button>
-        <button type="button" class="comment_btn"><i class="fas fa-comment"></i> Comment</button>
-        <a> comments</a>
-    </ul>
-    <ul class="comment_display hide_comments">
-        {{#each this.comments}}
-        {{#each this}}
-        <li>{{this.content}}</li>
-        {{/each}}
-        {{/each}}
-    </ul>
-    <div class="comment_section">
-        <span class="comment_input"><input type="text" class="noborders" placeholder="Type your comment here ...">
-            <i class="fas fa-comment-medical addCommentIcon"></i></span>
-    </div>
+    art_container.className = "fighter_article article";
+    art_container.innerHTML = `
+      <a href="${art.url}"><img class="articleImage" src="${art.urlToImage}" alt="${art.title}"></a>
+      <div class="articleDiv">
+          <a href="${art.url}">
+              <h2 class="articleTitle">${art.title}</h2>
+          </a>
+          <a href="${art.url}">
+              <p class="articleDesc">${art.description}</p>
+          </a>
+      </div>
     `;
-    articles_container.appendChild(art_container);
+    container_figther_articles.appendChild(art_container);
   });
-}
+  articles_container.insertBefore(
+    container_figther_articles,
+    articles_container.firstChild
+  );
 
-function deleteImgElementsWithoutSource() {
-  const images = document.querySelectorAll("img");
+  const images = document.querySelectorAll(".fighter_articles img");
   console.log(images);
   for (let i = 0; i < images.length; i++) {
     if (images[i].currentSrc == "") {
@@ -183,23 +145,15 @@ function getArticleId(evt) {
 function addComment(evt) {
   console.log(evt);
   if (evt.keyCode == 13 || evt.type == "click") {
-    console.log(
-      evt.target.parentElement.parentElement.parentElement,
-      "heheheheheheh"
-    );
     const art = evt.target.parentElement.parentElement.parentElement.querySelector(
       ".interact"
     );
-    console.log(art.nextSibling, "arththth");
-
     const art_id = art.id;
     const comment = art.parentElement.querySelector("input").value;
     const listItem = document.createElement("li");
-
     axios
       .post("/addComment", { comment: comment, art_id: art_id })
       .then(dbRes => {
-        console.log(dbRes.data);
         listItem.innerText = `${dbRes.data} ` + comment;
         art.parentElement
           .querySelector(".comment_display")
@@ -226,26 +180,12 @@ comment_btns.forEach(btn => {
   btn.onclick = commentinput;
 });
 
-
-var logo = document.getElementById("main_logo");
-
-logo.onmouseenter = hoverLogo;
-logo.onmouseleave = basicLogo;
-
-function hoverLogo(){
-  logo.src = "/images/logo/hover.png";
-}
-function basicLogo(){
-  logo.src = "/images/logo/basic.png";
-}
-
-
-window.onscroll = function() {myFunction()};
+window.onscroll = function() {
+  myFunction();
+};
 
 var main = document.getElementById("main");
 var header = document.getElementById("taglist");
-var sticky = taglist.offsetTop-45;
-
 
 function myFunction() {
   if (window.pageYOffset > sticky) {

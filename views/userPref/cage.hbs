@@ -3,9 +3,10 @@
 </div>
 <div class="container">
     {{>aside_user}}
-  <div class="articles">
-      {{#each article}}
-      {{>article_container}}
-      {{/each}}
-  </div>
+    <div class="articles">
+        <h2 class="article_section_title">Your latest sports updates:</h2>
+        {{#each article}}
+        {{>article_container}}
+        {{/each}}
+    </div>
 </div>

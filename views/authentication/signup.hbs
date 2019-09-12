@@ -4,9 +4,9 @@
       <h1 class="form-title">Welcome to JAB</h1>
       <h3 class="form-subtitle">Are you ready to join the cage ?</h3>
     </header>
-    {{#if msg}}
-    <p class="message">{{msg}}</p>
-    {{/if}}
+    {{!-- {{#if msg}} --}}
+    <p class="message hidden" id="messageBox">{{msg}}</p>
+    {{!-- {{/if}} --}}
       <div class="form-item-wrapper flexed-item">
         <label for="username" class="label-ref label">Username</label>
         <input name = "username" id="username" type="text" class="input-text input" placeholder="fighter name" required>
@@ -23,9 +23,7 @@
         <label for="profil-pic">Choose your profil picture</label>
         <input id="imgPath" type="file" name="imgPath"> 
       </div>
-      {{!-- <a href="#" id="btn-next"> >> Next</a> --}}
       <button class="button-primary white signup-submit" type="button" id="btn-next">Next</button>
-
     <p class="form-sub-infos">Already have an account ? <a href="/signin" class="button-link-form">Sign In</a></p>
   </section>
 
@@ -38,9 +36,9 @@
         <img class="league-logo" src="{{this.imgPath}}" alt="{{this.name}}">
         <input type="checkbox" name="leagues" value="{{this.name}}">{{this.name}}
       </div>
-      {{/each}}  
+      {{/each}}
     </div>
-  
+
     <h3>Select your favorite fighter</h3>
     <hr class="page-break">
     <div class="fighter-select-container">
@@ -49,9 +47,8 @@
             <option value="{{this.name}}">{{this.name}}</option>
           {{/each}}
         </select>
-        <div><img src="../images/ufc-logo.png" alt="Player photo" class="fighter-photo" id="fighter-photo"></div>
-        {{!-- default img to be changed  --}}
+        <div><img src="/images/fighters/khabib.png" alt="Player photo" class="fighter-photo" id="fighter-photo"></div>
     </div>
-  <button class="button-primary white signup-submit-all" type="submit">Submit</button>
+    <button class="button-primary white signup-submit-all" type="submit">Submit</button>
   </section>
 </form>

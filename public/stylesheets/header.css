@@ -2,7 +2,8 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    margin : 5vh 0 0 0;
+    /* margin : 5vh 0 0 0; */
+    margin:5vh 0 -6vh 0;
     background-image : url('./../images/header/diazmasvidal.jpg');
     background-size : contain;
     background-position:center;

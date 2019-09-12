@@ -30,7 +30,7 @@
     <ul class="comment_display hide_comments">
         {{#each this.comments}}
         {{#each this}}
-        <li>{{this.content}}</li>
+        <li class="single_comment"><span class="commentator">{{this.postedBy}}</span> {{this.content}}</li>
         {{/each}}
         {{/each}}
     </ul>
