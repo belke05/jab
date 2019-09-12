@@ -1,10 +1,12 @@
 <ul class="tags_ul">
+   <li><h4>Filter News: </h4></li>
    {{#each leagues}}
    <li class="tags_li">
         <input type="checkbox" name="{{this.name}}" id="{{this.name}}">
-        <img src="{{this.imgPath}}" alt="{{this.name}}" class="tags_img">
-        <h4 class="sport-name">{{this.name}}</h4>
-        
+         <label for="{{this.name}}">
+               <img src="{{this.imgPath}}" alt="{{this.name}}" class="tags_img">
+         </label>
+               <h4 class="sport-name">{{this.name}}</h4>      
    </li>
    {{/each}}
 </ul>

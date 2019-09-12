@@ -77,7 +77,7 @@ function addArticles(articles) {
     </div>
     </div>
     <ul class="interact" id="${art._id}">
-        <button type="button" class="like_btn"><i class="fas fa-heart"></i> 0 Jabs</button>
+        <button type="button" class="like_btn"><img src="images/logo/jab.png" class = "like"> 0 Jabs</button>
         <button type="button" class="comment_btn"><i class="fas fa-comment"></i> Comment</button>
         <a> comments</a>
     </ul>
@@ -134,14 +134,14 @@ function addJab(butn) {
   console.log(butn.innerText.replace("jabs", ""));
   console.log(butn.innerText.trim(), "-----");
   const newNum = Number(butn.innerText.trim());
-  butn.innerHTML = `<i class="fas fa-fist-raised"></i>  ${newNum + 1}`;
+  butn.innerHTML = `<img src="images/logo/jabbed.png" class = "like">  ${newNum + 1}`;
 }
 
 function removeJab(butn) {
   console.log(butn.innerText.trim(), "-----");
   const newNum = Number(butn.innerText.trim());
   if (newNum != 0) {
-    butn.innerHTML = `<i class="far fa-hand-paper"></i>  ${newNum - 1}`;
+    butn.innerHTML = `<img src="images/logo/jab.png" class = "like">  ${newNum - 1}`;
   }
 }
 
@@ -240,36 +240,13 @@ function basicLogo(){
 }
 
 
-window.onscroll = function() {myFunction()};
-
-var main = document.getElementById("main");
-var header = document.getElementById("taglist");
-var sticky = taglist.offsetTop-45;
 
 
-function myFunction() {
-  if (window.pageYOffset > sticky) {
-    // console.log(window.pageYOffset)
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-}
-<<<<<<< HEAD
 
 
-const logo = document.getElementById("main_logo");
-
-logo.onmouseenter = hoverLogo;
-logo.onmouseleave = basicLogo;
-
-function hoverLogo(){
-  logo.src = "/images/logo/hover.png";
-}
-function basicLogo(){
-  logo.src = "/images/logo/basic.png";
-}
 
 
-=======
->>>>>>> views
+
+
+
+

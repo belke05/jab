@@ -59,23 +59,28 @@
   "Leagues": [
     {
       "name": "boxing",
-      "imgPath": "/images/leagues/boxing.png"
+      "imgPath": "/images/leagues/boxing.png",
+      "mainEvent": "/images/header/hardyserrano.jpg"
     },
     {
       "name": "mma",
-      "imgPath": "/images/leagues/mma.png"
+      "imgPath": "/images/leagues/mma.png",
+      "mainEvent": "/images/header/diazmasvidal.jpg"
     },
     {
       "name": "jiujitsu",
-      "imgPath": "/images/leagues/jiujitsu.png"
+      "imgPath": "/images/leagues/jiujitsu.png",
+      "mainEvent": "/images/header/jiujitsu.jpg"
     },
     {
       "name": "kickboxing",
-      "imgPath": "/images/leagues/kickboxing.png"
+      "imgPath": "/images/leagues/kickboxing.png",
+      "mainEvent": "/images/header/pereiraabena.jpg"
     },
     {
       "name": "judo",
-      "imgPath": "/images/leagues/judo.png"
+      "imgPath": "/images/leagues/judo.png",
+      "mainEvent": "/images/header/judo.jpg"
     }
   ]
 }
