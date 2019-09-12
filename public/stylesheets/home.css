@@ -33,9 +33,9 @@
 
 }
 .tags_img {
-  width: 60px;
-  height: 60px;
-  margin: 2vh 1vw;
+  max-width: 50px;
+  max-height: 50px;
+  /* margin: 1vh 1vw; */
 }
 
 .tags_ul {
@@ -50,7 +50,39 @@
   align-items: center;
   margin-top: 2vh;
   margin-bottom: 2vh;
+ 
   /* margin:2vh auto; */
+}
+
+#burger{
+  display:none;
+  margin : 10px 5px;
+  visibility:visible;
+  color:white;
+  font-size:2.4rem;
+  cursor : pointer;
+  
+}
+
+#sidebar{
+  position:absolute;
+  display : flex;
+  flex-flow:row wrap;
+  right : -800px;
+  transition : right .4s linear;
+  height:auto;
+  width: auto;
+  background-color: black;
+  color : white
+}
+
+.tag_hover:hover{
+  cursor: pointer;
+}
+
+.tag_hover{
+  display : flex;
+  flex-flow : column wrap;
 }
 
 .twitter {
