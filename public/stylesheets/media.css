@@ -152,4 +152,10 @@ and (max-width : 420px){
     .user_gif{
         display : none;
     }
+    h4{
+        font-size : 0.8rem;
+    }
+    .article{
+        width:100%;
+    }
 }
