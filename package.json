@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www -e js,hbs",
+    "starter": "nodemon ./bin/www -e js,hbs",
     "dev": "DEBUG=jab-code:* nodemon ./bin/www -e js,hbs",
     "dev-windows": "nodemon ./bin/www"
   },
