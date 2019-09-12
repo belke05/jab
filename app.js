@@ -92,8 +92,9 @@ app.locals.title = "JAB - MMA News";
 const index = require("./routes/index");
 const authentication = require("./routes/authentication");
 const userPref = require("./routes/user");
+const videos = require("./routes/videos");
 app.use("/", index);
 app.use("/", authentication);
 app.use("/", userPref);
-
+app.use("/", videos);
 module.exports = app;

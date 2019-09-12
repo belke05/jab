@@ -45,3 +45,7 @@
 .hide_comments {
   height: 0px;
 }
+
+.commentator {
+  color: red;
+}
