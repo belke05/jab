@@ -79,6 +79,15 @@ and (max-width : 655px){
     .maintags {
         display : none;
     }
+
+    .hello_div{
+        flex-flow:column wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .user-gif{
+        width : 60%;
+    }
 }
 
 @media only screen
@@ -89,6 +98,9 @@ and (max-width : 500px){
         align-self : center;
         margin-right:20px;
        
+    }
+    .article{
+        box-shadow: 10px 10px rgba(255, 0, 0, 0.7); 
     }
 
     .removed{
@@ -129,4 +141,11 @@ and (max-width : 500px){
     }
 
     
+}
+
+@media only screen
+and (max-width : 420px){
+    .user_gif{
+        display : none;
+    }
 }
