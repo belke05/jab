@@ -1,7 +1,7 @@
 require("dotenv").config();
 require("./config/mongodb");
 require("./utils/helpers-hbs"); // utils for hbs templates
-// require("./config/cron.js");
+require("./config/cron.js");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const express = require("express");
@@ -19,7 +19,7 @@ const debug = require("debug")(
 
 const app = express();
 // initial config
-
+console.log(process.env.MONGODB_URI);
 app.set("view engine", "hbs");
 app.set("views", __dirname + "/views");
 hbs.registerPartials(__dirname + "/views/partials");
