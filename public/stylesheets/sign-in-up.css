@@ -76,7 +76,7 @@
 .btn-submit{
   border: solid white;
   height: 35px;
-  width: 20vw;
+  width: 16vw;
   color: white;
   background-color: rgb(20,20,20);
   /* position: absolute; */
@@ -84,7 +84,7 @@
   /* bottom: 20px; */
   font-size: 1rem;
   margin-top: 4vh;
-  margin-left: 17vw;
+  margin-left: 21vw;
 }
 
 .input-text{
@@ -101,7 +101,7 @@
 
 .form-sub-infos{
   margin-top: 1vh;
-  margin-left: 20vw;
+  margin-left: 23vw;
 }
 
 .form-title{
@@ -128,7 +128,7 @@
   display: flex;
   /* align-items: center; */
   flex-direction: column;
-  width: 50vw;
+  width: 46vw;
   margin: 0 auto;
   justify-items: flex-start;
   align-items: center;
@@ -182,4 +182,19 @@
 #selectFile{
   width: 46px;
   cursor: pointer;
+  margin-left:20px;
+}
+
+#btn-next{
+  border: solid white;
+  height: 35px;
+  width: 16vw;
+  color: white;
+  background-color: rgb(20,20,20);
+  /* position: absolute; */
+  /* right: 0; */
+  /* bottom: 20px; */
+  font-size: 1rem;
+  margin-top: 2vh;
+  margin-left: 20vw;
 }
