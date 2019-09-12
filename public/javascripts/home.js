@@ -255,7 +255,7 @@ function myFunction() {
     header.classList.remove("sticky");
   }
 }
-<<<<<<< HEAD
+
 
 
 const logo = document.getElementById("main_logo");
@@ -271,5 +271,4 @@ function basicLogo(){
 }
 
 
-=======
->>>>>>> views
+
