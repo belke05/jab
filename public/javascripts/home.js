@@ -237,20 +237,3 @@ function hoverLogo() {
 function basicLogo() {
   logo.src = "/images/logo/basic.png";
 }
-
-window.onscroll = function() {
-  myFunction();
-};
-
-var main = document.getElementById("main");
-var header = document.getElementById("taglist");
-var sticky = taglist.offsetTop - 45;
-
-function myFunction() {
-  if (window.pageYOffset > sticky) {
-    // console.log(window.pageYOffset)
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-}
