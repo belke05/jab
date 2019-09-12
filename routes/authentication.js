@@ -136,4 +136,37 @@ router.post("/fighterUpdate", (req, res, next) => {
     })
     .catch(dbErr => console.log(dbErr));
 });
+
+router.post("/signupinfos", (req, res, next) => {
+  let username = req.body.username;
+  let email = req.body.email;
+  let pass = req.body.password;
+  let msg = "";
+  
+  Users.findOne ({username: username})
+    .then(userRes=>{
+      console.log(userRes)
+      if (userRes)  msg= "Username already exists !";
+      console.log("**************")
+      Users.findOne ({email: email})
+      .then(emailRes =>{
+        console.log("^^^^^^^^^^^^^^^^^")
+        console.log(emailRes)
+      if (emailRes)  {
+        if (msg == ""){
+          msg = "E-mail already exists !";
+        } else {
+          msg = "Username and e-mail already exist"
+        }
+      }
+      if(pass.length ==0){
+        msg = "the password field is required"
+      }
+      res.send(msg);
+      })
+    })
+    .catch(userErr => console.log(userErr));
+  
+});
+
 module.exports = router;

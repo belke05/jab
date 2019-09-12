@@ -4,9 +4,9 @@
       <h1 class="form-title">Welcome to JAB</h1>
       <h3 class="form-subtitle">Are you ready to join the cage ?</h3>
     </header>
-    {{#if msg}}
-    <p class="message">{{msg}}</p>
-    {{/if}}
+    {{!-- {{#if msg}} --}}
+    <p class="message hidden" id="messageBox">{{msg}}</p>
+    {{!-- {{/if}} --}}
       <div class="form-item-wrapper flexed-item">
         <label for="username" class="label-ref label">Username</label>
         <input name = "username" id="username" type="text" class="input-text input" placeholder="fighter name" required>
@@ -49,7 +49,7 @@
             <option value="{{this.name}}">{{this.name}}</option>
           {{/each}}
         </select>
-        <div><img src="../images/ufc-logo.png" alt="Player photo" class="fighter-photo" id="fighter-photo"></div>
+        <div><img src="/images/fighters/khabib.png" alt="Player photo" class="fighter-photo" id="fighter-photo"></div>
         {{!-- default img to be changed  --}}
     </div>
   <button class="button-primary white signup-submit-all" type="submit">Submit</button>
