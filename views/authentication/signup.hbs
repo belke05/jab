@@ -4,28 +4,26 @@
       <h1 class="form-title">Welcome to JAB</h1>
       <h3 class="form-subtitle">Are you ready to join the cage ?</h3>
     </header>
-    {{#if msg}}
-    <p class="message">{{msg}}</p>
-    {{/if}}
-    <div class="form-item-wrapper flexed-item">
-      <label for="username" class="label-ref label">Username</label>
-      <input name="username" id="username" type="text" class="input-text input" placeholder="fighter name" required>
-    </div>
-    <div class="form-item-wrapper flexed-item">
-      <label for="email" class="label-ref label">Email</label>
-      <input name="email" id="email" type="email" class="input-text input" placeholder="fighter@mma.com" required>
-    </div>
-    <div class="form-item-wrapper flexed-item">
-      <label for="password" class="label-ref label">Password</label>
-      <input name="password" id="password" type="password" class="input-text input" placeholder="••••••" required>
-    </div>
-    <div class="form-item-wrapper">
-      <label for="profil-pic">Choose your profil picture</label>
-      <input id="imgPath" type="file" name="imgPath">
-    </div>
-    {{!-- <a href="#" id="btn-next"> >> Next</a> --}}
-    <button class="button-primary white signup-submit" type="button" id="btn-next">Next</button>
-
+    {{!-- {{#if msg}} --}}
+    <p class="message hidden" id="messageBox">{{msg}}</p>
+    {{!-- {{/if}} --}}
+      <div class="form-item-wrapper flexed-item">
+        <label for="username" class="label-ref label">Username</label>
+        <input name = "username" id="username" type="text" class="input-text input" placeholder="fighter name" required>
+      </div>
+      <div class="form-item-wrapper flexed-item">
+        <label for="email" class="label-ref label">Email</label>
+        <input name = "email" id="email" type="email" class="input-text input" placeholder="fighter@mma.com" required>
+      </div>
+      <div class="form-item-wrapper flexed-item">
+        <label for="password" class="label-ref label">Password</label>
+        <input name = "password" id="password" type="password" class="input-text input" placeholder="••••••" required>
+      </div>
+      <div class="form-item-wrapper">
+        <label for="profil-pic">Choose your profil picture</label>
+        <input id="imgPath" type="file" name="imgPath"> 
+      </div>
+      <button class="button-primary white signup-submit" type="button" id="btn-next">Next</button>
     <p class="form-sub-infos">Already have an account ? <a href="/signin" class="button-link-form">Sign In</a></p>
   </section>
 
@@ -44,13 +42,12 @@
     <h3>Select your favorite fighter</h3>
     <hr class="page-break">
     <div class="fighter-select-container">
-      <select name="fighter" id="fighter-select" aria-placeholder="select a fighter" class="fighter-select">
-        {{#each fighters}}
-        <option value="{{this.name}}">{{this.name}}</option>
-        {{/each}}
-      </select>
-      <div><img src="../images/fighters/khabib.png" alt="Player photo" class="fighter-photo" id="fighter-photo"></div>
-      {{!-- default img to be changed  --}}
+        <select name="fighter" id="fighter-select" aria-placeholder="select a fighter" class="fighter-select">
+          {{#each fighters}}
+            <option value="{{this.name}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+        <div><img src="/images/fighters/khabib.png" alt="Player photo" class="fighter-photo" id="fighter-photo"></div>
     </div>
     <button class="button-primary white signup-submit-all" type="submit">Submit</button>
   </section>

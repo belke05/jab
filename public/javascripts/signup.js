@@ -3,14 +3,22 @@ const signupPage2= document.getElementById ("signup-page2");
 const btnNext = document.getElementById("btn-next");
 const fighterSelect = document.getElementById("fighter-select");
 const fighterImg = document.getElementById("fighter-photo");
+const username = document.getElementById("username");
+const email = document.getElementById("email");
+const passwd = document.getElementById("password");
+const messageBox = document.getElementById("messageBox");
+var signupOk = false 
 // var fightersImg;
 
 signupPage1.classList.remove("hidden");
 signupPage2.classList.add("hidden");
 
-btnNext.onclick = () =>{
-  signupPage1.classList.add("hidden");
-  signupPage2.classList.remove("hidden");
+btnNext.onclick = (evt) =>{
+  checkSignUpInput(evt)
+  if(signupOk){
+    signupPage1.classList.add("hidden");
+    signupPage2.classList.remove("hidden");
+  }
 }
 
 function postFighter(evt){
@@ -28,3 +36,31 @@ function updateFighterImg(fighter) {
 }
 
 fighterSelect.onchange = postFighter;
+
+
+function checkSignUpInput(evt){
+  evt.preventDefault();
+  console.log(messageBox)
+  if(!username.value || !email.value || !passwd.value){
+    messageBox.innerText = "All the fields are required";
+    messageBox.classList.remove("hidden");
+  } else {
+    axios.post("/signupinfos", {
+      username : username.value, 
+      email:email.value, 
+      password: passwd.value
+    })
+    .then ( serverRes => {
+      console.log(serverRes.data)
+      if (!serverRes.data ==""){
+        messageBox.innerText = serverRes.data;
+        messageBox.classList.remove("hidden");
+      } else {
+        signupOk = true;
+        messageBox.classList.add("hidden");
+      }
+    })
+    .catch(serverErr => console.log(serverErr))
+  }
+
+}
