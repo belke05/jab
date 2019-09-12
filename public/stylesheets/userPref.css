@@ -19,10 +19,8 @@
   align-items: center;
   width: 75vw;
   border: solid rgb(20, 20, 20);
-  /* border-radius: 30px; */
   margin: 0 auto;
-  /* margin-right: 2.5vw; */
-  height: 40vh;
+  height: 44vh;
   margin-top: 1vh;
   padding: 10px;
   box-shadow: 10px 10px rgb(0, 0, 0, 0.5);
@@ -59,7 +57,6 @@
   background-color: rgb(20,20,20);
   align-items: left;
   border-radius: 30px;
-  /* width: 80vw; */
   height: 24vh;
   width: 52vw;
   color: white;
@@ -86,16 +83,14 @@
   margin-left:2vw;
 }
 
-/* h4.league-name{
-  margin-top:2vh;
-} */
-
 .one-fighter-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   transform: scale(1);
   transition: transform .2s linear;
+  width: 28%;
+  margin-bottom: 2vh;
 }
 
 .one-fighter-container * {
@@ -103,7 +98,6 @@
 }
 
 .one-fighter-container:hover{
-  /* font-size:0.5rem; */
   transform: scale(3);
   margin: 0 3vw;  
 }
@@ -146,29 +140,11 @@
   box-shadow: 5px 5px rgb(20,20,20);
 }
 
-/* .choosen-logo:hover{
-  transition: width .2s linear;
-  width: 9vw;
-  margin-top:5.6vh; 
-  color:rgba(20,20,20,0.8);
-  box-shadow: 5px 5px #20202028;
-} */
-
 .one-league-container{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
- /* .one-league-container:hover{
-  color:rgb(20,20,20);
-} */
-
-/*.unselected-container:hover{
-  color:rgba(20,20,20,0.8);
-} */
-
-
 
 .btn-edit{
   border: solid white;
@@ -230,13 +206,6 @@
     margin: 0 3vw;  
 }
 
-
-/* .chosen-fighter:hover{
-  transform: scale(1);
-  transition: transform .2s linear;
-  margin: 0 1vw;  
-} */
-
 .edition-element-header{
   display: flex;
   flex-direction: column;
@@ -249,6 +218,93 @@
   color: rgba(20,20,20,0.8)
 }
 
-/* .one-league-container img {
-  pointer-events: none;
-} */
+
+@media only screen 
+and (max-width:1024px){
+  #userdetails-username {
+    font-size: 3vw;
+    margin-bottom: 25vh;
+}
+.membership{
+  display: none;
+}
+.user-profil-pic {
+  border-radius: 50%;
+  width: 26vw;
+  height: 13vh;
+  margin-left: 10vw;
+}
+.edition-element {
+  flex-wrap: wrap;
+}
+.chosen-fighter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(1.5);
+  transition: transform .2s linear;
+  margin: 0 3vw;
+  font-size:1rem;
+}
+
+.btn-edit {
+  border: solid white;
+  height: 25px;
+  width: 88px;
+  color: white;
+  background-color: rgb(20,20,20);
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-size: 0.7rem;
+}
+.all-user-info-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 25vh;
+}
+.user-best {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 75vw;
+  border: solid rgb(20, 20, 20);
+  margin: 0 auto;
+  height: 50vh;
+  margin-top: 1vh;
+  padding: 10px;
+  box-shadow: 10px 10px rgb(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.one-fighter-container:hover{
+  transform: scale(1.5);
+  margin: 0 3vw;  
+}
+
+
+.unchoosen-logo:hover{
+  transition: width .2s linear;
+  width: 7vw;
+  color:rgb(20,20,20);
+  box-shadow: 5px 5px rgb(20,20,20);
+}
+
+
+.choosen-fighter-container:hover{
+  transform: scale(.3);
+  margin: 0 3vw;  
+}
+.league-name{
+  font-size:2vw;
+}
+
+.user-best.league-choice{
+  height:20vh;
+}
+
+}
+
