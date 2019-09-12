@@ -7,24 +7,24 @@
     {{#if msg}}
     <p class="message">{{msg}}</p>
     {{/if}}
-      <div class="form-item-wrapper flexed-item">
-        <label for="username" class="label-ref label">Username</label>
-        <input name = "username" id="username" type="text" class="input-text input" placeholder="fighter name" required>
-      </div>
-      <div class="form-item-wrapper flexed-item">
-        <label for="email" class="label-ref label">Email</label>
-        <input name = "email" id="email" type="email" class="input-text input" placeholder="fighter@mma.com" required>
-      </div>
-      <div class="form-item-wrapper flexed-item">
-        <label for="password" class="label-ref label">Password</label>
-        <input name = "password" id="password" type="password" class="input-text input" placeholder="••••••" required>
-      </div>
-      <div class="form-item-wrapper">
-        <label for="profil-pic">Choose your profil picture</label>
-        <input id="imgPath" type="file" name="imgPath"> 
-      </div>
-      {{!-- <a href="#" id="btn-next"> >> Next</a> --}}
-      <button class="button-primary white signup-submit" type="button" id="btn-next">Next</button>
+    <div class="form-item-wrapper flexed-item">
+      <label for="username" class="label-ref label">Username</label>
+      <input name="username" id="username" type="text" class="input-text input" placeholder="fighter name" required>
+    </div>
+    <div class="form-item-wrapper flexed-item">
+      <label for="email" class="label-ref label">Email</label>
+      <input name="email" id="email" type="email" class="input-text input" placeholder="fighter@mma.com" required>
+    </div>
+    <div class="form-item-wrapper flexed-item">
+      <label for="password" class="label-ref label">Password</label>
+      <input name="password" id="password" type="password" class="input-text input" placeholder="••••••" required>
+    </div>
+    <div class="form-item-wrapper">
+      <label for="profil-pic">Choose your profil picture</label>
+      <input id="imgPath" type="file" name="imgPath">
+    </div>
+    {{!-- <a href="#" id="btn-next"> >> Next</a> --}}
+    <button class="button-primary white signup-submit" type="button" id="btn-next">Next</button>
 
     <p class="form-sub-infos">Already have an account ? <a href="/signin" class="button-link-form">Sign In</a></p>
   </section>
@@ -38,20 +38,20 @@
         <img class="league-logo" src="{{this.imgPath}}" alt="{{this.name}}">
         <input type="checkbox" name="leagues" value="{{this.name}}">{{this.name}}
       </div>
-      {{/each}}  
+      {{/each}}
     </div>
-  
+
     <h3>Select your favorite fighter</h3>
     <hr class="page-break">
     <div class="fighter-select-container">
-        <select name="fighter" id="fighter-select" aria-placeholder="select a fighter" class="fighter-select">
-          {{#each fighters}}
-            <option value="{{this.name}}">{{this.name}}</option>
-          {{/each}}
-        </select>
-        <div><img src="../images/ufc-logo.png" alt="Player photo" class="fighter-photo" id="fighter-photo"></div>
-        {{!-- default img to be changed  --}}
+      <select name="fighter" id="fighter-select" aria-placeholder="select a fighter" class="fighter-select">
+        {{#each fighters}}
+        <option value="{{this.name}}">{{this.name}}</option>
+        {{/each}}
+      </select>
+      <div><img src="../images/fighters/khabib.png" alt="Player photo" class="fighter-photo" id="fighter-photo"></div>
+      {{!-- default img to be changed  --}}
     </div>
-  <button class="button-primary white signup-submit-all" type="submit">Submit</button>
+    <button class="button-primary white signup-submit-all" type="submit">Submit</button>
   </section>
 </form>

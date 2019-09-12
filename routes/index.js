@@ -21,7 +21,7 @@ router.get(["/", "/home"], (req, res, next) => {
             scripts: ["home.js"],
             title: "JAB Home",
             leagues: leagues,
-            displayTitle:true
+            displayTitle: true
           });
         })
         .catch(dbErr => {
@@ -47,11 +47,11 @@ router.post("/addlike", (req, res) => {
 router.post("/addComment", (req, res) => {
   const comment = req.body.comment;
   const art_id = req.body.art_id;
-  const userId = req.session.currentUser._id;
-  commentHandler(art_id, comment, userId)
+  const username = req.session.currentUser.username;
+  commentHandler(art_id, comment, username)
     .then(artWithComments => {
       console.log(artWithComments, "article with new comment");
-      res.send(artWithComments);
+      res.send(username);
     })
     .catch(dbErr => {
       console.log(dbErr);
@@ -108,11 +108,11 @@ function addComment(com) {
   return com.save();
 }
 
-async function commentHandler(art_id, comment, user_id) {
+async function commentHandler(art_id, comment, username) {
   const createdComment = new Comment({
     content: comment,
-    postedBy: user_id,
-    onArticle: user_id
+    postedBy: username,
+    onArticle: art_id
   });
   console.log(createdComment);
   const savedComment = await addComment(createdComment);

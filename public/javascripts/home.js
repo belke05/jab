@@ -195,12 +195,15 @@ function addComment(evt) {
     const art_id = art.id;
     const comment = art.parentElement.querySelector("input").value;
     const listItem = document.createElement("li");
-    listItem.innerText = comment;
-    art.parentElement.querySelector(".comment_display").appendChild(listItem);
+
     axios
       .post("/addComment", { comment: comment, art_id: art_id })
       .then(dbRes => {
-        console.log(dbRes);
+        console.log(dbRes.data);
+        listItem.innerText = `${dbRes.data} ` + comment;
+        art.parentElement
+          .querySelector(".comment_display")
+          .appendChild(listItem);
       })
       .catch(dbErr => {
         console.log(dbErr);
