@@ -198,3 +198,69 @@
   margin-top: 2vh;
   margin-left: 20vw;
 }
+
+@media only screen 
+and (max-width:1080px){
+ 
+  .input-text {
+    width: 31vw;
+    margin-left: 2vw;
+    margin-top: 3vh;
+    height: 0vh;
+  }
+  #form_user {
+    background-color: rgb(20,20,20);
+    color: white;
+    height: 26vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 82vw;
+    margin: 0 auto;
+}
+.btn-submit {
+  border: solid white;
+  height: 27px;
+  width: 20vw;
+  color: white;
+  background-color: rgb(20,20,20);
+  /* position: absolute; */
+  /* right: 0; */
+  /* bottom: 20px; */
+  font-size: .8rem;
+  margin-top: 4vh;
+  margin-left: 21vw;
+}
+.form-sub-infos {
+  margin-top: 1vh;
+  margin-left: 23vw;
+  font-size: .8rem;
+}
+.signin-container {
+  background-color: rgb(20,20,20);
+  color: white;
+  height: 63vh;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  margin-top: 50px;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.form_user {
+  background-color: rgb(20,20,20);
+  color: white;
+  height: 63vh;
+  /* justify-content: center; */
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  width: 86vw;
+  margin: 0 auto;
+  justify-items: flex-start;
+  align-items: center;
+}
+}
