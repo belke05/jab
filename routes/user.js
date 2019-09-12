@@ -26,6 +26,12 @@ router.get("/preferences", protectedRoute, (req, res) => {
           user.creationDate = date.toDateString();
           Leagues.find().then(leaguesList => {
             console.log("all leagues found");
+            console.log("***********")
+            console.log(user)
+            console.log(user.imgPath)
+            if (!user.imgPath){
+              user.imgPath ="/images/logo/jabbed.png"
+            }
             res.render("userPref/preferences", {
               title: "cage",
               user: user,
