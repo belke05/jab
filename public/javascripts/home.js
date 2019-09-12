@@ -237,7 +237,3 @@ function hoverLogo() {
 function basicLogo() {
   logo.src = "/images/logo/basic.png";
 }
-
-window.onscroll = function() {
-  myFunction();
-};
