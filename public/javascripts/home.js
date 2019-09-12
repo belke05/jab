@@ -77,7 +77,7 @@ function addArticles(articles) {
     </div>
     </div>
     <ul class="interact" id="${art._id}">
-        <button type="button" class="like_btn"><i class="fas fa-heart"></i> 0 Jabs</button>
+        <button type="button" class="like_btn"><img src="images/logo/jab.png" class = "like"> 0 Jabs</button>
         <button type="button" class="comment_btn"><i class="fas fa-comment"></i> Comment</button>
         <a> comments</a>
     </ul>
@@ -134,14 +134,14 @@ function addJab(butn) {
   console.log(butn.innerText.replace("jabs", ""));
   console.log(butn.innerText.trim(), "-----");
   const newNum = Number(butn.innerText.trim());
-  butn.innerHTML = `<i class="fas fa-fist-raised"></i>  ${newNum + 1}`;
+  butn.innerHTML = `<img src="images/logo/jabbed.png" class = "like">  ${newNum + 1}`;
 }
 
 function removeJab(butn) {
   console.log(butn.innerText.trim(), "-----");
   const newNum = Number(butn.innerText.trim());
   if (newNum != 0) {
-    butn.innerHTML = `<i class="far fa-hand-paper"></i>  ${newNum - 1}`;
+    butn.innerHTML = `<img src="images/logo/jab.png" class = "like">  ${newNum - 1}`;
   }
 }
 
@@ -237,3 +237,15 @@ function hoverLogo() {
 function basicLogo() {
   logo.src = "/images/logo/basic.png";
 }
+
+
+
+
+
+
+
+
+
+
+
+

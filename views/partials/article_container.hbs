@@ -16,21 +16,22 @@
         <div class="articleDiv">
             <a href="{{this.link}}" target="_blank">
                 <h2 class="articleTitle">{{this.title}}</h2>
+                <hr>
             </a>
             <a href="{{this.link}}" target="_blank">
                 <p class="articleDesc">{{this.description}}</p>
-                <p class="sport" data-sport="{{this.league}}">Sport: {{this.league}}</p>
+                <h4 class="sport" data-sport="{{this.league}}">Sport: {{this.league}}</h4>
             </a>
         </div>
     </div>
     <ul class="interact" id="{{this._id}}">
-        <button type="button" class="like_btn"><i class="far fa-hand-paper"></i> {{this.jabs.length}}</button>
+        <button type="button" class="like_btn"><img src="images/logo/jab.png" class = "like"> {{this.jabs.length}}</button>
         <button type="button" class="comment_btn"><i class="fas fa-comment"></i> comments</button>
     </ul>
     <ul class="comment_display hide_comments">
         {{#each this.comments}}
         {{#each this}}
-        <li class="single_comment"><span class="commentator">{{this.postedBy}}</span> {{this.content}}</li>
+        <li class="single_comment"><span class="commentator"><h4>{{this.postedBy}}</h4></span>{{this.content}}</li>
         {{/each}}
         {{/each}}
     </ul>
