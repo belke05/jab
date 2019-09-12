@@ -51,7 +51,6 @@ function checkSignUpInput(evt){
       password: passwd.value
     })
     .then ( serverRes => {
-      console.log(username.value)
       console.log(serverRes.data)
       if (!serverRes.data ==""){
         messageBox.innerText = serverRes.data;

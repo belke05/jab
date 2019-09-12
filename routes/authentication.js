@@ -147,10 +147,8 @@ router.post("/signupinfos", (req, res, next) => {
     .then(userRes=>{
       console.log(userRes)
       if (userRes)  msg= "Username already exists !";
-      console.log("**************")
       Users.findOne ({email: email})
       .then(emailRes =>{
-        console.log("^^^^^^^^^^^^^^^^^")
         console.log(emailRes)
       if (emailRes)  {
         if (msg == ""){
@@ -166,7 +164,6 @@ router.post("/signupinfos", (req, res, next) => {
       })
     })
     .catch(userErr => console.log(userErr));
-  
 });
 
 module.exports = router;
