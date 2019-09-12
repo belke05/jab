@@ -134,14 +134,16 @@ function addJab(butn) {
   console.log(butn.innerText.replace("jabs", ""));
   console.log(butn.innerText.trim(), "-----");
   const newNum = Number(butn.innerText.trim());
-  butn.innerHTML = `<img src="images/logo/jabbed.png" class = "like">  ${newNum + 1}`;
+  butn.innerHTML = `<img src="images/logo/jabbed.png" class = "like">  ${newNum +
+    1}`;
 }
 
 function removeJab(butn) {
   console.log(butn.innerText.trim(), "-----");
   const newNum = Number(butn.innerText.trim());
   if (newNum != 0) {
-    butn.innerHTML = `<img src="images/logo/jab.png" class = "like">  ${newNum - 1}`;
+    butn.innerHTML = `<img src="images/logo/jab.png" class = "like">  ${newNum -
+      1}`;
   }
 }
 
@@ -218,12 +220,18 @@ function displaycommentbox(art) {
   comment_section.classList.toggle("hide_comments");
 }
 
+const jabimages = document.querySelectorAll(".like");
+
 article_like_btn.forEach(btn => {
   btn.onclick = addLikes;
 });
 
 comment_btns.forEach(btn => {
   btn.onclick = commentinput;
+});
+
+jabimages.forEach(jab => {
+  jab.onclick = commentinput;
 });
 
 var logo = document.getElementById("main_logo");
@@ -242,17 +250,5 @@ var burger = document.getElementById("burger");
 var sidebar = document.getElementById("sidebar");
 
 burger.onclick = () => {
-    sidebar.classList.toggle("is-here"),
-    console.log('hello')
+  sidebar.classList.toggle("is-here"), console.log("hello");
 };
-
-
-
-
-
-
-
-
-
-
-
