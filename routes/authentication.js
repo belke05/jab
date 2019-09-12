@@ -50,6 +50,7 @@ router.post(
       console.log(dbLeague);
       dbLeague.forEach(league => {
         if (userLeagues.indexOf(league.name) >= 0) {
+          console.log(userLeagues)
           user.leagueTag.push(league.name)
           user.leagues.push(league._id)
         }

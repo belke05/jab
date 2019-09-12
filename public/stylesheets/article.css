@@ -1,14 +1,15 @@
-.like_btn {
+
+
+.interact_btn{
   font-size: 1.5rem;
-  background-color: ghostwhite;
-  border-color: crimson;
+  color : white;
+  background-color : #202020;
+  height : 2.5rem;
+  border:none;
+
 }
 
-.comment_btn {
-  background-color: ghostwhite;
-  border-color: crimson;
-  font-size: 1.5rem;
-}
+
 
 .article {
   display: flex;
