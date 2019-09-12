@@ -7,6 +7,8 @@ const username = document.getElementById("username");
 const email = document.getElementById("email");
 const passwd = document.getElementById("password");
 const messageBox = document.getElementById("messageBox");
+const selectImg = document.getElementById("selectFile");
+const originalImgSelector = document.getElementById("imgPath");
 var signupOk = false 
 // var fightersImg;
 
@@ -63,4 +65,8 @@ function checkSignUpInput(evt){
     .catch(serverErr => console.log(serverErr))
   }
 
+}
+
+selectImg.onclick = () =>{
+  originalImgSelector.click();
 }
