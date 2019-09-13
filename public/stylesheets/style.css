@@ -7,7 +7,7 @@
 @import "./header.css";
 @import "./footer.css";
 @import "./userPref.css";
-
+@import "./videos.css";
 @import url("https://fonts.googleapis.com/css?family=Faster+One|Oswald:300,400,500,700|Source+Sans+Pro:300,400,600,700&display=swap");
 
 * {
@@ -31,7 +31,6 @@ body {
   margin-top: 0px;
   margin-left: 0px;
   margin-right: 0;
- 
 }
 
 h1 {
@@ -53,15 +52,15 @@ h4 {
   width: 80vw;
   min-height: 89vh;
   margin: 10vh auto;
-  background-color:white;
+  background-color: white;
   /* position: relative; */
 }
 
-.home-body{
+.home-body {
   width: 80vw;
   min-height: 89vh;
   margin: 1vh auto;
-  background-color:white;
+  background-color: white;
 }
 
 .hidden {
