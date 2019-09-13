@@ -218,9 +218,11 @@
   color: rgba(20,20,20,0.8)
 }
 
-
+.user-best.league-choice{
+  height:38vh;
+} 
 @media only screen 
-and (max-width:1024px){
+and (max-width:1080px){
   #userdetails-username {
     font-size: 3vw;
     margin-bottom: 25vh;
@@ -264,6 +266,7 @@ and (max-width:1024px){
   justify-content: space-between;
   align-items: center;
   height: 25vh;
+  align-self: center;
 }
 .user-best {
   display: flex;
@@ -299,12 +302,11 @@ and (max-width:1024px){
   margin: 0 3vw;  
 }
 .league-name{
-  font-size:2vw;
+  font-size:1vw;
 }
-
 .user-best.league-choice{
-  height:20vh;
+  height:26vh;
 }
 
-}
 
+}
