@@ -18,7 +18,7 @@ router.get(["/", "/home"], (req, res, next) => {
         .then(leagues => {
           res.render("index", {
             articles: articles,
-            scripts: ["home.js"],
+            scripts: ["home.js", "general.js"],
             title: "JAB Home",
             leagues: leagues,
             displayTitle: true

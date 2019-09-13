@@ -197,12 +197,12 @@ function addComment(evt) {
     const art_id = art.id;
     const comment = art.parentElement.querySelector("input").value;
     const listItem = document.createElement("li");
-
+    listItem.className = "single_comment";
     axios
       .post("/addComment", { comment: comment, art_id: art_id })
       .then(dbRes => {
         console.log(dbRes.data);
-        listItem.innerText = `${dbRes.data} ` + comment;
+        listItem.innerHTML = `<span class="commentator"><h4>${dbRes.data}</h4></span>${comment}`;
         art.parentElement
           .querySelector(".comment_display")
           .appendChild(listItem);
@@ -215,7 +215,9 @@ function addComment(evt) {
 
 function displaycommentbox(art) {
   console.log("hererere", art);
-  const comment_section = art.parentElement.querySelector(".comment_display");
+  const comment_section = art.parentElement.parentElement.querySelector(
+    ".comment_display"
+  );
   console.log(comment_section, "ggggggg");
   comment_section.classList.toggle("hide_comments");
 }

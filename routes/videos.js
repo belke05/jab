@@ -29,7 +29,7 @@ router.get("/videos", (req, res, next) => {
           });
           console.log(videoInfo);
           res.render("videos", {
-            scripts: ["videos.js"],
+            scripts: ["videos.js", "general.js"],
             videos: videoInfo,
             leagues,
             fighterName
