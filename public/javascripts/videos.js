@@ -4,10 +4,10 @@
  * https://developers.google.com/explorer-help/guides/code_samples#javascript
  */
 
-{
-  /* <button class="authoriz" onclick="authenticate().then(loadClient)">authorize and load</button>
-<button class="execute"onclick="execute()">execute</button> */
-}
+// {
+//   /* <button class="authoriz" onclick="authenticate().then(loadClient)">authorize and load</button>
+// <button class="execute"onclick="execute()">execute</button> */
+// }
 const authorize = document.getElementById("authorize");
 const executer = document.getElementById("execute");
 
@@ -60,3 +60,23 @@ function execute() {
 gapi.load("client:auth2", function() {
   gapi.auth2.init({ client_id: "YOUR_CLIENT_ID" });
 });
+
+var logo = document.getElementById("main_logo");
+
+logo.onmouseenter = hoverLogo;
+logo.onmouseleave = basicLogo;
+
+function hoverLogo() {
+  logo.src = "/images/logo/hover.png";
+}
+function basicLogo() {
+  logo.src = "/images/logo/basic.png";
+}
+
+var burger = document.getElementById("burger");
+var sidebar = document.getElementById("sidebar");
+
+burger.onclick = () => {
+    sidebar.classList.toggle("is-here"),
+    console.log('hello')
+};

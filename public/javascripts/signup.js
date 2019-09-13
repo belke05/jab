@@ -69,4 +69,24 @@ function checkSignUpInput(evt){
 
 selectImg.onclick = () =>{
   originalImgSelector.click();
+};
+
+var logo = document.getElementById("main_logo");
+
+logo.onmouseenter = hoverLogo;
+logo.onmouseleave = basicLogo;
+
+function hoverLogo() {
+  logo.src = "/images/logo/hover.png";
 }
+function basicLogo() {
+  logo.src = "/images/logo/basic.png";
+}
+
+var burger = document.getElementById("burger");
+var sidebar = document.getElementById("sidebar");
+
+burger.onclick = () => {
+    sidebar.classList.toggle("is-here"),
+    console.log('hello')
+};

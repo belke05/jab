@@ -79,6 +79,13 @@ and (max-width : 800px){
 }
 
 @media only screen 
+and (max-width : 720px){
+    .comment_input i{
+        display : none;
+    }
+}
+
+@media only screen 
 and (max-width : 655px){
     .maintags {
         display : none;
@@ -157,5 +164,23 @@ and (max-width : 420px){
     }
     .article{
         width:100%;
+    }
+    .articleTitle{
+        font-size : 0.8rem;
+    }
+    .articleDesc{
+        font-size : 0.8rem;
+    }
+}
+
+@media only screen 
+and (max-width : 300px){
+    .interact{
+        flex-flow : row wrap;
+        list-style-position: inside;
+    }
+    .like_btn{
+        margin-bottom : 10px;
+        margin-left:0;
     }
 }
