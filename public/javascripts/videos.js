@@ -10,52 +10,37 @@
 // }
 const authorize = document.getElementById("authorize");
 const executer = document.getElementById("execute");
-
-authorize.onclick = authenticate.then(loadClient());
-executer.onclick = execute();
-
-function authenticate() {
-  return gapi.auth2
-    .getAuthInstance()
-    .signIn({ scope: "https://www.googleapis.com/auth/youtube.readonly" })
-    .then(
-      function() {
-        console.log("Sign-in successful");
-      },
-      function(err) {
-        console.error("Error signing in", err);
-      }
-    );
+function decodeHtml(html) {
+  var txt = document.createElement("textarea");
+  txt.innerHTML = html;
+  return txt.value;
 }
-function loadClient() {
-  gapi.client.setApiKey("YOUR_API_KEY");
-  return gapi.client
-    .load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
-    .then(
-      function() {
-        console.log("GAPI client loaded for API");
-      },
-      function(err) {
-        console.error("Error loading GAPI client for API", err);
-      }
-    );
+
+const titles = document.querySelectorAll(".video_title");
+const titlewelcome = document.querySelector(".title_welcome");
+
+titles.forEach(title => {
+  const titleText = title.innerText;
+  const newText = decodeHtml(titleText);
+  title.innerText = newText;
+});
+
+function cleantitle() {
+  const titletext = titlewelcome.innerText;
+  const newtext = decodeHtml(titletext);
+  titlewelcome.innerText = newtext;
 }
-// Make sure the client is loaded and sign-in is complete before calling this method.
-function execute() {
-  return gapi.client.youtube.channels
-    .list({
-      part: "snippet,contentDetails,statistics",
-      id: "UC_x5XG1OV2P6uZZ5FSM9Ttw"
-    })
-    .then(
-      function(response) {
-        // Handle the results here (response.result has the parsed body).
-        console.log("Response", response);
-      },
-      function(err) {
-        console.error("Execute error", err);
-      }
-    );
+
+var logo = document.getElementById("main_logo");
+
+logo.onmouseenter = hoverLogo;
+logo.onmouseleave = basicLogo;
+
+function hoverLogo() {
+  logo.src = "/images/logo/hover.png";
+}
+function basicLogo() {
+  logo.src = "/images/logo/basic.png";
 }
 gapi.load("client:auth2", function() {
   gapi.auth2.init({ client_id: "YOUR_CLIENT_ID" });
@@ -80,3 +65,5 @@ burger.onclick = () => {
     sidebar.classList.toggle("is-here"),
     console.log('hello')
 };
+
+cleantitle();

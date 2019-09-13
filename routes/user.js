@@ -26,18 +26,18 @@ router.get("/preferences", protectedRoute, (req, res) => {
           user.creationDate = date.toDateString();
           Leagues.find().then(leaguesList => {
             console.log("all leagues found");
-            console.log("***********")
-            console.log(user)
-            console.log(user.imgPath)
-            if (!user.imgPath){
-              user.imgPath ="/images/logo/jabbed.png"
+            console.log("***********");
+            console.log(user);
+            console.log(user.imgPath);
+            if (!user.imgPath) {
+              user.imgPath = "/images/logo/jabbed.png";
             }
             res.render("userPref/preferences", {
               title: "cage",
               user: user,
               leagues: leaguesList,
               fighters: fighterListRes,
-              scripts: ["../javascripts/preferences.js"]
+              scripts: ["preferences.js", "general.js"]
             });
           });
         });
@@ -62,7 +62,7 @@ router.get("/cage", protectedRoute, (req, res) => {
               fighter: fighter,
               user: user
             },
-            scripts: ["cage.js"]
+            scripts: ["cage.js", "general.js"]
           });
         })
 

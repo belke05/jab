@@ -7,7 +7,6 @@ const Users = require("./../models/users.js");
 const Fighters = require("../models/fighters.js");
 const Leagues = require("../models/leagues.js");
 
-
 router.get("/signup", (req, res) => {
   Fighters.find()
     .then(fightersList => {
@@ -17,7 +16,7 @@ router.get("/signup", (req, res) => {
           console.log("leagues found", leaguesList);
           res.render("authentication/signup", {
             title: "Sign up",
-            scripts: ["../javascripts/signup.js"],
+            scripts: ["signup.js", "general.js"],
             fighters: fightersList,
             leagues: leaguesList
           });
@@ -51,9 +50,9 @@ router.post(
       console.log(dbLeague);
       dbLeague.forEach(league => {
         if (userLeagues.indexOf(league.name) >= 0) {
-          console.log(userLeagues)
-          user.leagueTag.push(league.name)
-          user.leagues.push(league._id)
+          console.log(userLeagues);
+          user.leagueTag.push(league.name);
+          user.leagues.push(league._id);
         }
       });
       if (!user.email || !user.password || !user.username) {
@@ -79,9 +78,9 @@ router.post(
               user.fighter = fighter._id;
             })
             .then(() => {
-              Users.create(user).then(() => {
+              Users.create(user).then(user => {
                 req.session.currentUser = user;
-                res.redirect("/signin");
+                res.redirect("/cage");
               });
             })
             .catch(dbErr => {
@@ -113,7 +112,7 @@ router.post("/signin", (req, res, next) => {
       user._id = dbRes._id;
       if (bcrypt.compareSync(user.password, dbRes.password)) {
         req.session.currentUser = user;
-        res.redirect("/");
+        res.redirect("/cage");
         return;
       } else {
         res.render("authentication/signin", {
@@ -144,26 +143,25 @@ router.post("/signupinfos", (req, res, next) => {
   let email = req.body.email;
   let pass = req.body.password;
   let msg = "";
-  
-  Users.findOne ({username: username})
-    .then(userRes=>{
-      console.log(userRes)
-      if (userRes)  msg= "Username already exists !";
-      Users.findOne ({email: email})
-      .then(emailRes =>{
-        console.log(emailRes)
-      if (emailRes)  {
-        if (msg == ""){
-          msg = "E-mail already exists !";
-        } else {
-          msg = "Username and e-mail already exist"
+
+  Users.findOne({ username: username })
+    .then(userRes => {
+      console.log(userRes);
+      if (userRes) msg = "Username already exists !";
+      Users.findOne({ email: email }).then(emailRes => {
+        console.log(emailRes);
+        if (emailRes) {
+          if (msg == "") {
+            msg = "E-mail already exists !";
+          } else {
+            msg = "Username and e-mail already exist";
+          }
         }
-      }
-      if(pass.length ==0){
-        msg = "the password field is required"
-      }
-      res.send(msg);
-      })
+        if (pass.length == 0) {
+          msg = "the password field is required";
+        }
+        res.send(msg);
+      });
     })
     .catch(userErr => console.log(userErr));
 });

@@ -11,7 +11,6 @@
   margin: 20px 50px;
 }
 
-
 .maintags {
   display: flex;
   flex-flow: column wrap;
@@ -21,17 +20,16 @@
   background-color: #202020;
   /* width: 14vw; */
   /* margin: 0 auto; */
-  color : white;
+  color: white;
   margin-left: 2vw;
   height: 80vh;
   position: sticky;
   top: 94px;
-  border: solid rgb(20,20,20);
+  border: solid rgb(20, 20, 20);
 }
 
 .maintags li {
   margin-right: 38px;
-
 }
 .tags_img {
   max-width: 50px;
@@ -43,7 +41,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
- 
 }
 .tags_li {
   display: flex;
@@ -51,55 +48,52 @@
   align-items: center;
   margin-top: 2vh;
   margin-bottom: 2vh;
- 
+
   /* margin:2vh auto; */
 }
 
-#burger{
-  display:none;
-  margin : 10px 5px;
-  visibility:visible;
-  color:white;
-  font-size:2.4rem;
-  cursor : pointer;
-  
-}
-
-#sidebar{
-  position:absolute;
-  display : flex;
-  flex-flow:row wrap;
-  right : -800px;
-  transition : right .4s linear;
-  height:auto;
-  width: auto;
-  background-color: black;
-  color : white
-}
-
-.tag_hover:hover{
+#burger {
+  display: none;
+  margin: 10px 5px;
+  visibility: visible;
+  color: white;
+  font-size: 2.4rem;
   cursor: pointer;
 }
 
-.tag_hover{
-  display : flex;
-  flex-flow : column wrap;
+#sidebar {
+  position: absolute;
+  display: flex;
+  flex-flow: row wrap;
+  right: -800px;
+  transition: right 0.4s linear;
+  height: auto;
+  width: auto;
+  background-color: black;
+  color: white;
+}
+
+.tag_hover:hover {
+  cursor: pointer;
+}
+
+.tag_hover {
+  display: flex;
+  flex-flow: column wrap;
 }
 
 .twitter {
   width: auto;
-  height:80vh;
+  height: 80vh;
   left: 0;
   margin-right: 30px;
   border: solid rgb(20, 20, 20);
   position: sticky;
   top: 94px;
   /* box-shadow: 10px 10px rgba(29, 161, 242, 0.9);  */
-  
+
   /* position : fixed; */
 }
-
-
 
 .articles {
   width: 80%;
@@ -115,7 +109,6 @@
 .article:hover {
   box-shadow: 10px 10px rgba(255, 0, 0, 0.7);
 }
-
 
 .article .content {
   display: flex;
@@ -147,8 +140,8 @@
   height: auto;
 }
 
-.like{
-  width : 1.8rem;
+.like {
+  width: 1.8rem;
 }
 
 /* .sticky {
@@ -159,3 +152,15 @@
   width: 80vw;
   margin: 0 auto;
 } */
+
+.commentator h4 {
+  margin: 0;
+}
+
+.comment_display {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.comment_display::-webkit-scrollbar {
+  display: none;
+}

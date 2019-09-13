@@ -134,14 +134,16 @@ function addJab(butn) {
   console.log(butn.innerText.replace("jabs", ""));
   console.log(butn.innerText.trim(), "-----");
   const newNum = Number(butn.innerText.trim());
-  butn.innerHTML = `<img src="images/logo/jabbed.png" class = "like">  ${newNum + 1}`;
+  butn.innerHTML = `<img src="images/logo/jabbed.png" class = "like">  ${newNum +
+    1}`;
 }
 
 function removeJab(butn) {
   console.log(butn.innerText.trim(), "-----");
   const newNum = Number(butn.innerText.trim());
   if (newNum != 0) {
-    butn.innerHTML = `<img src="images/logo/jab.png" class = "like">  ${newNum - 1}`;
+    butn.innerHTML = `<img src="images/logo/jab.png" class = "like">  ${newNum -
+      1}`;
   }
 }
 
@@ -195,12 +197,12 @@ function addComment(evt) {
     const art_id = art.id;
     const comment = art.parentElement.querySelector("input").value;
     const listItem = document.createElement("li");
-
+    listItem.className = "single_comment";
     axios
       .post("/addComment", { comment: comment, art_id: art_id })
       .then(dbRes => {
         console.log(dbRes.data);
-        listItem.innerText = `${dbRes.data} ` + comment;
+        listItem.innerHTML = `<span class="commentator"><h4>${dbRes.data}</h4></span>${comment}`;
         art.parentElement
           .querySelector(".comment_display")
           .appendChild(listItem);
@@ -213,10 +215,14 @@ function addComment(evt) {
 
 function displaycommentbox(art) {
   console.log("hererere", art);
-  const comment_section = art.parentElement.querySelector(".comment_display");
+  const comment_section = art.parentElement.parentElement.querySelector(
+    ".comment_display"
+  );
   console.log(comment_section, "ggggggg");
   comment_section.classList.toggle("hide_comments");
 }
+
+const jabimages = document.querySelectorAll(".like");
 
 article_like_btn.forEach(btn => {
   btn.onclick = addLikes;
@@ -224,6 +230,10 @@ article_like_btn.forEach(btn => {
 
 comment_btns.forEach(btn => {
   btn.onclick = commentinput;
+});
+
+jabimages.forEach(jab => {
+  jab.onclick = commentinput;
 });
 
 var logo = document.getElementById("main_logo");
@@ -242,17 +252,5 @@ var burger = document.getElementById("burger");
 var sidebar = document.getElementById("sidebar");
 
 burger.onclick = () => {
-    sidebar.classList.toggle("is-here"),
-    console.log('hello')
+  sidebar.classList.toggle("is-here"), console.log("hello");
 };
-
-
-
-
-
-
-
-
-
-
-

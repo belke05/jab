@@ -1,2 +1,18 @@
-<button id"authorize">authorize and load</button>
-<button id="execute">execute</button>
+{{#if isLoggedIn}}
+<div class='title_container'>
+  <h2 class="title_welcome">The latest {{#each leagues}}<span>{{this}}</span>{{/each}} and <span>{{fighterName}}
+      videos</span></h2>
+</div>
+<div id="vid_container">
+  {{#each videos}}
+  <div class='article video_wrap'>
+    <h2 class="video_title">{{this.title}}</h2>
+    <iframe width="420" height="315" src="https://www.youtube.com/embed/{{this.id}}">
+    </iframe>
+    <p class='video_description'>{{this.description}}</p>
+  </div>
+  {{/each}}
+</div>
+{{else}}
+<h1>make an account to watch videos</h1>
+{{/if}}
