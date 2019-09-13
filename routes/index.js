@@ -12,6 +12,7 @@ router.get(["/", "/home"], (req, res, next) => {
     .populate("comments")
     .then(articles => {
       console.log(articles);
+      console.log(res.locals);
       // articles = articles.slice(10, 20);
       // return console.log(articles.length);
       returnAllLeagues()
@@ -21,7 +22,8 @@ router.get(["/", "/home"], (req, res, next) => {
             scripts: ["home.js", "general.js"],
             title: "JAB Home",
             leagues: leagues,
-            displayTitle: true
+            displayTitle: true,
+            isLoggedIn: res.locals.isLoggedIn
           });
         })
         .catch(dbErr => {

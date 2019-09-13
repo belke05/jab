@@ -215,9 +215,7 @@ function addComment(evt) {
 
 function displaycommentbox(art) {
   console.log("hererere", art);
-  const comment_section = art.parentElement.parentElement.querySelector(
-    ".comment_display"
-  );
+  const comment_section = art.parentElement.querySelector(".comment_display");
   console.log(comment_section, "ggggggg");
   comment_section.classList.toggle("hide_comments");
 }

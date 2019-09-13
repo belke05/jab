@@ -164,3 +164,7 @@
 .comment_display::-webkit-scrollbar {
   display: none;
 }
+
+.comment_display > li {
+  background-color: #f2f3f5;
+}
